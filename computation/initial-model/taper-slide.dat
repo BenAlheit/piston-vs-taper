@@ -1,0 +1,450 @@
+1
+
+   Abaqus 6.14-1                                  Date 23-Sep-2021   Time 13:05:02
+   For use at UNIVERSITY OF CAPE TOWN under license from Dassault Systemes or its subsidiary.
+
+
+
+                         The Abaqus Software is a product of:
+
+                           Dassault Systemes Simulia Corp.
+                                 Rising Sun Mills
+                                 166 Valley Street
+                           Providence, RI 02909-2499, USA
+ 
+
+
+                   Available for internal use at UNIVERSITY OF CAPE TOWN. 
+                   The Abaqus Online Support System is accessible
+                   through the "My Support" section of the SIMULIA
+                   Home Page at http://www.simulia.com.
+
+                   Support policies for academic licenses are described
+                   on the SIMULIA web site at
+                   http://www.3ds.com/products/simulia/academics/
+ 
+                          On machine cerecam001 
+                          you are authorized to run
+                          Abaqus/Standard until 30-Jun-2022
+
+                          Your site id is: 200000000048582 
+
+
+ 
+                    For assistance or any other information you may
+                    obtain contact information for your local office
+                    from the world wide web at:
+
+                      http://www.3ds.com/products/simulia/locations/
+
+ 
+                * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+                *                                                         * 
+                *                   *****************                     * 
+                *                   *  N O T I C E  *                     * 
+                *                   *****************                     * 
+                *                                                         * 
+                *                                                         * 
+                *                    Abaqus 6.14-1                        * 
+                *                                                         * 
+                *          BUILD ID: 2014_06_04-21.37.49 134264           * 
+                *                                                         * 
+                *                                                         * 
+                *  Please make sure you are using release 6.14 manuals    * 
+                *  plus the notes accompanying this release.              * 
+                *                                                         * 
+                *                                                         * 
+                *                                                         * 
+                *                                                         * 
+                *                                                         * 
+                *   This program may not be used for commercial purposes  * 
+                *           without payment of a commercial fee.          * 
+                *                                                         * 
+                * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+
+ 
+
+
+
+     PROCESSING PART, INSTANCE, AND ASSEMBLY INFORMATION
+   *******************************************************
+
+
+     END PROCESSING PART, INSTANCE, AND ASSEMBLY INFORMATION
+   ***********************************************************
+
+
+
+
+     OPTIONS BEING PROCESSED
+   ***************************
+
+
+  *Heading
+  *Node
+  *Element, type=CAX6M
+  *Nset, nset=ASSEMBLY_PISTON-1_PISTON
+  *Elset, elset=ASSEMBLY_PISTON-1_PISTON
+  *Node
+  *Element, type=CAX6M
+  *Nset, nset=ASSEMBLY_TUBE-1_TUBE
+  *Elset, elset=ASSEMBLY_TUBE-1_TUBE
+  *Nset, nset=ASSEMBLY_PISTON
+  *Nset, nset=ASSEMBLY_PISTON-CENTRE
+  *Nset, nset=ASSEMBLY_TUBE-CENTRE
+  *Nset, nset=ASSEMBLY_TUBE-ENDS
+  *Elset, elset=ASSEMBLY_PISTON
+  *Elset, elset=ASSEMBLY_PISTON-CENTRE
+  *Elset, elset=ASSEMBLY_TUBE-CENTRE
+  *Elset, elset=ASSEMBLY_TUBE-ENDS
+  *Elset, elset=ASSEMBLY__INNER-TUBE_S1
+  *Elset, elset=ASSEMBLY__INNER-TUBE_S2
+  *Elset, elset=ASSEMBLY__INNER-TUBE_S3
+  *Elset, elset=ASSEMBLY__OUTER-PISTON_S1
+  *Elset, elset=ASSEMBLY__OUTER-PISTON_S2
+  *Elset, elset=ASSEMBLY__PISTON-BACK_S1
+  *Elset, elset=ASSEMBLY__PISTON-FRONT_S1
+  *contactpair, interaction=SLIDING, type=SURFACETOSURFACE
+  *contactpair, interaction=SLIDING, type=SURFACETOSURFACE
+  *surface, type=ELEMENT, name=ASSEMBLY_INNER-TUBE
+  *surface, type=ELEMENT, name=ASSEMBLY_OUTER-PISTON
+  *surface, type=ELEMENT, name=ASSEMBLY_PISTON-BACK
+  *surface, type=ELEMENT, name=ASSEMBLY_PISTON-FRONT
+  *surface, type=ELEMENT, name=ASSEMBLY_INNER-TUBE
+  *surface, type=ELEMENT, name=ASSEMBLY_OUTER-PISTON
+  *surface, type=ELEMENT, name=ASSEMBLY_PISTON-BACK
+  *surface, type=ELEMENT, name=ASSEMBLY_PISTON-FRONT
+  *contactpair, interaction=SLIDING, type=SURFACETOSURFACE
+  *surfaceinteraction, name=SLIDING
+  *surfacebehavior, pressure-overclosure=HARD
+  *contactpair, interaction=SLIDING, type=SURFACETOSURFACE
+  *solidsection, elset=ASSEMBLY_PISTON-1_PISTON, material=ABS
+  *solidsection, elset=ASSEMBLY_TUBE-1_TUBE, material=STEEL
+  *material, name=ABS
+  *density
+  *elastic
+  *plastic
+  *material, name=STEEL
+  *density
+  *elastic
+  *surfaceinteraction, name=SLIDING
+  *friction, sliptolerance=0.005
+  *surfacebehavior, pressure-overclosure=HARD
+  *initialconditions, type=VELOCITY
+  *initialconditions, type=VELOCITY
+  *surfaceinteraction, name=SLIDING
+  *solidsection, elset=ASSEMBLY_PISTON-1_PISTON, material=ABS
+  *solidsection, elset=ASSEMBLY_TUBE-1_TUBE, material=STEEL
+  *boundary
+  *boundary
+  *boundary
+  *contactpair, interaction=SLIDING, type=SURFACETOSURFACE
+  *solidsection, elset=ASSEMBLY_PISTON-1_PISTON, material=ABS
+  *solidsection, elset=ASSEMBLY_TUBE-1_TUBE, material=STEEL
+  *surfaceinteraction, name=SLIDING
+  *contactpair, interaction=SLIDING, type=SURFACETOSURFACE
+  *surface, type=ELEMENT, name=ASSEMBLY_INNER-TUBE
+  *surface, type=ELEMENT, name=ASSEMBLY_OUTER-PISTON
+  *surface, type=ELEMENT, name=ASSEMBLY_PISTON-BACK
+  *surface, type=ELEMENT, name=ASSEMBLY_PISTON-FRONT
+  *output, field, frequency=1
+  *output, history, frequency=1
+  *elementoutput, directions=YES
+  *initialconditions, type=VELOCITY
+  *output, field, frequency=1
+  *output, history, frequency=1
+  *elementoutput, directions=YES
+  *initialconditions, type=VELOCITY
+  *output, field, frequency=1
+  *output, history, frequency=1
+  *elementoutput, directions=YES
+  *amplitude, name=PISTON-BACK
+  *amplitude, name=PISTON-FRONT
+  *Step, name=taper-slide, nlgeom=YES, inc=10000000
+  *output, field, frequency=1
+  *output, history, frequency=1
+  *Step, name=taper-slide, nlgeom=YES, inc=10000000
+  *Step, name=taper-slide, nlgeom=YES, inc=10000000
+  *dynamic
+  *dsload, amplitude=PISTON-BACK
+  *dsload, amplitude=PISTON-FRONT
+  *output, field, frequency=1
+  *nodeoutput
+  *elementoutput, directions=YES
+  *contactoutput
+  *output, history, frequency=1
+  *energyoutput
+  *contactoutput
+  *endstep
+  *boundary
+  *boundary
+  *boundary
+  *Step, name=taper-slide, nlgeom=YES, inc=10000000
+  *dynamic
+  *endstep
+  
+                               E L E M E N T   Q U A L I T Y  C H E C K S        
+  
+  
+ ***NOTES: DISTORTED ISOPARAMETRIC ELEMENTS: ANGLE BETWEEN ISOPARAMETRIC LINES 
+           IS LESS THAN 45 DEGREES OR GREATER THAN 135 DEGREES.
+  
+           TETRAHEDRAL QUALITY MEASURE: VOLUME OF TETRAHEDRON DIVIDED BY THE 
+           VOLUME OF EQUILATERAL TETRAHEDRON WITH SAME CIRCUMSPHERE RADIUS; 
+           0 FOR DEGENERATE TETRAHEDRON AND 1 FOR EQUILATERIAL TETRAHEDRON. IT 
+           IS RECOMMENDED THAT THE TETRAHEDRAL QUALITY MEASURE BE GREATER THAN 
+           0.02, THE MIN INTERIOR (DIHEDRAL) ANGLE BE GREATER THAN 10 DEGREES, 
+           AND THE MAX INTERIOR (DIHEDRAL) ANGLE BE LESS THAN 160 DEGREES. 
+  
+           MODIFIED TETRAHEDRAL QUALITY MEASURE: ANGLES BETWEEN THE TWO LINE 
+           SEGMENTS ON EACH EDGE; THE EDGES OF MODIFIED TETRAHEDRAL SHOULD BE 
+           AS STRAIGHT AS POSSIBLE. IT IS RECOMMENDED THAT THE ANGLE BETWEEN 
+           THE TWO LINE SEGMENTS ON EACH EDGE IS BETWEEN 160 AND 180 DEGREES. 
+  
+           TRIANGULAR QUALITY MEASURE: AREA OF TRIANGLE DIVIDED BY THE AREA OF 
+           EQUILATERAL TRIANGLE WITH SAME CIRCUMCIRCLE RADIUS; 0 FOR DEGENERATE 
+           TRIANGLE AND 1 FOR EQUILATERAL TRIANGLE. IT IS RECOMMENDED THAT THE
+           TRIANGULAR QUALITY MEASURE BE GREATER THAN 0.01, THE MIN INTERIOR 
+           ANGLE BE GREATER THAN 10 DEGREES, AND THE MAX INTERIOR ANGLE BE LESS 
+           THAN 160 DEGREES. 
+  
+           NODAL ADJUSTMENTS ARISING FROM CONTACT INTERACTIONS AND/OR TIE 
+           CONSTRAINTS CAN CAUSE SEVERE ELEMENT DISTORTION. IT MAY BE NECESSARY 
+           TO REMESH IN ORDER TO REDUCE THE AMOUNT OF ADJUSTMENT. 
+
+ ***WARNING: 65 elements are distorted. Either the isoparametric angles are out 
+             of the suggested limits or the triangular or tetrahedral quality 
+             measure is bad. The elements have been identified in element set 
+             WarnElemDistorted.
+  
+ --------------------------------------------------------------------------------
+ Distorted triangular elements
+  
+     Element      Quality measure     Min angle        Max angle     Adjusted nodes 
+ ---------------- ---------------- ---------------- ---------------- -------------- 
+        TUBE-1.29         0.153683          7.95755          117.595       NO       
+        TUBE-1.30         0.215312          9.27529          106.136       NO       
+        TUBE-1.31          0.17778          8.94145          115.594       NO       
+        TUBE-1.32         0.232768          9.95787          105.127       NO       
+        TUBE-1.33         0.202834          9.98676          113.851       NO       
+        TUBE-1.47         0.214834          9.10469          104.989       NO       
+        TUBE-1.49         0.230119          9.72756          104.341       NO       
+        TUBE-1.98         0.260209          9.97326          92.4084       NO       
+       TUBE-1.100         0.251632          9.58583          91.3753       NO       
+       TUBE-1.765         0.242625          9.74446          99.5106       NO       
+       TUBE-1.766         0.245804          9.94734          100.171       NO       
+       TUBE-1.781         0.239461          9.73717          100.826       NO       
+       TUBE-1.782         0.241375          9.90458          101.593       NO       
+       TUBE-1.783         0.232713          9.41047          100.505       NO       
+       TUBE-1.784         0.235642          9.61314          101.246       NO       
+       TUBE-1.797         0.234303          9.68283          102.421       NO       
+       TUBE-1.798         0.234736          9.80971           103.32       NO       
+       TUBE-1.799         0.228476          9.37215          101.958       NO       
+       TUBE-1.800         0.230106          9.53948          102.813       NO       
+       TUBE-1.801          0.22314           9.0965           101.56       NO       
+       TUBE-1.802         0.225803          9.29895          102.381       NO       
+       TUBE-1.811         0.231509          9.89471          105.099       NO       
+       TUBE-1.812         0.228577           9.9217          106.247       NO       
+       TUBE-1.813         0.226661           9.5713          104.366       NO       
+       TUBE-1.814         0.225359          9.65178          105.431       NO       
+       TUBE-1.815         0.222112          9.28421          103.719       NO       
+       TUBE-1.816         0.222221          9.41113          104.717       NO       
+       TUBE-1.817         0.217853          9.02887          103.157       NO       
+       TUBE-1.818         0.219181           9.1961            104.1       NO       
+       TUBE-1.819          0.21387          8.80129          102.676       NO       
+       TUBE-1.820          0.21625          9.00349          103.578       NO       
+       TUBE-1.825         0.221435          9.99365          108.864       NO       
+       TUBE-1.826         0.213991          9.88882          110.401       NO       
+       TUBE-1.827         0.218723          9.67455           107.75       NO       
+       TUBE-1.828          0.21347          9.64032          109.144       NO       
+       TUBE-1.829         0.215926          9.38998          106.752       NO       
+       TUBE-1.830         0.212589           9.4172          108.027       NO       
+       TUBE-1.831         0.213109           9.1361          105.867       NO       
+       TUBE-1.832         0.211434          9.21663          107.043       NO       
+       TUBE-1.833         0.210307          8.90917          105.092       NO       
+       TUBE-1.834         0.210076          9.03612          106.188       NO       
+       TUBE-1.835         0.207554          8.70596          104.423       NO       
+       TUBE-1.836         0.208569          8.87313          105.454       NO       
+       TUBE-1.837         0.204868          8.52364          103.856       NO       
+       TUBE-1.838         0.206955           8.7256          104.835       NO       
+       TUBE-1.839         0.199794           9.8924            114.2       NO       
+       TUBE-1.840         0.255561          9.70026          90.1841       NO       
+       TUBE-1.857         0.218433            8.242           89.992       NO       
+       TUBE-1.858         0.211172          7.96644          90.2756       NO       
+       TUBE-1.859         0.215733          8.14598          90.3898       NO       
+       TUBE-1.860         0.210909          7.96031          90.4612       NO       
+       TUBE-1.861         0.213341          8.05996          90.6856       NO       
+       TUBE-1.862         0.210676          7.95365          90.5675       NO       
+       TUBE-1.863         0.211234          7.98301           90.891       NO       
+       TUBE-1.864         0.210473          7.94664          90.6039       NO       
+       TUBE-1.865         0.209386          7.91422          91.0155       NO       
+       TUBE-1.866         0.210301          7.93938          90.5787       NO       
+       TUBE-1.867         0.207765          7.85255          91.0698       NO       
+       TUBE-1.868         0.210152           7.9318          90.4995       NO       
+       TUBE-1.869         0.206349           7.7973          91.0615       NO       
+       TUBE-1.870         0.210021          7.92395          90.3728       NO       
+       TUBE-1.871         0.205106          7.74752          90.9977       NO       
+       TUBE-1.872         0.209902          7.91576          90.2046       NO       
+       TUBE-1.873         0.204015          7.70255          90.8858       NO       
+       TUBE-1.874         0.209787          7.90716              90.       NO       
+  
+
+
+     LABELS REFERENCED IN THE ABOVE TABLE
+
+      -20-     PISTON-BACK                                                                     
+
+
+     LABELS REFERENCED IN THE ABOVE TABLE
+
+      -21-     PISTON-FRONT                                                                    
+
+
+
+                            P R O B L E M   S I Z E
+
+
+          NUMBER OF ELEMENTS IS                                  3276
+          NUMBER OF ELEMENTS DEFINED BY THE USER AND *TIE        3096
+          NUMBER OF INTERNAL ELEMENTS GENERATED FOR CONTACT       180
+          NUMBER OF NODES IS                                    10014
+          NUMBER OF NODES DEFINED BY THE USER                    6558
+          NUMBER OF INTERNAL NODES GENERATED BY THE PROGRAM      3456
+          TOTAL NUMBER OF VARIABLES IN THE MODEL                19668
+          (DEGREES OF FREEDOM PLUS MAX NO. OF ANY LAGRANGE MULTIPLIER
+           VARIABLES. INCLUDE *PRINT,SOLVE=YES TO GET THE ACTUAL NUMBER.)
+
+
+
+                              END OF USER INPUT PROCESSING
+
+
+
+     JOB TIME SUMMARY
+       USER TIME (SEC)      =  0.21000    
+       SYSTEM TIME (SEC)    =  4.00000E-02
+       TOTAL CPU TIME (SEC) =  0.25000    
+       WALLCLOCK TIME (SEC) =          1
+1
+
+   Abaqus 6.14-1                                  Date 23-Sep-2021   Time 13:05:04
+   For use at UNIVERSITY OF CAPE TOWN under license from Dassault Systemes or its subsidiary.
+
+                                                                                               STEP    1  INCREMENT    1
+                                                                                          TIME COMPLETED IN THIS STEP   0.00    
+
+
+                        S T E P       1     D Y N A M I C   A N A L Y S I S - I M P L I C I T  I N T E G R A T I O N
+
+
+                                                                                          
+
+          DYNAMIC APPLICATION PACKED SCHEME IS                 MODERATE DISSIPATION
+          HILBER-HUGHES-TAYLOR (HHT) TIME INTEGRATOR IS USED
+
+     AUTOMATIC TIME CONTROL WITH -
+          A SUGGESTED INITIAL TIME INCREMENT OF                1.000E-08
+          AND A TOTAL TIME PERIOD OF                            1.00    
+          THE MINIMUM TIME INCREMENT ALLOWED IS                1.000E-10
+          THE MAXIMUM TIME INCREMENT ALLOWED IS                0.100    
+
+          THE HALF-INCREMENT RESIDUALS WILL NOT BE CALCULATED
+
+          HILBER-HUGHES-TAYLOR METHOD PARAMETERS:  ALPHA   IS  -0.414214    
+                                                   BETA    IS   0.500000    
+                                                   GAMMA   IS   0.914214    
+          CONTACT IMPACT/RELEASE COMPUTATIONS ARE SKIPPED
+          AGGRESSIVE   TIME INCREMENTATION IS USED
+          STEP AMPLITUDE IS                                    STEP
+
+          LARGE DISPLACEMENT THEORY WILL BE USED
+
+
+
+                    TOTAL MASS OF MODEL
+
+                      6.2280111E-04
+
+
+                    LOCATION OF THE CENTER OF MASS OF THE MODEL
+
+                       0.000000          4.2738616E-02
+
+
+                    MOMENTS OF INERTIA ABOUT THE ORIGIN
+                           I(XX)               I(YY)               I(ZZ)
+
+                      0.6665617          0.2599717          0.6665617    
+
+
+                    PRODUCTS OF INERTIA ABOUT THE ORIGIN
+                           I(XY)               I(XZ)               I(YZ)
+
+                       0.000000           0.000000           0.000000    
+
+
+                    MOMENTS OF INERTIA ABOUT THE CENTER OF MASS
+                           I(XX)               I(YY)               I(ZZ)
+
+                      0.6665606          0.2599717          0.6665606    
+
+
+                    PRODUCTS OF INERTIA ABOUT THE CENTER OF MASS
+                           I(XY)               I(XZ)               I(YZ)
+
+                       0.000000           0.000000           0.000000    
+  
+                   M E M O R Y   E S T I M A T E
+  
+ PROCESS      FLOATING PT       MINIMUM MEMORY        MEMORY TO
+              OPERATIONS           REQUIRED          MINIMIZE I/O
+             PER ITERATION           (MB)               (MB)
+  
+     1          4.44E+07               22                 45
+  
+ NOTE:
+      (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
+          THE MEMORY REQUIREMENT PRINTED HERE CAN ONLY BE VIEWED AS A GENERAL GUIDELINE BASED ON THE BEST
+          KNOWLEDGE AVAILABLE AT THE BEGINNING OF A STEP BEFORE THE SOLUTION PROCESS HAS BEGUN.
+      (2) THE ESTIMATE IS NORMALLY UPDATED AT THE BEGINNING OF EVERY STEP. IT IS THE MAXIMUM VALUE OF THE
+          ESTIMATE FROM THE CURRENT STEP TO THE LAST STEP OF THE ANALYSIS, WITH UNSYMMETRIC SOLUTION TAKEN
+          INTO ACCOUNT IF APPLICABLE. 
+      (3) SINCE THE ESTIMATE IS BASED ON THE ACTIVE DEGREES OF FREEDOM IN THE FIRST ITERATION OF THE 
+          CURRENT STEP, THE MEMORY ESTIMATE MIGHT BE SIGNIFICANTLY DIFFERENT THAN ACTUAL USAGE FOR 
+          PROBLEMS WITH SUBSTANTIAL CHANGES IN ACTIVE DEGREES OF FREEDOM BETWEEN STEPS (OR EVEN WITHIN
+          THE SAME STEP). EXAMPLES ARE: PROBLEMS WITH SIGNIFICANT CONTACT CHANGES, PROBLEMS WITH MODEL
+          CHANGE, PROBLEMS WITH BOTH STATIC STEP AND STEADY STATE DYNAMIC PROCEDURES WHERE ACOUSTIC 
+          ELEMENTS WILL ONLY BE ACTIVATED IN THE STEADY STATE DYNAMIC STEPS.
+      (4) FOR MULTI-PROCESS EXECUTION, THE ESTIMATED VALUE OF FLOATING POINT OPERATIONS FOR EACH PROCESS
+          IS BASED ON AN INITIAL SCHEDULING OF OPERATIONS AND MIGHT NOT REFLECT THE ACTUAL FLOATING 
+          POINT OPERATIONS COMPLETED ON EACH PROCESS. OPERATIONS ARE DYNAMICALLY BALANCED DURING EXECUTION, 
+          SO THE ACTUAL BALANCE OF OPERATIONS BETWEEN PROCESSES IS EXPECTED TO BE BETTER THAN THE ESTIMATE
+          PRINTED HERE.
+      (5) THE UPPER LIMIT OF MEMORY THAT CAN BE ALLOCATED BY ABAQUS WILL IN GENERAL DEPEND ON THE VALUE OF
+          THE "MEMORY" PARAMETER AND THE AMOUNT OF PHYSICAL MEMORY AVAILABLE ON THE MACHINE. PLEASE SEE
+          THE "ABAQUS ANALYSIS USER'S MANUAL" FOR MORE DETAILS. THE ACTUAL USAGE OF MEMORY AND OF DISK
+          SPACE FOR SCRATCH DATA WILL DEPEND ON THIS UPPER LIMIT AS WELL AS THE MEMORY REQUIRED TO MINIMIZE
+          I/O. IF THE MEMORY UPPER LIMIT IS GREATER THAN THE MEMORY REQUIRED TO MINIMIZE I/O, THEN THE ACTUAL
+          MEMORY USAGE WILL BE CLOSE TO THE ESTIMATED "MEMORY TO MINIMIZE I/O" VALUE, AND THE SCRATCH DISK
+          USAGE WILL BE CLOSE-TO-ZERO; OTHERWISE, THE ACTUAL MEMORY USED WILL BE CLOSE TO THE PREVIOUSLY
+          MENTIONED MEMORY LIMIT, AND THE SCRATCH DISK USAGE WILL BE ROUGHLY PROPORTIONAL TO THE DIFFERENCE
+          BETWEEN THE ESTIMATED "MEMORY TO MINIMIZE I/O" AND THE MEMORY UPPER LIMIT. HOWEVER ACCURATE
+          ESTIMATE OF THE SCRATCH DISK SPACE IS NOT POSSIBLE.
+      (6) USING "*RESTART, WRITE" CAN GENERATE A LARGE AMOUNT OF DATA WRITTEN IN THE WORK DIRECTORY.
+
+
+
+                              ANALYSIS COMPLETE
+                              WITH      2 ERROR MESSAGES ON THE MSG FILE
+                              AND       1 WARNING MESSAGES ON THE DAT FILE
+                              AND     170 WARNING MESSAGES ON THE MSG FILE
+                                        6 WARNINGS ARE FOR NEGATIVE EIGENVALUES
+
+
+
+     JOB TIME SUMMARY
+       USER TIME (SEC)      =   344.22    
+       SYSTEM TIME (SEC)    =   108.23    
+       TOTAL CPU TIME (SEC) =   452.45    
+       WALLCLOCK TIME (SEC) =         85
