@@ -1,0 +1,141 @@
+\documentclass{article}
+
+\include{package-style-defs}
+\graphicspath{{./inkscape-figures/}{./lit-figures/}} 
+\bibliography{piston-vs-taper.bib}
+
+\title{Development of a machine learning model to determine the forces on the piston in the pump-tube of a two-stage gas gun deforming due to a taper}
+\author[1, 2]{Benjamin Alheit\thanks{alhben001@myuct.ac.za}}
+\date{\today}
+
+\affil[1]{Centre for Research in Computational \& Applied Mechanics, University of Cape Town, 7701 Rondebosch, South Africa}
+\affil[2]{Department of Mechanical Engineering, University of Cape Town, 7701 Rondebosch, South Africa}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+\red{	Abstract here.}
+\end{abstract}
+\red{
+\section{TODO}
+\begin{enumerate}
+	\item Get output parameters
+	\item Model automation
+	\item Mesh optimization
+\end{enumerate}
+}
+
+\section{Introduction}
+
+\red{
+\begin{itemize}
+	\item We will use: ton, mm, s, N, MPa, N-mm
+\end{itemize}
+}
+
+\singlefig{0.7}{units}{Consistent units for \abaqus. From https://www.researchgate.net/post/What-are-the-Abaqus-Units-in-Visualization}{units}
+
+\subsection{Gas gun design}
+
+\subsubsection{title}
+
+\section{Finite element simulation}
+
+\subsection{Material models}
+
+\subsubsection{ABS}
+
+\red{
+\begin{enumerate}
+	\item Yield stress: 48.26 MPa from https://peer.asee.org/tensile-comparison-of-polymer-specimens-produced-with-different-processes.pdf
+	\item (Modelled as perfect plasticity)
+	\item Poisson's ration: 0.35 from http://www.goodfellow.com/A/Polyacrylonitrile-butadiene-styrene.html
+	\item Young's modulus: 2.1-2.4 GPa from http://www.goodfellow.com/A/Polyacrylonitrile-butadiene-styrene.html
+	\item Density $1.05 \times 10 ^{-9}$ ton/mm$^3$ from http://www.goodfellow.com/A/Polyacrylonitrile-butadiene-styrene.html
+\end{enumerate}
+}
+
+\subsubsection{Steel}
+
+\red{
+	\begin{enumerate}
+		\item Poisson's ration: 0.3 from http://www.matweb.com/search/datasheet.aspx?bassnum=MS0001\&ckck=1
+		\item Young's modulus: 200 GPa from http://www.matweb.com/search/datasheet.aspx?bassnum=MS0001\&ckck=1
+		\item Density $8 \times 10 ^{-9}$ ton/mm$^3$ from http://www.matweb.com/search/datasheet.aspx?bassnum=MS0001\&ckck=1
+	\end{enumerate}
+}
+
+
+
+
+\subsection{Single test simulation}
+
+\subsection{Mesh optimization}
+
+Parameters
+\begin{enumerate}
+	\item ratio of element expansion for piston
+	\item ratio of element expansion for tube
+	\item n elements
+\end{enumerate}
+
+Objective function
+\begin{enumerate}
+	\item Min elements
+\end{enumerate}
+
+Constraint
+\begin{enumerate}
+	\item Force
+	\item Dissipation
+\end{enumerate}
+
+\section{Machine learning surrogate model}
+
+\subsection{Feature engineering}
+
+\red{
+Predictive features:
+\begin{enumerate}
+	\item Coefficient of friction: $\mu$
+	\item Taper angle: $\alpha$
+	\item Velocity: $v$
+	\item Distance between piston front and taper start: $x_{taper}$
+	\item Pressure difference between piston front and back: $\Delta p$
+	\item Piston length: $l_{p}$
+	\item Piston density: $\rho_{p}$
+	\item Accumulative plastic strain in the piston: $\gamma$ 
+\end{enumerate}
+
+Dependent variables:
+\begin{enumerate}
+	\item Axial force on piston due to taper: $F_{z}$
+	\item Increment in accumulated plastic dissipation: $\Delta \gamma$ 
+\end{enumerate}
+}
+
+\subsubsection{Non-dimensional analysis}
+
+\subsection{Experimental input parameters}
+ 
+In order of importance:
+\begin{enumerate}
+	\item Initial velocity: $v_{0}$
+	\item Pressure path: $p_{path}$
+	\item Piston length: $l_{p}$
+	\item Coefficient of friction: $\mu$
+\end{enumerate}
+
+\subsection{Experimental results}
+
+\subsection{Model}
+
+\section{Packaging of model for use in 1D code}
+
+\subsection{PIP}
+
+\subsection{Usage example}
+
+
+	\printbibliography
+\end{document}

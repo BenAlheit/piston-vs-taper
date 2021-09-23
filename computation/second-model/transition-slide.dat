@@ -1,0 +1,519 @@
+1
+
+   Abaqus 6.14-1                                  Date 23-Sep-2021   Time 17:04:42
+   For use at UNIVERSITY OF CAPE TOWN under license from Dassault Systemes or its subsidiary.
+
+
+
+                         The Abaqus Software is a product of:
+
+                           Dassault Systemes Simulia Corp.
+                                 Rising Sun Mills
+                                 166 Valley Street
+                           Providence, RI 02909-2499, USA
+ 
+
+
+                   Available for internal use at UNIVERSITY OF CAPE TOWN. 
+                   The Abaqus Online Support System is accessible
+                   through the "My Support" section of the SIMULIA
+                   Home Page at http://www.simulia.com.
+
+                   Support policies for academic licenses are described
+                   on the SIMULIA web site at
+                   http://www.3ds.com/products/simulia/academics/
+ 
+                          On machine cerecam001 
+                          you are authorized to run
+                          Abaqus/Standard until 30-Jun-2022
+
+                          Your site id is: 200000000048582 
+
+
+ 
+                    For assistance or any other information you may
+                    obtain contact information for your local office
+                    from the world wide web at:
+
+                      http://www.3ds.com/products/simulia/locations/
+
+ 
+                * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+                *                                                         * 
+                *                   *****************                     * 
+                *                   *  N O T I C E  *                     * 
+                *                   *****************                     * 
+                *                                                         * 
+                *                                                         * 
+                *                    Abaqus 6.14-1                        * 
+                *                                                         * 
+                *          BUILD ID: 2014_06_04-21.37.49 134264           * 
+                *                                                         * 
+                *                                                         * 
+                *  Please make sure you are using release 6.14 manuals    * 
+                *  plus the notes accompanying this release.              * 
+                *                                                         * 
+                *                                                         * 
+                *                                                         * 
+                *                                                         * 
+                *                                                         * 
+                *   This program may not be used for commercial purposes  * 
+                *           without payment of a commercial fee.          * 
+                *                                                         * 
+                * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+
+
+ 
+
+
+
+     PROCESSING PART, INSTANCE, AND ASSEMBLY INFORMATION
+   *******************************************************
+
+
+     END PROCESSING PART, INSTANCE, AND ASSEMBLY INFORMATION
+   ***********************************************************
+
+
+
+
+     OPTIONS BEING PROCESSED
+   ***************************
+
+
+  *Heading
+  *Node
+  *Element, type=CAX6M
+  *Nset, nset=ASSEMBLY_PUMP-TUBE-1_TUBE
+  *Elset, elset=ASSEMBLY_PUMP-TUBE-1_TUBE
+  *Elset, elset=ASSEMBLY_PUMP-TUBE-1__PISTON-CONTACT_S2
+  *Elset, elset=ASSEMBLY_PUMP-TUBE-1__TRANSITION-TIE_S1
+  *Elset, elset=ASSEMBLY_PUMP-TUBE-1__TRANSITION-TIE_S2
+  *Node
+  *Element, type=CAX6M
+  *Nset, nset=ASSEMBLY_TRANSITION-PIECE-1_TRANSITION-PIECE
+  *Elset, elset=ASSEMBLY_TRANSITION-PIECE-1_TRANSITION-PIECE
+  *Elset, elset=ASSEMBLY_TRANSITION-PIECE-1__END-CONTACT_S2
+  *Elset, elset=ASSEMBLY_TRANSITION-PIECE-1__TUBE-TIE_S2
+  *Node
+  *Element, type=CAX6M
+  *Nset, nset=ASSEMBLY_CAP-1_CAP
+  *Elset, elset=ASSEMBLY_CAP-1_CAP
+  *Elset, elset=ASSEMBLY_CAP-1__PISTON-CONTACT_S1
+  *Elset, elset=ASSEMBLY_CAP-1__PISTON-CONTACT_S2
+  *Elset, elset=ASSEMBLY_CAP-1__TRANSITION-AND-PUMP-CONTACT_S1
+  *Elset, elset=ASSEMBLY_CAP-1__TRANSITION-AND-PUMP-CONTACT_S2
+  *Elset, elset=ASSEMBLY_CAP-1__TRANSITION-AND-PUMP-CONTACT_S3
+  *Node
+  *Element, type=CAX6M
+  *Nset, nset=ASSEMBLY_PISTON-1_PISTON
+  *Elset, elset=ASSEMBLY_PISTON-1_PISTON
+  *Elset, elset=ASSEMBLY_PISTON-1__END-CONTACT_S2
+  *Elset, elset=ASSEMBLY_PISTON-1__END-CONTACT_S3
+  *Elset, elset=ASSEMBLY_PISTON-1__PUMP-CONTACT_S1
+  *Elset, elset=ASSEMBLY_PISTON-1__PUMP-CONTACT_S2
+  *Nset, nset=ASSEMBLY_FIXED
+  *Nset, nset=ASSEMBLY_PISTON-AND-CAP
+  *Nset, nset=ASSEMBLY_PISTON-CENTRE
+  *Nset, nset=ASSEMBLY_PISTON-CENTRE-ACTUAL
+  *Elset, elset=ASSEMBLY_FIXED
+  *Elset, elset=ASSEMBLY_PISTON-AND-CAP
+  *Elset, elset=ASSEMBLY_PISTON-CENTRE
+  *Elset, elset=ASSEMBLY_PISTON-CENTRE-ACTUAL
+  *Elset, elset=ASSEMBLY__CAP-FRONT_S1
+  *Elset, elset=ASSEMBLY__CAP-FRONT_S3
+  *Elset, elset=ASSEMBLY__PISTON-BACK_S1
+  *Elset, elset=ASSEMBLY__PISTON-BACK_S2
+  *Elset, elset=ASSEMBLY__PISTON-BACK_S3
+  *Elset, elset=ASSEMBLY__TUBE-INNER_S2
+  *contactpair, interaction=HDPE-ON-STEEL, type=SURFACETOSURFACE
+  *contactpair, interaction=HDPE-ON-STEEL, type=SURFACETOSURFACE
+  *contactpair, interaction=ALUMINIUM-ON-STEEL, type=SURFACETOSURFACE
+  *tie, name=ASSEMBLY_CAP-TO-PISTON, adjust=YES
+  *tie, name=ASSEMBLY_TRANSITION-FITTING, adjust=YES
+  *contactpair, interaction=HDPE-ON-STEEL, type=SURFACETOSURFACE
+  *contactpair, interaction=HDPE-ON-STEEL, type=SURFACETOSURFACE
+  *contactpair, interaction=ALUMINIUM-ON-STEEL, type=SURFACETOSURFACE
+  *tie, name=ASSEMBLY_CAP-TO-PISTON, adjust=YES
+  *tie, name=ASSEMBLY_TRANSITION-FITTING, adjust=YES
+  *surface, type=ELEMENT, name=ASSEMBLY_PUMP-TUBE-1_TRANSITION-TIE
+  *surface, type=ELEMENT, name=ASSEMBLY_PUMP-TUBE-1_PISTON-CONTACT
+  *surface, type=ELEMENT, name=ASSEMBLY_TRANSITION-PIECE-1_TUBE-TIE
+  *surface, type=ELEMENT, name=ASSEMBLY_TRANSITION-PIECE-1_END-CONTACT
+  *surface, type=ELEMENT, name=ASSEMBLY_CAP-1_PISTON-CONTACT
+  *surface, type=ELEMENT, name=ASSEMBLY_CAP-1_TRANSITION-AND-PUMP-CONTACT
+  *surface, type=ELEMENT, name=ASSEMBLY_PISTON-1_END-CONTACT
+  *surface, type=ELEMENT, name=ASSEMBLY_PISTON-1_PUMP-CONTACT
+  *surface, type=ELEMENT, name=ASSEMBLY_CAP-FRONT
+  *surface, type=ELEMENT, name=ASSEMBLY_PISTON-BACK
+  *surface, type=ELEMENT, name=ASSEMBLY_TUBE-INNER
+  *surface, type=ELEMENT, name=ASSEMBLY_PUMP-TUBE-1_TRANSITION-TIE
+  *surface, type=ELEMENT, name=ASSEMBLY_PUMP-TUBE-1_PISTON-CONTACT
+  *surface, type=ELEMENT, name=ASSEMBLY_TRANSITION-PIECE-1_TUBE-TIE
+  *surface, type=ELEMENT, name=ASSEMBLY_TRANSITION-PIECE-1_END-CONTACT
+  *surface, type=ELEMENT, name=ASSEMBLY_CAP-1_PISTON-CONTACT
+  *surface, type=ELEMENT, name=ASSEMBLY_CAP-1_TRANSITION-AND-PUMP-CONTACT
+  *surface, type=ELEMENT, name=ASSEMBLY_PISTON-1_END-CONTACT
+  *surface, type=ELEMENT, name=ASSEMBLY_PISTON-1_PUMP-CONTACT
+  *surface, type=ELEMENT, name=ASSEMBLY_CAP-FRONT
+  *surface, type=ELEMENT, name=ASSEMBLY_PISTON-BACK
+  *surface, type=ELEMENT, name=ASSEMBLY_TUBE-INNER
+  *contactpair, interaction=HDPE-ON-STEEL, type=SURFACETOSURFACE
+  *contactpair, interaction=HDPE-ON-STEEL, type=SURFACETOSURFACE
+  *contactpair, interaction=ALUMINIUM-ON-STEEL, type=SURFACETOSURFACE
+  *surfaceinteraction, name=HDPE-ON-STEEL
+  *surfacebehavior, pressure-overclosure=HARD
+  *surfaceinteraction, name=ALUMINIUM-ON-STEEL
+  *surfacebehavior, pressure-overclosure=HARD
+  *contactpair, interaction=HDPE-ON-STEEL, type=SURFACETOSURFACE
+  *contactpair, interaction=HDPE-ON-STEEL, type=SURFACETOSURFACE
+  *contactpair, interaction=ALUMINIUM-ON-STEEL, type=SURFACETOSURFACE
+  *tie, name=ASSEMBLY_CAP-TO-PISTON, adjust=YES
+  *tie, name=ASSEMBLY_TRANSITION-FITTING, adjust=YES
+  *tie, name=ASSEMBLY_CAP-TO-PISTON, adjust=YES
+  *tie, name=ASSEMBLY_TRANSITION-FITTING, adjust=YES
+  *solidsection, elset=ASSEMBLY_PUMP-TUBE-1_TUBE, material=MILD-STEEL
+  *solidsection, elset=ASSEMBLY_TRANSITION-PIECE-1_TRANSITION-PIECE, material=MILD-STEEL
+  *solidsection, elset=ASSEMBLY_CAP-1_CAP, material=HDPE
+  *solidsection, elset=ASSEMBLY_PISTON-1_PISTON, material=ALUMINIUM
+  *material, name=HDPE
+  *density
+  *elastic
+  *plastic
+  *material, name=ALUMINIUM
+  *density
+  *elastic
+  *material, name=MILD-STEEL
+  *density
+  *elastic
+  *surfaceinteraction, name=HDPE-ON-STEEL
+  *friction, sliptolerance=0.005
+  *surfacebehavior, pressure-overclosure=HARD
+  *surfaceinteraction, name=ALUMINIUM-ON-STEEL
+  *friction, sliptolerance=0.005
+  *surfacebehavior, pressure-overclosure=HARD
+  *initialconditions, type=VELOCITY
+  *initialconditions, type=VELOCITY
+  *surfaceinteraction, name=HDPE-ON-STEEL
+  *surfaceinteraction, name=ALUMINIUM-ON-STEEL
+  *solidsection, elset=ASSEMBLY_PUMP-TUBE-1_TUBE, material=MILD-STEEL
+  *solidsection, elset=ASSEMBLY_TRANSITION-PIECE-1_TRANSITION-PIECE, material=MILD-STEEL
+  *solidsection, elset=ASSEMBLY_CAP-1_CAP, material=HDPE
+  *solidsection, elset=ASSEMBLY_PISTON-1_PISTON, material=ALUMINIUM
+  *boundary
+  *boundary
+  *contactpair, interaction=HDPE-ON-STEEL, type=SURFACETOSURFACE
+  *contactpair, interaction=HDPE-ON-STEEL, type=SURFACETOSURFACE
+  *contactpair, interaction=ALUMINIUM-ON-STEEL, type=SURFACETOSURFACE
+  *tie, name=ASSEMBLY_CAP-TO-PISTON, adjust=YES
+
+ ***WARNING: FOR *TIE PAIR 
+             (ASSEMBLY_CAP-1_PISTON-CONTACT-ASSEMBLY_PISTON-1_END-CONTACT), 
+             ADJUSTED NODES WITH VERY SMALL ADJUSTMENTS WERE NOT PRINTED. 
+             SPECIFY *PREPRINT,MODEL=YES FOR COMPLETE PRINTOUT.
+  *tie, name=ASSEMBLY_TRANSITION-FITTING, adjust=YES
+
+ ***WARNING: FOR *TIE PAIR 
+             (ASSEMBLY_TRANSITION-PIECE-1_TUBE-TIE-ASSEMBLY_PUMP-TUBE-1_TRANSITI
+             ON-TIE), ADJUSTED NODES WITH VERY SMALL ADJUSTMENTS WERE NOT 
+             PRINTED. SPECIFY *PREPRINT,MODEL=YES FOR COMPLETE PRINTOUT.
+  *tie, name=ASSEMBLY_CAP-TO-PISTON, adjust=YES
+  *tie, name=ASSEMBLY_TRANSITION-FITTING, adjust=YES
+  *tie, name=ASSEMBLY_CAP-TO-PISTON, adjust=YES
+  *tie, name=ASSEMBLY_TRANSITION-FITTING, adjust=YES
+  *solidsection, elset=ASSEMBLY_PUMP-TUBE-1_TUBE, material=MILD-STEEL
+  *solidsection, elset=ASSEMBLY_TRANSITION-PIECE-1_TRANSITION-PIECE, material=MILD-STEEL
+  *solidsection, elset=ASSEMBLY_CAP-1_CAP, material=HDPE
+  *solidsection, elset=ASSEMBLY_PISTON-1_PISTON, material=ALUMINIUM
+  *surfaceinteraction, name=HDPE-ON-STEEL
+  *surfaceinteraction, name=ALUMINIUM-ON-STEEL
+  *contactpair, interaction=HDPE-ON-STEEL, type=SURFACETOSURFACE
+  *contactpair, interaction=HDPE-ON-STEEL, type=SURFACETOSURFACE
+  *contactpair, interaction=ALUMINIUM-ON-STEEL, type=SURFACETOSURFACE
+  *surface, type=ELEMENT, name=ASSEMBLY_PUMP-TUBE-1_TRANSITION-TIE
+  *surface, type=ELEMENT, name=ASSEMBLY_PUMP-TUBE-1_PISTON-CONTACT
+  *surface, type=ELEMENT, name=ASSEMBLY_TRANSITION-PIECE-1_TUBE-TIE
+  *surface, type=ELEMENT, name=ASSEMBLY_TRANSITION-PIECE-1_END-CONTACT
+  *surface, type=ELEMENT, name=ASSEMBLY_CAP-1_PISTON-CONTACT
+  *surface, type=ELEMENT, name=ASSEMBLY_CAP-1_TRANSITION-AND-PUMP-CONTACT
+  *surface, type=ELEMENT, name=ASSEMBLY_PISTON-1_END-CONTACT
+  *surface, type=ELEMENT, name=ASSEMBLY_PISTON-1_PUMP-CONTACT
+  *surface, type=ELEMENT, name=ASSEMBLY_CAP-FRONT
+  *surface, type=ELEMENT, name=ASSEMBLY_PISTON-BACK
+  *surface, type=ELEMENT, name=ASSEMBLY_TUBE-INNER
+  *tie, name=ASSEMBLY_CAP-TO-PISTON, adjust=YES
+  *tie, name=ASSEMBLY_TRANSITION-FITTING, adjust=YES
+  *output, field, variable=PRESELECT, frequency=1
+  *output, history, frequency=1
+  *initialconditions, type=VELOCITY
+  *output, field, variable=PRESELECT, frequency=1
+  *output, history, frequency=1
+  *initialconditions, type=VELOCITY
+  *output, field, variable=PRESELECT, frequency=1
+  *output, history, frequency=1
+  *amplitude, name=FRONT-PRESSURE
+  *amplitude, name=PRESSURE
+  *Step, name=taper-slide, nlgeom=YES, inc=1000000
+  *output, field, variable=PRESELECT, frequency=1
+  *output, history, frequency=1
+  *Step, name=taper-slide, nlgeom=YES, inc=1000000
+  *Step, name=taper-slide, nlgeom=YES, inc=1000000
+  *dynamic
+  *dsload, amplitude=PRESSURE
+  *dsload, amplitude=FRONT-PRESSURE
+  *output, field, variable=PRESELECT, frequency=1
+  *output, history, frequency=1
+  *energyoutput
+  *contactoutput
+  *endstep
+  *boundary
+  *boundary
+  *Step, name=taper-slide, nlgeom=YES, inc=1000000
+  *dynamic
+  *endstep
+
+ ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 3 INSTANCE CAP-1 - THIS 
+             INITIAL VELOCITY CONDITION IS IGNORED
+
+ ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 4 INSTANCE CAP-1 - THIS 
+             INITIAL VELOCITY CONDITION IS IGNORED
+
+ ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 8 INSTANCE CAP-1 - THIS 
+             INITIAL VELOCITY CONDITION IS IGNORED
+
+ ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 9 INSTANCE CAP-1 - THIS 
+             INITIAL VELOCITY CONDITION IS IGNORED
+
+ ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 10 INSTANCE CAP-1 - THIS 
+             INITIAL VELOCITY CONDITION IS IGNORED
+
+ ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 60 INSTANCE CAP-1 - THIS 
+             INITIAL VELOCITY CONDITION IS IGNORED
+
+ ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 61 INSTANCE CAP-1 - THIS 
+             INITIAL VELOCITY CONDITION IS IGNORED
+
+ ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 62 INSTANCE CAP-1 - THIS 
+             INITIAL VELOCITY CONDITION IS IGNORED
+
+ ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 63 INSTANCE CAP-1 - THIS 
+             INITIAL VELOCITY CONDITION IS IGNORED
+
+ ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 64 INSTANCE CAP-1 - THIS 
+             INITIAL VELOCITY CONDITION IS IGNORED
+
+ ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 65 INSTANCE CAP-1 - THIS 
+             INITIAL VELOCITY CONDITION IS IGNORED
+
+ ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 66 INSTANCE CAP-1 - THIS 
+             INITIAL VELOCITY CONDITION IS IGNORED
+
+ ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 67 INSTANCE CAP-1 - THIS 
+             INITIAL VELOCITY CONDITION IS IGNORED
+
+ ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 68 INSTANCE CAP-1 - THIS 
+             INITIAL VELOCITY CONDITION IS IGNORED
+
+ ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 192 INSTANCE CAP-1 - 
+             THIS INITIAL VELOCITY CONDITION IS IGNORED
+
+ ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 222 INSTANCE CAP-1 - 
+             THIS INITIAL VELOCITY CONDITION IS IGNORED
+
+ ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 285 INSTANCE CAP-1 - 
+             THIS INITIAL VELOCITY CONDITION IS IGNORED
+
+ ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 288 INSTANCE CAP-1 - 
+             THIS INITIAL VELOCITY CONDITION IS IGNORED
+
+ ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 291 INSTANCE CAP-1 - 
+             THIS INITIAL VELOCITY CONDITION IS IGNORED
+
+ ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 294 INSTANCE CAP-1 - 
+             THIS INITIAL VELOCITY CONDITION IS IGNORED
+
+ ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 309 INSTANCE CAP-1 - 
+             THIS INITIAL VELOCITY CONDITION IS IGNORED
+
+ ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 336 INSTANCE CAP-1 - 
+             THIS INITIAL VELOCITY CONDITION IS IGNORED
+
+ ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 437 INSTANCE CAP-1 - 
+             THIS INITIAL VELOCITY CONDITION IS IGNORED
+
+ ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 442 INSTANCE CAP-1 - 
+             THIS INITIAL VELOCITY CONDITION IS IGNORED
+
+ ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 446 INSTANCE CAP-1 - 
+             THIS INITIAL VELOCITY CONDITION IS IGNORED
+
+ ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 449 INSTANCE CAP-1 - 
+             THIS INITIAL VELOCITY CONDITION IS IGNORED
+
+ ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 507 INSTANCE CAP-1 - 
+             THIS INITIAL VELOCITY CONDITION IS IGNORED
+
+
+     LABELS REFERENCED IN THE ABOVE TABLE
+
+      -50-     FRONT-PRESSURE                                                                  
+
+ ***WARNING: DEGREE OF FREEDOM 1 IS NOT ACTIVE ON NODE 8 INSTANCE CAP-1 - THIS 
+             BOUNDARY CONDITION IS IGNORED
+
+ ***WARNING: Boundary conditions are specified on inactive dof of 1 nodes. The 
+             nodes have been identified in node set WarnNodeBCInactiveDof.
+
+ ***WARNING: initial conditions are specified on inactive dof of 27 nodes. The 
+             nodes have been identified in node set WarnNodeICInactiveDof.
+
+
+
+                            P R O B L E M   S I Z E
+
+
+          NUMBER OF ELEMENTS IS                                  2255
+          NUMBER OF ELEMENTS DEFINED BY THE USER AND *TIE        2081
+          NUMBER OF INTERNAL ELEMENTS GENERATED FOR CONTACT       174
+          NUMBER OF NODES IS                                     7206
+          NUMBER OF NODES DEFINED BY THE USER                    4777
+          NUMBER OF INTERNAL NODES GENERATED BY THE PROGRAM      2429
+          TOTAL NUMBER OF VARIABLES IN THE MODEL                14064
+          (DEGREES OF FREEDOM PLUS MAX NO. OF ANY LAGRANGE MULTIPLIER
+           VARIABLES. INCLUDE *PRINT,SOLVE=YES TO GET THE ACTUAL NUMBER.)
+
+
+
+                              END OF USER INPUT PROCESSING
+
+
+
+     JOB TIME SUMMARY
+       USER TIME (SEC)      =  0.22000    
+       SYSTEM TIME (SEC)    =  2.00000E-02
+       TOTAL CPU TIME (SEC) =  0.24000    
+       WALLCLOCK TIME (SEC) =          1
+1
+
+   Abaqus 6.14-1                                  Date 23-Sep-2021   Time 17:04:44
+   For use at UNIVERSITY OF CAPE TOWN under license from Dassault Systemes or its subsidiary.
+
+                                                                                               STEP    1  INCREMENT    1
+                                                                                          TIME COMPLETED IN THIS STEP   0.00    
+
+
+                        S T E P       1     D Y N A M I C   A N A L Y S I S - I M P L I C I T  I N T E G R A T I O N
+
+
+                                                                                          
+
+          DYNAMIC APPLICATION PACKED SCHEME IS                 MODERATE DISSIPATION
+          HILBER-HUGHES-TAYLOR (HHT) TIME INTEGRATOR IS USED
+
+     AUTOMATIC TIME CONTROL WITH -
+          A SUGGESTED INITIAL TIME INCREMENT OF                1.000E-04
+          AND A TOTAL TIME PERIOD OF                           0.100    
+          THE MINIMUM TIME INCREMENT ALLOWED IS                1.000E-06
+          THE MAXIMUM TIME INCREMENT ALLOWED IS                1.000E-02
+
+          THE HALF-INCREMENT RESIDUALS WILL NOT BE CALCULATED
+
+          HILBER-HUGHES-TAYLOR METHOD PARAMETERS:  ALPHA   IS  -0.414214    
+                                                   BETA    IS   0.500000    
+                                                   GAMMA   IS   0.914214    
+          CONTACT IMPACT/RELEASE COMPUTATIONS ARE SKIPPED
+          AGGRESSIVE   TIME INCREMENTATION IS USED
+          STEP AMPLITUDE IS                                    STEP
+
+          LARGE DISPLACEMENT THEORY WILL BE USED
+
+
+
+                    TOTAL MASS OF MODEL
+
+                      1.5608457E-02
+
+
+                    LOCATION OF THE CENTER OF MASS OF THE MODEL
+
+                       0.000000          -307.8551    
+
+
+                    MOMENTS OF INERTIA ABOUT THE ORIGIN
+                           I(XX)               I(YY)               I(ZZ)
+
+                       2592.300           14.19892           2592.300    
+
+
+                    PRODUCTS OF INERTIA ABOUT THE ORIGIN
+                           I(XY)               I(XZ)               I(YZ)
+
+                       0.000000           0.000000           0.000000    
+
+
+                    MOMENTS OF INERTIA ABOUT THE CENTER OF MASS
+                           I(XX)               I(YY)               I(ZZ)
+
+                       1113.012           14.19892           1113.012    
+
+
+                    PRODUCTS OF INERTIA ABOUT THE CENTER OF MASS
+                           I(XY)               I(XZ)               I(YZ)
+
+                       0.000000           0.000000           0.000000    
+  
+                   M E M O R Y   E S T I M A T E
+  
+ PROCESS      FLOATING PT       MINIMUM MEMORY        MEMORY TO
+              OPERATIONS           REQUIRED          MINIMIZE I/O
+             PER ITERATION           (MB)               (MB)
+  
+     1          1.63E+07               20                 37
+  
+ NOTE:
+      (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
+          THE MEMORY REQUIREMENT PRINTED HERE CAN ONLY BE VIEWED AS A GENERAL GUIDELINE BASED ON THE BEST
+          KNOWLEDGE AVAILABLE AT THE BEGINNING OF A STEP BEFORE THE SOLUTION PROCESS HAS BEGUN.
+      (2) THE ESTIMATE IS NORMALLY UPDATED AT THE BEGINNING OF EVERY STEP. IT IS THE MAXIMUM VALUE OF THE
+          ESTIMATE FROM THE CURRENT STEP TO THE LAST STEP OF THE ANALYSIS, WITH UNSYMMETRIC SOLUTION TAKEN
+          INTO ACCOUNT IF APPLICABLE. 
+      (3) SINCE THE ESTIMATE IS BASED ON THE ACTIVE DEGREES OF FREEDOM IN THE FIRST ITERATION OF THE 
+          CURRENT STEP, THE MEMORY ESTIMATE MIGHT BE SIGNIFICANTLY DIFFERENT THAN ACTUAL USAGE FOR 
+          PROBLEMS WITH SUBSTANTIAL CHANGES IN ACTIVE DEGREES OF FREEDOM BETWEEN STEPS (OR EVEN WITHIN
+          THE SAME STEP). EXAMPLES ARE: PROBLEMS WITH SIGNIFICANT CONTACT CHANGES, PROBLEMS WITH MODEL
+          CHANGE, PROBLEMS WITH BOTH STATIC STEP AND STEADY STATE DYNAMIC PROCEDURES WHERE ACOUSTIC 
+          ELEMENTS WILL ONLY BE ACTIVATED IN THE STEADY STATE DYNAMIC STEPS.
+      (4) FOR MULTI-PROCESS EXECUTION, THE ESTIMATED VALUE OF FLOATING POINT OPERATIONS FOR EACH PROCESS
+          IS BASED ON AN INITIAL SCHEDULING OF OPERATIONS AND MIGHT NOT REFLECT THE ACTUAL FLOATING 
+          POINT OPERATIONS COMPLETED ON EACH PROCESS. OPERATIONS ARE DYNAMICALLY BALANCED DURING EXECUTION, 
+          SO THE ACTUAL BALANCE OF OPERATIONS BETWEEN PROCESSES IS EXPECTED TO BE BETTER THAN THE ESTIMATE
+          PRINTED HERE.
+      (5) THE UPPER LIMIT OF MEMORY THAT CAN BE ALLOCATED BY ABAQUS WILL IN GENERAL DEPEND ON THE VALUE OF
+          THE "MEMORY" PARAMETER AND THE AMOUNT OF PHYSICAL MEMORY AVAILABLE ON THE MACHINE. PLEASE SEE
+          THE "ABAQUS ANALYSIS USER'S MANUAL" FOR MORE DETAILS. THE ACTUAL USAGE OF MEMORY AND OF DISK
+          SPACE FOR SCRATCH DATA WILL DEPEND ON THIS UPPER LIMIT AS WELL AS THE MEMORY REQUIRED TO MINIMIZE
+          I/O. IF THE MEMORY UPPER LIMIT IS GREATER THAN THE MEMORY REQUIRED TO MINIMIZE I/O, THEN THE ACTUAL
+          MEMORY USAGE WILL BE CLOSE TO THE ESTIMATED "MEMORY TO MINIMIZE I/O" VALUE, AND THE SCRATCH DISK
+          USAGE WILL BE CLOSE-TO-ZERO; OTHERWISE, THE ACTUAL MEMORY USED WILL BE CLOSE TO THE PREVIOUSLY
+          MENTIONED MEMORY LIMIT, AND THE SCRATCH DISK USAGE WILL BE ROUGHLY PROPORTIONAL TO THE DIFFERENCE
+          BETWEEN THE ESTIMATED "MEMORY TO MINIMIZE I/O" AND THE MEMORY UPPER LIMIT. HOWEVER ACCURATE
+          ESTIMATE OF THE SCRATCH DISK SPACE IS NOT POSSIBLE.
+      (6) USING "*RESTART, WRITE" CAN GENERATE A LARGE AMOUNT OF DATA WRITTEN IN THE WORK DIRECTORY.
+
+
+          THE ANALYSIS HAS BEEN COMPLETED
+
+
+
+                              ANALYSIS COMPLETE
+                              WITH     32 WARNING MESSAGES ON THE DAT FILE
+                              AND      38 WARNING MESSAGES ON THE MSG FILE
+                                       15 WARNINGS ARE FOR NEGATIVE EIGENVALUES
+
+
+
+     JOB TIME SUMMARY
+       USER TIME (SEC)      =   185.65    
+       SYSTEM TIME (SEC)    =   63.030    
+       TOTAL CPU TIME (SEC) =   248.68    
+       WALLCLOCK TIME (SEC) =         51
