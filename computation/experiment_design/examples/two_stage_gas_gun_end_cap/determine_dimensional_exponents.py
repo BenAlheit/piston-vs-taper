@@ -1,4 +1,4 @@
-from computation.dimensional_analysis.dimensional_setup import *
+from computation.experiment_design.dimensional_analysis import *
 
 # Cap variables
 Fc = ExperimentalVariable('F_c', Units.FORCE, Variable.MEASURED, 'Axial contact force')
