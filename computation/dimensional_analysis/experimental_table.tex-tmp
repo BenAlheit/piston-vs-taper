@@ -1,0 +1,38 @@
+\begin{table}[!htb]
+	\centering
+	\caption{Variables on which the problem depends \red{Check that units are correct}}
+	\label{tab:dimentional units}
+	\begin{tabular}{l p{7cm} c c}
+		\hline
+		Component & Description & Symbol & Units \\
+		\hline \hline
+		Cap & Axial contact force & $F_{c}$ & $[MLT^{-2}]$ \\
+		&Rate of volume average plastic dissipation & $\vavg{\dot{\Phi}_{c}}$ & $[ML^{-1}T^{-3}]$\\
+		&Volume average plastic dissipation & $\vavg{\Phi_{c}}$ & $[ML^{-1}T^{-2}]$\\
+		& Pressure difference & $\Delta P$ & $[ML^{-1}T^{-2}]$\\
+		& Velocity & $v$ & $[LT^{-1}]$\\
+		&Distance of cap past taper & $x_{t}$ & $[L]$\\
+		&Length past piston & $l_{c}$ & $[L]$\\
+		&Diameter & $d_{c}$ & $[L]$\\
+		&Density & $\rho_{c}$ & $[ML^{-3}]$\\
+		&Young's modulus & $E_{c}$ & $[ML^{-1}T^{-2}]$\\
+		&Poisson's ratio & $\nu_{c}$ & $[\bullet]$\\
+		&Yield stress & $\sigma_{yc}$ & $[ML^{-1}T^{-2}]$\\
+		\hline
+		Piston&Length & $l_{p}$ & $[L]$\\
+		&Diameter & $d_{p}$ & $[L]$\\
+		&Density & $\rho_{p}$ & $[ML^{-3}]$\\
+		&Young's modulus & $E_{p}$ & $[ML^{-1}T^{-2}]$\\
+		&Poisson's ratio & $\nu_{p}$ & $[\bullet]$\\
+		\hline
+		Transition piece& Length & $l_{t}$ & $[L]$\\
+		& Diameter change & $\Delta d_{t}$ & $[L]$\\
+		&Density & $\rho_{t}$ & $[ML^{-3}]$\\
+		&Young's modulus & $E_{t}$ & $[ML^{-1}T^{-2}]$\\
+		&Poisson's ratio & $\nu_{t}$ & $[\bullet]$\\
+		\hline
+		Friction & Cap-on-steel CoF & $\mu_{cs}$ & $[\bullet]$\\
+		&Steel-on-steel CoF & $\mu_{ss}$ & $[\bullet]$\\
+		&Aluminium-on-steel CoF & $\mu_{as}$ & $[\bullet]$\\
+	\end{tabular}
+\end{table}
