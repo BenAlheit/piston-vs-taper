@@ -1,5 +1,3 @@
-from computation.experiment_design.dimensional_analysis import *
-
 # Cap variables
 Fc = ExperimentalVariable('F_c', Units.FORCE, Variable.MEASURED, 'Axial contact force')
 pd_rate = ExperimentalVariable('\dot{\Phi}_{c}', Units.ENERGY_DENSITY_RATE, Variable.MEASURED, 'Rate of volume average plastic dissipation')
