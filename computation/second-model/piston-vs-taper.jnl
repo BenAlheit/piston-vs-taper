@@ -5442,3 +5442,121 @@ mdb.jobs['transition-slide']._Message(END_STEP, {'phase': STANDARD_PHASE,
 mdb.jobs['transition-slide']._Message(COMPLETED, {'phase': STANDARD_PHASE, 
     'message': 'Analysis phase complete', 'jobName': 'transition-slide'})
 # Save by cerecam on 2021_09_23-17.27.25; build 6.14-1 2014_06_04-21.37.49 134264
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.jobs['transition-slide']._Message(ERROR, {
+    'message': 'The executable standard aborted with system error code 15. Please check the .dat, .msg, and .sta files for error messages if the files exist.  If there are no error messages and you cannot resolve the problem, please run the command "abaqus job=support information=support" to report and save your system information.  Use the same command to run Abaqus that you used when the problem occurred.  Please contact your local Abaqus support office and send them the input file, the file support.log which you just created, the executable name, and the error code.', 
+    'jobName': 'transition-slide'})
+mdb.jobs['transition-slide']._Message(JOB_ABORTED, {
+    'message': 'The executable standard aborted with system error code 15. Please check the .dat, .msg, and .sta files for error messages if the files exist.  If there are no error messages and you cannot resolve the problem, please run the command "abaqus job=support information=support" to report and save your system information.  Use the same command to run Abaqus that you used when the problem occurred.  Please contact your local Abaqus support office and send them the input file, the file support.log which you just created, the executable name, and the error code.', 
+    'jobName': 'transition-slide'})
+# Save by cerecam on 2021_09_23-17.53.13; build 6.14-1 2014_06_04-21.37.49 134264
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.Model(name='test-block', objectToCopy=mdb.models['Model-1'])
+mdb.models['test-block'].ConstrainedSketch(name='__profile__', sheetSize=2.0)
+mdb.models['test-block'].sketches['__profile__'].rectangle(point1=(0.0, 0.0), 
+    point2=(1.0, 1.0))
+mdb.models['test-block'].Part(dimensionality=THREE_D, name='block', type=
+    DEFORMABLE_BODY)
+mdb.models['test-block'].parts['block'].BaseSolidExtrude(depth=1.0, sketch=
+    mdb.models['test-block'].sketches['__profile__'])
+del mdb.models['test-block'].sketches['__profile__']
+mdb.models['test-block'].parts['block'].Set(cells=
+    mdb.models['test-block'].parts['block'].cells.getSequenceFromMask(('[#1 ]', 
+    ), ), name='test-block')
+mdb.models['test-block'].parts['block'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['test-block'].parts['block'].sets['test-block'], sectionName=
+    'hdpe', thicknessAssignment=FROM_SECTION)
+mdb.models['test-block'].rootAssembly.deleteFeatures(('pump-tube-1', 
+    'transition-piece-1', 'cap-1', 'piston-1'))
+mdb.models['test-block'].rootAssembly.Instance(dependent=ON, name='block-1', 
+    part=mdb.models['test-block'].parts['block'])
+del mdb.models['test-block'].steps['taper-slide']
+mdb.models['test-block'].StaticStep(name='load', nlgeom=ON, previous='Initial')
+del mdb.models['test-block'].boundaryConditions['piston-centre']
+del mdb.models['test-block'].boundaryConditions['fix']
+mdb.models['test-block'].rootAssembly.Set(faces=
+    mdb.models['test-block'].rootAssembly.instances['block-1'].faces.getSequenceFromMask(
+    ('[#1 ]', ), ), name='block-back')
+mdb.models['test-block'].DisplacementBC(amplitude=UNSET, createStepName=
+    'Initial', distributionType=UNIFORM, fieldName='', localCsys=None, name=
+    'BC-1', region=mdb.models['test-block'].rootAssembly.sets['block-back'], 
+    u1=SET, u2=UNSET, u3=UNSET, ur1=UNSET, ur2=UNSET, ur3=UNSET)
+mdb.models['test-block'].rootAssembly.Set(faces=
+    mdb.models['test-block'].rootAssembly.instances['block-1'].faces.getSequenceFromMask(
+    ('[#8 ]', ), ), name='block-bottom')
+mdb.models['test-block'].DisplacementBC(amplitude=UNSET, createStepName=
+    'Initial', distributionType=UNIFORM, fieldName='', localCsys=None, name=
+    'BC-2', region=mdb.models['test-block'].rootAssembly.sets['block-bottom'], 
+    u1=UNSET, u2=SET, u3=UNSET, ur1=UNSET, ur2=UNSET, ur3=UNSET)
+mdb.models['test-block'].rootAssembly.Set(faces=
+    mdb.models['test-block'].rootAssembly.instances['block-1'].faces.getSequenceFromMask(
+    ('[#20 ]', ), ), name='block-left')
+mdb.models['test-block'].DisplacementBC(amplitude=UNSET, createStepName=
+    'Initial', distributionType=UNIFORM, fieldName='', localCsys=None, name=
+    'BC-3', region=mdb.models['test-block'].rootAssembly.sets['block-left'], 
+    u1=UNSET, u2=UNSET, u3=SET, ur1=UNSET, ur2=UNSET, ur3=UNSET)
+mdb.models['test-block'].rootAssembly.Set(faces=
+    mdb.models['test-block'].rootAssembly.instances['block-1'].faces.getSequenceFromMask(
+    ('[#4 ]', ), ), name='block-front')
+mdb.models['test-block'].DisplacementBC(amplitude=UNSET, createStepName='load', 
+    distributionType=UNIFORM, fieldName='', fixed=OFF, localCsys=None, name=
+    'pull', region=mdb.models['test-block'].rootAssembly.sets['block-front'], 
+    u1=0.4, u2=UNSET, u3=UNSET, ur1=UNSET, ur2=UNSET, ur3=UNSET)
+mdb.models['test-block'].parts['block'].seedPart(deviationFactor=0.1, 
+    minSizeFactor=0.1, size=1.0)
+mdb.models['test-block'].parts['block'].generateMesh()
+mdb.models['test-block'].parts['block'].setElementType(elemTypes=(ElemType(
+    elemCode=C3D20R, elemLibrary=STANDARD), ElemType(elemCode=C3D15, 
+    elemLibrary=STANDARD), ElemType(elemCode=C3D10, elemLibrary=STANDARD)), 
+    regions=(mdb.models['test-block'].parts['block'].cells.getSequenceFromMask(
+    ('[#1 ]', ), ), ))
+mdb.models['test-block'].rootAssembly.regenerate()
+# Save by cerecam on 2021_09_28-15.52.32; build 6.14-1 2014_06_04-21.37.49 134264
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='test-block', modelPrint=OFF, 
+    multiprocessingMode=DEFAULT, name='hpde-behaviour', nodalOutputPrecision=
+    SINGLE, numCpus=1, numGPUs=0, queue=None, resultsFormat=ODB, scratch='', 
+    type=ANALYSIS, userSubroutine='', waitHours=0, waitMinutes=0)
+mdb.models['test-block'].constraints.delete(('cap-to-piston', 
+    'transition-fitting'))
+del mdb.models['test-block'].predefinedFields['contact-velocity']
+# Save by cerecam on 2021_09_28-15.54.04; build 6.14-1 2014_06_04-21.37.49 134264

@@ -1,0 +1,13 @@
+Abaqus JOB hpde-behaviour
+Abaqus 6.14-1
+Abaqus License Manager checked out the following licenses:
+Abaqus/Standard checked out 5 tokens from Flexnet server abaqusres.lic.uct.ac.za.
+<81 out of 100 licenses remain available>.
+Begin Analysis Input File Processor
+Tue Sep 28 16:18:57 2021
+Run pre
+Tue Sep 28 16:18:59 2021
+End Analysis Input File Processor
+Begin Abaqus/Standard Analysis
+Tue Sep 28 16:18:59 2021
+Run standard

@@ -6,6 +6,14 @@
 /computation/*/*.sta
 /computation/*/*.ipm
 /computation/*/*.com
+/computation/*/*.SMABulk
+/computation/*/*.SMAFocus
+/computation/*/*.023
+/computation/*/*.mdl
+/computation/*/*.cid
+/computation/*/*.lck
+/computation/*/*.stt
+/computation/*/*.tmp
 /.idea/*
 /report/*.aux
 /report/*.blg
