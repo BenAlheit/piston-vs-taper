@@ -26,7 +26,7 @@
 }
 
 \section{Introduction}
-
+=
 \red{
 \begin{itemize}
 	\item We will use: ton, mm, s, N, MPa, N-mm
@@ -68,6 +68,22 @@
 
 
 
+
+
+\subsubsection{HDPE}
+Linear elastoplastic
+\begin{enumerate}
+	\item Density -- $\rho_{c}=0.95\times 10^{-9}$,ton/mm\textsuperscript{3}
+	\item Young's modulus -- $E_{c}=1000$\,MPa
+	\item Poisson's ratio -- $\nu_{c}= 0.46$
+	\item Yield stress -- $\sigma_{yc}=12.5$\,MPa
+\end{enumerate}
+
+\subsubsection{Aluminium}
+\begin{enumerate}
+	\item 
+\end{enumerate}
+
 \subsection{Single test simulation}
 
 \subsection{Mesh optimization}
@@ -91,7 +107,6 @@ Constraint
 \end{enumerate}
 
 \section{Machine learning surrogate model}
-
 \subsection{Feature engineering}
 
 \red{
@@ -114,7 +129,123 @@ Dependent variables:
 \end{enumerate}
 }
 
-\subsubsection{Non-dimensional analysis}
+\subsubsection{Dimensional analysis}
+
+\begin{table}[!htb]
+	\centering
+	\caption{Fundamental dimensional units}
+	\label{tab:dimentional-units}
+	\begin{tabular}{c c c}
+		\hline\hline
+		Mass $[M]$ & Length $[L]$ & Time $[T]$\\
+		\hline\hline
+	\end{tabular}
+\end{table}
+
+\begin{table}[!htb]
+	\centering
+	\caption{Variables on which the problem depends \red{Check that units are correct}}
+	\label{tab:dimentional units}
+	\begin{tabular}{l p{7cm} c c}
+		\hline
+		Component & Description & Symbol & Units \\
+		\hline \hline
+		Cap & Axial contact force & $F_{c}$ & $[MLT^{-2}]$ \\
+		&Rate of volume average plastic dissipation & $\vavg{\dot{\Phi}_{c}}$ & $[ML^{-1}T^{-3}]$\\
+		&Volume average plastic dissipation & $\vavg{\Phi_{c}}$ & $[ML^{-1}T^{-2}]$\\
+		& Pressure difference & $\Delta P$ & $[ML^{-1}T^{-2}]$\\
+		& Velocity & $v$ & $[LT^{-1}]$\\
+		&Distance of cap past taper & $x_{t}$ & $[L]$\\
+		&Length past piston & $l_{c}$ & $[L]$\\
+		&Diameter & $d_{c}$ & $[L]$\\
+		&Density & $\rho_{c}$ & $[ML^{-3}]$\\
+		&Young's modulus & $E_{c}$ & $[ML^{-1}T^{-2}]$\\
+		&Poisson's ratio & $\nu_{c}$ & $[\bullet]$\\
+		&Yield stress & $\sigma_{yc}$ & $[ML^{-1}T^{-2}]$\\
+		\hline
+		Piston&Length & $l_{p}$ & $[L]$\\
+		&Diameter & $d_{p}$ & $[L]$\\
+		&Density & $\rho_{p}$ & $[ML^{-3}]$\\
+		&Young's modulus & $E_{p}$ & $[ML^{-1}T^{-2}]$\\
+		&Poisson's ratio & $\nu_{p}$ & $[\bullet]$\\
+		\hline
+		Transition piece& Length & $l_{t}$ & $[L]$\\
+		& Diameter change & $\Delta d_{t}$ & $[L]$\\
+		&Density & $\rho_{t}$ & $[ML^{-3}]$\\
+		&Young's modulus & $E_{t}$ & $[ML^{-1}T^{-2}]$\\
+		&Poisson's ratio & $\nu_{t}$ & $[\bullet]$\\
+		\hline
+		Friction & Cap-on-steel CoF & $\mu_{cs}$ & $[\bullet]$\\	
+		&Steel-on-steel CoF & $\mu_{ss}$ & $[\bullet]$\\
+		&Aluminium-on-steel CoF & $\mu_{as}$ & $[\bullet]$\\	
+	\end{tabular}
+\end{table}
+
+\begin{equation}
+	\Pi = F_c^{k_{1}}\vavg{\dot{\Phi}_{c}}^{k_{2}}\Delta P^{k_{4}}v^{k_{5}}\vavg{\Phi_{c}}^{k_{3}}x_{t}^{k_{6}}
+\end{equation}
+\begin{equation}
+	r=3
+\end{equation}
+\begin{equation}
+	n=24
+\end{equation}
+\begin{equation}
+	n_{\text{n-dim}} = n-r=21
+\end{equation}
+
+\begin{equation}
+	\newcommand{\dimmatspace}{\,\,\,\,\,}
+	\begin{matrix}
+		& 
+		\,\,\,\,\,\,_{F_c} \dimmatspace _{\vavg{\dot{\Phi}_{c}}} \dimmatspace _{\Delta P} \,\,\dimmatspace _{v} \,\, \dimmatspace _{\vavg{\Phi_{c}}} \dimmatspace _{x_{t}} \dimmatspace
+		\\
+		\begin{matrix}
+			_M \\ _L \\ _T 
+		\end{matrix} & \left[\begin{matrix}
+			1  &  1 &  1 &  0 &  1 & 0\\ 
+			1  & -1 &  -1 &  1 & -1 & 1\\ 
+			-2 & -3 & -2 & -1 & -2 & 0\\ 
+		\end{matrix}\right]
+	\end{matrix} 	\left[\begin{matrix}
+	k_{1} \\  k_{2} \\ k_{3} \\ k_{4} \\ k_{5} \\ k_{6} 
+\end{matrix}\right] = \bm{0}\,.
+\end{equation}
+\red{
+\begin{enumerate}
+	\item Enter units as symbols in sympy
+	\item Construct dimensional matrix
+	\item Find solutions $k^{j}_i$ to dimensional matrix by $n-r$ values in $k$ to 0 (except for 1 which on sets to $1$).
+	\item Automatically print out resulting dimensionless products table.
+\end{enumerate}
+}
+\begin{table}
+	\centering
+	\caption{Non-dimensional parameters}
+	\label{tab:non-dim}
+	\begin{tabular}{c c c c c c c}
+		& $F_c$ & $\vavg{\dot{\Phi}_{c}}$ & $\vavg{\Phi_{c}}$ & $\Delta P$ & $v$ & $x_{t}$ \\
+		& $k_{1}$ & $k_{2}$ & $k_{3}$& $k_{4}$& $k_{5}$& $k_{6}$ \\
+		
+	\end{tabular}
+\end{table}
+
+\red{
+Based on \cite{hutter2013continuum}:
+
+Notes:
+\begin{enumerate}
+	\item 
+\end{enumerate}
+Direct quote from \cite{hutter2013continuum}
+\begin{quote}
+	``Dimensional analysis is a method with the aid of which one may for instance test a formula for dimensional correctness. It leads to a first understanding of the solution of a physical problem and yields a precise information about the number of variables that are necessary to describe it, a fact that is particularly important when experiments are being performed. Very often dimensional analysis reduces the number of variables upon which a physical problem was initially surmised to depend. If for instance the quantity $y$ depends upon $x_{1}, x_{2} , ... , x_{n}$, where all quantities have a certain physical dimension, then dimensional analysis shows that y can only depend upon certain products of powers of $x_{1}, x_{2} , ... , x_{n}$, a fact that corresponds regularly to a considerable reduction of the number of variables. Naturally then, experiments may more simply or more economically be performed than without knowledge of this fact.''
+\end{quote}
+
+\begin{quote}
+	``The first step in a dimensional analysis consists in the listing of the parameters, which influence a physical problem. This step is very decisive. If too many variables are listed that may describe a physical problem, then the final equations will contain superfluous variables, if too few variables are introduced, incomplete equations may emerge, which results in incomplete equations or "more often" false inferences or the result can not be expressed in terms of dimensionally homogeneous functions.''
+\end{quote}
+}
 
 \subsection{Experimental input parameters}
  
