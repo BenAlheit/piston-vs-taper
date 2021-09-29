@@ -3,9 +3,9 @@ import os
 
 file_path = os.path.realpath(__file__)
 if '/' in file_path:
-    utils_dir = ''.join(file_path.split('/')[:-1])
+    utils_dir = '/'.join(file_path.split('/')[:-1])
 else:
-    utils_dir = ''.join(file_path.split(r'\\')[:-1])
+    utils_dir = '\\'.join(file_path.split(r'\\')[:-1])
 
 
 def extract_uniaxial(directory, job, csv_name='uniaxial-tension-data.csv', clean=True):

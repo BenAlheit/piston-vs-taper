@@ -14,6 +14,7 @@
 /computation/*/*.lck
 /computation/*/*.stt
 /computation/*/*.tmp
+/computation/*/*.rpy*
 /.idea/*
 /report/*.aux
 /report/*.blg

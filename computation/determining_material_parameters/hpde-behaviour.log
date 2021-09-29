@@ -1,0 +1,24 @@
+Abaqus JOB hpde-behaviour
+Abaqus 6.14-1
+Abaqus License Manager checked out the following licenses:
+Abaqus/Standard checked out 5 tokens from Flexnet server abaqusres.lic.uct.ac.za.
+<76 out of 100 licenses remain available>.
+Begin Analysis Input File Processor
+Wed Sep 29 13:14:52 2021
+Run pre
+Wed Sep 29 13:14:53 2021
+End Analysis Input File Processor
+Begin Abaqus/Standard Analysis
+Wed Sep 29 13:14:53 2021
+Run standard
+Wed Sep 29 13:14:54 2021
+Abaqus Error: The executable standard
+aborted with system error "Termination signal" (signal 9).
+Please check the .dat, .msg, and .sta files for error messages if the files
+exist.  If there are no error messages and you cannot resolve the problem,
+please run the command "abaqus job=support information=support" to report and
+save your system information.  Use the same command to run Abaqus that you
+used when the problem occurred.  Please contact your local Abaqus support
+office and send them the input file, the file support.log which you just
+created, the executable name, and the error code.
+Abaqus/Analysis exited with errors

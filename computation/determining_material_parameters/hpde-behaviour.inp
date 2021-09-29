@@ -73,7 +73,7 @@
 ** 
 *Material, name=HDPE
 *Deformation Plasticity
-{{ youngs_modulus }}, 0.46,  {{ sig_0 }}, {{ n }}, {{ alpha }}
+1630.1410511009308, 0.46,  14.649361812325056, 4.259759293424686, 0.3424005321440589
 *Density
  9.5e-10,
 *Material, name=aluminium
@@ -117,7 +117,7 @@ block-left, 3, 3
 ** 
 *Step, name=load, nlgeom=YES, inc=10000
 *Static
-{{ step_size }}, 1., {{ step_size }}e-05, {{ step_size }}
+0.05, 1., 0.05e-05, 0.05
 ** 
 ** BOUNDARY CONDITIONS
 ** 

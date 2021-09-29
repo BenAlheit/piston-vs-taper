@@ -6,7 +6,8 @@ from typing import Iterable
 from computation.abaqus_utils import run_abaqus_standard_job as rj, extraction as ex
 
 HDPE_nu = 0.46
-RUN_ABAQUS = False
+RUN_ABAQUS = True
+SAVE_FIG = True
 N_ABAQUS = 20
 # True stress [MPa], true strain [mm/mm]
 data = np.genfromtxt('../../data/hdpe-true-stress-strain-room-temp-6e-2-rate.csv', delimiter=',')
@@ -25,7 +26,7 @@ def get_ramberg_osgood_1d(eps: float, E: float, alpha: float, n: float, sig_0: f
     :param sig_0: yield stress
     :return: The stress for the current strain.
     """
-    strain_relation = lambda sig: (sig + alpha * (np.fabs(sig) / sig_0) ** (n - 1)) / E
+    strain_relation = lambda sig: (sig + alpha * sig * (np.fabs(sig) / sig_0) ** (n - 1)) / E
     stress = op.root(lambda sig: strain_relation(sig) - eps, 10).x[0]
     return stress
 
@@ -62,16 +63,15 @@ op_result = op.differential_evolution(obj,
                                       popsize=40,
                                       tol=0.000000001,
                                       atol=0.00000001,
-                                      workers=1,
+                                      workers=-1,
                                       # workers=n_cpus. -1 indicates all available cpus. Parallelization only workds on linux. For windows set workers=1 to avoid error.
                                       polish=True,
                                       updating='deferred',
                                       disp=True)
 
-## Good fit obtained: [1.62856286e+03 3.45909933e-01 5.26480184e+00 7.83313655e+00]
-## Good fit obtained: [1.62944658e+03 3.61176080e-01 5.26202581e+00 7.90527041e+00]
-## Good fit obtained: [1.63012092e+03 4.23279057e-01 5.26001632e+00 8.19947508e+00]
 
+## Good fit obtained: [1.63015173e+03 1.33966028e-01 4.25978911e+00 1.09849530e+01]
+## Good fit obtained: [1.63014105e+03 3.42400532e-01 4.25975929e+00 1.46493618e+01]
 
 op_params = op_result.x
 print(op_params)
@@ -89,7 +89,7 @@ if RUN_ABAQUS:
                                        step_size=1./N_ABAQUS)
     # Path(directory).mkdir(parents=True, exist_ok=True)
     open(f'./hpde-behaviour.inp', 'w+').write(inp_file_str)
-    rj.run_abaqus_standard_sim('./', 'hpde-behaviour')
+    rj.run_abaqus_standard_sim('./', 'hpde-behaviour', overwrite_old=True)
     data = ex.extract_uniaxial('./', 'hpde-behaviour')
     plt.plot(data['strain (mm/mm)'], data['stress (MPa)'], linewidth=1, label='Abaqus simulation')
 
@@ -98,4 +98,6 @@ plt.xlabel('True strain [mm/mm]')
 plt.ylabel('True stress [MPa]')
 plt.grid()
 plt.legend()
+plt.tight_layout()
+plt.savefig('../../report/results-figures/hdpe-stress-strain-params.pdf')
 plt.show()
