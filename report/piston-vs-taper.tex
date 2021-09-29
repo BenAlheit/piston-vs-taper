@@ -1,7 +1,7 @@
 \documentclass{article}
 
 \include{package-style-defs}
-\graphicspath{{./inkscape-figures/}{./lit-figures/}} 
+\graphicspath{{./inkscape-figures/}{./lit-figures/}{./results-figures/}} 
 \bibliography{piston-vs-taper.bib}
 
 \title{Development of a machine learning model to determine the forces on the piston in the pump-tube of a two-stage gas gun deforming due to a taper}
@@ -39,53 +39,67 @@
 
 \subsubsection{title}
 
-\section{Finite element simulation}
+\section{Finite element model}
+
+\subsection{Geometry}
+
+\subsection{Interactions}
 
 \subsection{Material models}
-
-\subsubsection{ABS}
-
-\red{
-\begin{enumerate}
-	\item Yield stress: 48.26 MPa from https://peer.asee.org/tensile-comparison-of-polymer-specimens-produced-with-different-processes.pdf
-	\item (Modelled as perfect plasticity)
-	\item Poisson's ration: 0.35 from http://www.goodfellow.com/A/Polyacrylonitrile-butadiene-styrene.html
-	\item Young's modulus: 2.1-2.4 GPa from http://www.goodfellow.com/A/Polyacrylonitrile-butadiene-styrene.html
-	\item Density $1.05 \times 10 ^{-9}$ ton/mm$^3$ from http://www.goodfellow.com/A/Polyacrylonitrile-butadiene-styrene.html
-\end{enumerate}
-}
-
-\subsubsection{Steel}
-
-\red{
-	\begin{enumerate}
-		\item Poisson's ration: 0.3 from http://www.matweb.com/search/datasheet.aspx?bassnum=MS0001\&ckck=1
-		\item Young's modulus: 200 GPa from http://www.matweb.com/search/datasheet.aspx?bassnum=MS0001\&ckck=1
-		\item Density $8 \times 10 ^{-9}$ ton/mm$^3$ from http://www.matweb.com/search/datasheet.aspx?bassnum=MS0001\&ckck=1
-	\end{enumerate}
-}
-
+The material models used for each component are presented here.
+\subsubsection{High density polyethylene (HDPE)}
+High Density Polyethylene (HDPE) is modelled using the Ramberg-Osgood model as done so in the literature \cite{amjadi2020tensile}. In 1D, the model is given by
+\begin{equation}
+	E_{c}\varepsilon = \sigma + \alpha_{c} \sigma\left[\dfrac{|\sigma|}{\sigma_{yc}}\right]^{n-1}\,,
+	\label{eq:ro-model}
+\end{equation} 
+where $E_{c}$ is the Young's modulus, $\alpha_{c}$ is the yield offset, $\sigma_{yc}$ is the yield stress and $n$ is the hardening exponent. In 3D, the model has the additional parameter of Poisson's ratio, denoted by $\nu_{c}$. The material parameters are determined by fitting the model to data from \cite{amjadi2020tensile} using a \texttt{Python} script which can be found at \bhref{https://github.com/BenAlheit/piston-vs-taper/blob/master/computation/determining_material_parameters/hdpe_room_temp.py}{this link}. Additionally, a 3D uniaxial \abaqus simulation utilizing the model is compared to the 1D model (equation \eqref{eq:ro-model}) to verify that the model behaves as expected in \abaqus. The results of the simulation, the behaviour of the model, and the data are displayed in Figure \ref{fig:stress-strain}.
+\singlefig{0.7}{hdpe-stress-strain-params}{Stress-strain relation for HDPE modelled with the Ramberg-Osgood model. The model is calibrated to fit data from \cite{amjadi2020tensile} (denoted by green `x's). Additionally, the 1D model is compared to a uniaxial \abaqus simulation using the calibrated material parameters. It is clear that the curves match each other and provide a good fit to the data.}{\label{fig:stress-strain}}
+The calibrated material parameters, as well as the other parameters required to define the model, are presented in Table \ref{tab:hdpe-mat-params}.
+\begin{table}[!htb]
+	\newcommand{\colsize}{2.cm}
+	\centering
+	\caption{Material parameters for HDPE}
+	\label{tab:hdpe-mat-params}
+	\begin{tabular}{p{\colsize}| p{\colsize} | p{\colsize} | p{\colsize} | p{\colsize} | p{\colsize}}
+		Density $\rho_{c}$ ton/mm\textsubscript{3} \cite{dasari2003microstructural, amjadi2020tensile} & Young's modulus $E_{c}$ MPa & Poisson's ratio $\nu_{c}$ \cite{nitta2012poisson} &  Yield stress $\sigma_{yc}$ MPa & Yield offset $\alpha_{c}$ & Hardening exponent $n$\\
+		\hline\hline
+		$0.95\times 10^{-9}$ & $1.63\times 10^{3}$ & $0.46$ & $14.6$ & 0.342 & 4.26
+	\end{tabular}
+\end{table}
 
 
+\subsubsection{Mild steel}
+The mild steel components are expected to remain in the elastic region and so only linear elastic material behaviour is considered. The material parameters are given in Table \ref{tab:mild-steel-mat-params}.
+\begin{table}[!htb]
+	\newcommand{\colsize}{2.cm}
+	\centering
+	\caption{Material parameters for mild steel \red{Ref later}}
+	\label{tab:mild-steel-mat-params}
+	\begin{tabular}{p{\colsize}| p{\colsize} | p{\colsize} }
+		Density $\rho_{t}$ ton/mm\textsubscript{3}  & Young's modulus $E_{t}$ MPa & Poisson's ratio $\nu_{t}$ \\
+		\hline\hline
+	$8\times 10^{-9}$ & $200\times10^{3}$ & 0.3
+	\end{tabular}
+\end{table}
 
 
-
-\subsubsection{HDPE}
-Material properties from \cite{amjadi2020tensile}.
-
-Linear elastoplastic
-\begin{enumerate}
-	\item Density -- $\rho_{c}=0.95\times 10^{-9}$,ton/mm\textsuperscript{3}
-	\item Young's modulus -- $E_{c}=1000$\,MPa
-	\item Poisson's ratio -- $\nu_{c}= 0.46$
-	\item Yield stress -- $\sigma_{yc}=12.5$\,MPa
-\end{enumerate}
 
 \subsubsection{Aluminium}
-\begin{enumerate}
-	\item 
-\end{enumerate}
+The aluminium components are expected to remain in the elastic region and so only linear elastic material behaviour is considered. The material parameters are given in Table \ref{tab:aluminium-mat-params}.
+\begin{table}[!htb]
+	\newcommand{\colsize}{2.cm}
+	\centering
+	\caption{Material parameters for aluminium taken from \cite{aluminium-props}}
+	\label{tab:aluminium-mat-params}
+	\begin{tabular}{p{\colsize}| p{\colsize} | p{\colsize} }
+		Density $\rho_{p}$ ton/mm\textsubscript{3}  & Young's modulus $E_{p}$ MPa & Poisson's ratio $\nu_{p}$ \\
+		\hline\hline
+		$2.69\times 10^{-9}$ & $68.3\times10^{3}$ & 0.34
+	\end{tabular}
+\end{table}
 
+\subsection{Initial and boundary conditions}
 \subsection{Single test simulation}
 
 \subsection{Mesh optimization}
