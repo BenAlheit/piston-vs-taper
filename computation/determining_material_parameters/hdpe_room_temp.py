@@ -1,14 +1,15 @@
 import numpy as np
 import scipy.optimize as op
 import matplotlib.pyplot as plt
+from typing import Iterable
 
-# Stress [MPa], strain [mm/mm]
+# True stress [MPa], true strain [mm/mm]
 data = np.genfromtxt('../../data/hdpe-true-stress-strain-room-temp-6e-2-rate.csv', delimiter=',')
 strain_data = data[:, 0]
 stress_data = data[:, 1]
 
 
-def get_ramberg_osgood_1d(eps, E, alpha, n, sig_0):
+def get_ramberg_osgood_1d(eps: float, E: float, alpha: float, n: float, sig_0: float):
     """
     Stress strain relation for the Ramberg-Osgood model.
     For details see: http://130.149.89.49:2080/v2016/books/usb/default.htm?startat=pt05ch23s02abm29.html
@@ -24,28 +25,39 @@ def get_ramberg_osgood_1d(eps, E, alpha, n, sig_0):
     return stress
 
 
-def get_ramberg_osgood_1d_stress_array(strain, E, alpha, n, sig_0):
+def get_ramberg_osgood_1d_stress_array(strain: Iterable[float], E: float, alpha: float, n: float, sig_0: float):
+    """
+    Gets array of stresses for array of strains for RO model.
+    :param strain: The current strain
+    :param E: Young's modulus
+    :param alpha: yield offset material parameter
+    :param n: hardening exponent (>1)
+    :param sig_0: yield stress
+    :return: Array of stresses.
+    """
     return np.array([get_ramberg_osgood_1d(eps, E, alpha, n, sig_0) for eps in strain])
 
 
 def obj(params):
+    """
+    Objective function to minimize
+    :param params: Parameters to optimize
+    :return: Error value
+    """
     stress_model = get_ramberg_osgood_1d_stress_array(strain_data, *params)
-    normalized_error = (stress_data - stress_model) / stress_data
-    return np.linalg.norm(normalized_error)
+    relative_error = (stress_data - stress_model) / stress_data
+    return np.linalg.norm(relative_error)**2
 
-# params = [1000, 0.1, 5, 10]
-#
-# stress = get_ramberg_osgood_1d(0.1, *params)
-# a=0
 op_result = op.differential_evolution(obj,
                                       bounds=((100, 10000),
                                               (0, 0.5),
                                               (1, 10),
                                               (0.1, 15)),
-                                      workers=-1, # n_cpus. -1 indicates all. Parallelization only workds on linux. For windows set workers=1 to avoid error.
+                                      workers=-1, # n_cpus. -1 indicates all available cpus. Parallelization only workds on linux. For windows set workers=1 to avoid error.
                                       polish=True,
                                       updating='deferred',
                                       disp=True)
+
 ## Good fit obtained: [1.62856286e+03 3.45909933e-01 5.26480184e+00 7.83313655e+00]
 op_params = op_result.x
 print(op_params)
