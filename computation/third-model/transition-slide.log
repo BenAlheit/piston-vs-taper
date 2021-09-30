@@ -4,14 +4,14 @@ Abaqus License Manager checked out the following licenses:
 Abaqus/Standard checked out 14 tokens from Flexnet server abaqusres.lic.uct.ac.za.
 <86 out of 100 licenses remain available>.
 Begin Analysis Input File Processor
-Thu Sep 23 17:04:41 2021
+Thu Sep 30 14:22:35 2021
 Run pre
-Thu Sep 23 17:04:43 2021
+Thu Sep 30 14:22:37 2021
 End Analysis Input File Processor
 Begin Abaqus/Standard Analysis
-Thu Sep 23 17:04:43 2021
+Thu Sep 30 14:22:37 2021
 Run standard
-Thu Sep 23 17:27:40 2021
+Thu Sep 30 14:26:09 2021
 Abaqus Error: The executable standard
 aborted with system error code 15.
 Please check the .dat, .msg, and .sta files for error messages if the files
