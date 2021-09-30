@@ -3,11 +3,11 @@ import numpy as np
 import scipy.optimize as op
 import matplotlib.pyplot as plt
 from typing import Iterable
-from computation.abaqus_utils import run_abaqus_standard_job as rj, extraction as ex
+from computation.abaqus_utils import run_abaqus_standard_job as rj, extraction as ex, input_file as inp
 
 cpus=1
 HDPE_nu = 0.46
-RUN_ABAQUS = False
+RUN_ABAQUS = True
 SAVE_FIG = False
 N_ABAQUS = 20
 # True stress [MPa], true strain [mm/mm]
@@ -82,22 +82,16 @@ plt.plot(strain_model, stress_model, linewidth=2, label='Fitted Ramberg-Osgood m
 E, alpha, n, sig_0 = op_params
 
 plastic_strain = strain_data - stress_data/E
-
-for stress in stress_data:
-    print(stress)
-print('plastic_strain')
-for stress in plastic_strain:
-    print(stress)
-# print(stress_data)
-# print(plastic_strain)
+plastic_strain[0] = 0
+table = inp.array_to_table(np.array([stress_data, plastic_strain]).T)
 
 if RUN_ABAQUS:
-    inp_template = Template(open('./hpde-behaviour.inp-tmp', 'r').read())
-    E, alpha, n, sig_0 = op_params
+    inp_template = Template(open('./hpde-behaviour-elastoplastic.inp-tmp', 'r').read())
     inp_file_str = inp_template.render(youngs_modulus=E,
                                        sig_0=sig_0,
                                        n=n,
                                        alpha=alpha,
+                                       plasticity_table=table,
                                        step_size=1./N_ABAQUS)
     # Path(directory).mkdir(parents=True, exist_ok=True)
     open(f'./hpde-behaviour.inp', 'w+').write(inp_file_str)
