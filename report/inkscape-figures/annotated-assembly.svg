@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="annotated-assembly.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <defs
+     id="defs2">
+    <script
+       type="text/ecmascript"
+       id="script4626"><![CDATA[
+var svgdoc, root; 
+var fTol = 2000.;
+var fBlueTol = 0.05 * fTol;
+var fGreenTol = 0.017 * fTol;
+var fRedTol = 0.032 * fTol;
+var svgnsz="http://www.w3.org/2000/svg";
+var version = 'Viewer unknown';
+try
+{
+version = window.getSVGViewerVersion();
+if(version.search("Adobe") != -1)
+{
+svgnsz = null;
+}
+}
+catch(er)
+{
+}
+function SubDivideTriangle(evt, x1,y1,x2,y2,x3,y3,c1R,c1G,c1B,c2R,c2G,c2B,c3R,c3G,c3B,alpha)
+{
+svgdoc=evt.target.ownerDocument;
+root=evt.target;
+
+if(Math.abs(c2B - c1B) > fBlueTol ||
+Math.abs(c2G - c1G) > fGreenTol ||
+Math.abs(c2R - c1R) > fRedTol ||
+Math.abs(c3B - c1B) > fBlueTol ||
+Math.abs(c3G - c1G) > fGreenTol ||
+Math.abs(c3R - c1R) > fRedTol ||
+Math.abs(c2B - c3B) > fBlueTol ||
+Math.abs(c2G - c3G) > fGreenTol ||
+Math.abs(c2R - c3R) > fRedTol )
+{
+var v1x = 0.5*(x1+x2);
+var v1y = 0.5*(y1+y2);
+var v2x = 0.5*(x1+x3);
+var v2y = 0.5*(y1+y3);
+var v3x = 0.5*(x2+x3);
+var v3y = 0.5*(y2+y3);
+var c1r = 0.5*(c1R+c2R);
+var c1g = 0.5*(c1G+c2G);
+var c1b = 0.5*(c1B+c2B);
+var c2r = 0.5*(c1R+c3R);
+var c2g = 0.5*(c1G+c3G);
+var c2b = 0.5*(c1B+c3B);
+var c3r = 0.5*(c2R+c3R);
+var c3g = 0.5*(c2G+c3G);
+var c3b = 0.5*(c2B+c3B);
+SubDivideTriangle(evt,x1,y1,v1x,v1y,v2x,v2y, c1R,c1G,c1B,c1r,c1g,c1b,c2r,c2g,c2b, alpha);
+SubDivideTriangle(evt,v1x,v1y,v2x,v2y,v3x,v3y, c1r,c1g,c1b,c2r,c2g,c2b,c3r,c3g,c3b,alpha);
+SubDivideTriangle(evt,v1x,v1y,x2,y2,v3x,v3y, c1r,c1g,c1b,c2R,c2G,c2B,c3r,c3g,c3b,alpha);
+SubDivideTriangle(evt,v2x,v2y,v3x,v3y,x3,y3, c2r,c2g,c2b,c3r,c3g,c3b,c3R,c3G,c3B,alpha);
+}
+else
+{
+obj = svgdoc.createElementNS(svgnsz,'polygon');
+str = String(x1) + "," + String(y1) + " " + String(x2) + "," + String(y2) + " " + String(x3) + "," + String(y3) ;
+obj.setAttributeNS(null,'points', str);
+var rc = Math.round((c1R+c2R+c3R)/3.0).toString(16);
+var gc = Math.round((c1G+c2G+c3G)/3.0).toString(16);
+var bc = Math.round((c1B+c2B+c3B)/3.0).toString(16);
+if(rc.length == 1) rc = "0"+rc;
+if(gc.length == 1) gc = "0"+gc;
+if(bc.length == 1) bc = "0"+bc;
+cStr = "#" + rc + gc + bc;
+aStr = String(alpha);
+obj.setAttributeNS(null, "style", "fill:" + cStr + "; stroke:" + cStr + "; opacity:" + aStr );
+aStr = String(alpha);
+obj.setAttributeNS(null,"opacity", aStr);
+root.appendChild(obj);
+}
+}
+]]></script>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="406.88414"
+     inkscape:cy="746.43459"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="1341"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <polygon
+       style="opacity:1;fill:#d0d0bc"
+       points="543.83,601.71 543.83,519.27 579.19,601.71 "
+       id="polygon4520"
+       transform="matrix(0,0.27270473,-0.27270473,0,193.68068,-39.782696)" />
+    <polygon
+       style="opacity:1;fill:#d0d0bc;stroke:#d0d0bc;stroke-opacity:1"
+       points="579.19,601.71 543.83,519.27 579.19,483.93 "
+       id="polygon4522"
+       transform="matrix(0,0.27270473,-0.27270473,0,193.68068,-39.782696)" />
+    <polygon
+       style="opacity:1;fill:#d0d0bc"
+       points="579.19,483.93 543.83,519.27 532.04,519.27 "
+       id="polygon4524"
+       transform="matrix(0,0.27270473,-0.27270473,0,193.68068,-39.782696)" />
+    <polygon
+       style="opacity:1;fill:#d0d0bc;stroke:#d0d0bc;stroke-opacity:1"
+       points="532.04,366.16 579.19,483.93 532.04,519.27 "
+       id="polygon4526"
+       transform="matrix(0,0.27270473,-0.27270473,0,193.68068,-39.782696)" />
+    <polygon
+       style="opacity:1;fill:#d0d0bc;stroke:#d0d0bc;stroke-opacity:1"
+       points="532.04,366.16 590.98,472.16 579.19,483.93 "
+       id="polygon4528"
+       transform="matrix(0,0.27270473,-0.27270473,0,193.68068,-39.782696)" />
+    <polygon
+       style="opacity:1;fill:#d0d0bc"
+       points="532.04,366.16 560.33,366.16 590.98,472.16 "
+       id="polygon4530"
+       transform="matrix(0,0.27270473,-0.27270473,0,193.68068,-39.782696)" />
+    <polygon
+       style="opacity:1;fill:#d0d0bc"
+       points="560.33,307.27 590.98,307.27 560.33,366.16 "
+       id="polygon4532"
+       transform="matrix(0,0.27270473,-0.27270473,0,193.68068,-39.782696)" />
+    <polygon
+       style="opacity:1;fill:#d0d0bc;stroke:#d0d0bc;stroke-opacity:1"
+       points="560.33,366.16 590.98,307.27 590.98,472.16 "
+       id="polygon4534"
+       transform="matrix(0,0.27270473,-0.27270473,0,193.68068,-39.782696)" />
+    <polygon
+       style="opacity:1;fill:#407a67"
+       points="586.26,189.5 588.07,189.86 586.26,194.21 "
+       id="polygon4536"
+       transform="matrix(0,0.27270473,-0.27270473,0,193.68068,-39.782696)" />
+    <polygon
+       style="opacity:1;fill:#407a67;stroke:#407a67;stroke-opacity:1"
+       points="586.26,194.21 588.07,189.86 589.6,190.88 "
+       id="polygon4538"
+       transform="matrix(0,0.27270473,-0.27270473,0,193.68068,-39.782696)" />
+    <polygon
+       style="opacity:1;fill:#407a67;stroke:#407a67;stroke-opacity:1"
+       points="590.62,192.41 586.26,194.21 589.6,190.88 "
+       id="polygon4540"
+       transform="matrix(0,0.27270473,-0.27270473,0,193.68068,-39.782696)" />
+    <polygon
+       style="opacity:1;fill:#407a67;stroke:#407a67;stroke-opacity:1"
+       points="590.62,192.41 590.98,194.21 586.26,194.21 "
+       id="polygon4542"
+       transform="matrix(0,0.27270473,-0.27270473,0,193.68068,-39.782696)" />
+    <polygon
+       style="opacity:1;fill:#407a67;stroke:#407a67;stroke-opacity:1"
+       points="560.33,366.16 532.04,366.16 560.33,307.27 "
+       id="polygon4544"
+       transform="matrix(0,0.27270473,-0.27270473,0,193.68068,-39.782696)" />
+    <polygon
+       style="opacity:1;fill:#407a67"
+       points="560.33,307.27 532.04,366.16 532.04,194.21 "
+       id="polygon4546"
+       transform="matrix(0,0.27270473,-0.27270473,0,193.68068,-39.782696)" />
+    <polygon
+       style="opacity:1;fill:#407a67;fill-opacity:1;stroke:#407a67;stroke-width:1.73447669;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       points="586.26,194.21 560.33,307.27 532.04,194.21 "
+       id="polygon4548"
+       transform="matrix(0,0.27270473,-0.27270473,0,193.68068,-39.782696)" />
+    <polygon
+       style="opacity:1;fill:#407a67"
+       points="586.26,307.27 560.33,307.27 586.26,194.21 "
+       id="polygon4550"
+       transform="matrix(0,0.27999313,-0.27270473,0,193.68068,-43.866603)" />
+    <polygon
+       style="opacity:1;fill:#407a67;stroke:#407a67;stroke-opacity:1"
+       points="586.26,194.21 532.04,189.5 586.26,189.5 "
+       id="polygon4552"
+       transform="matrix(0,0.27270473,-0.27270473,0,193.68068,-39.782696)" />
+    <polygon
+       style="opacity:1;fill:#407a67"
+       points="586.26,194.21 532.04,194.21 532.04,189.5 "
+       id="polygon4554"
+       transform="matrix(0,0.27270473,-0.27270473,0,193.68068,-39.782696)" />
+    <polygon
+       style="opacity:1;fill:#407a67"
+       points="586.26,194.21 590.98,307.27 586.26,307.27 "
+       id="polygon4556"
+       transform="matrix(0,0.27270473,-0.27270473,0,193.68068,-39.782696)" />
+    <polygon
+       style="opacity:1;fill:#407a67;stroke:#407a67;stroke-opacity:1"
+       points="586.26,194.21 590.98,194.21 590.98,307.27 "
+       id="polygon4558"
+       transform="matrix(0,0.27270473,-0.27270473,0,193.68068,-39.782696)" />
+    <polygon
+       style="opacity:1;fill:#075589;stroke:#075589;stroke-opacity:1"
+       points="626.34,67.02 590.98,189.5 546.18,67.02 "
+       id="polygon4560"
+       transform="matrix(0,0.27270473,-0.27270473,0,193.68068,-39.782696)" />
+    <polygon
+       style="opacity:1;fill:#075589;stroke:#075589;stroke-opacity:1"
+       points="626.34,67.02 614.55,189.5 590.98,189.5 "
+       id="polygon4562"
+       transform="matrix(0,0.27270473,-0.27270473,0,193.68068,-39.782696)" />
+    <polygon
+       style="opacity:1;fill:#075589;stroke:#075589;stroke-opacity:1"
+       points="626.34,67.02 626.34,189.5 614.55,189.5 "
+       id="polygon4564"
+       transform="matrix(0,0.27270473,-0.27270473,0,193.68068,-39.782696)" />
+    <polygon
+       style="opacity:1;fill:#075589;stroke:#075589;stroke-opacity:1"
+       points="614.55,189.5 626.34,307.27 614.55,307.27 "
+       id="polygon4566"
+       transform="matrix(0,0.27270473,-0.27270473,0,193.68068,-39.782696)" />
+    <polygon
+       style="opacity:1;fill:#075589;stroke:#075589;stroke-opacity:1"
+       points="614.55,189.5 626.34,189.5 626.34,307.27 "
+       id="polygon4568"
+       transform="matrix(0,0.27270473,-0.27270473,0,193.68068,-39.782696)" />
+    <polygon
+       style="opacity:1;fill:#075589;stroke:#075589;stroke-opacity:1"
+       points="626.34,67.02 546.18,24.62 626.34,24.62 "
+       id="polygon4570"
+       transform="matrix(0,0.27270473,-0.27270473,0,193.68068,-39.782696)" />
+    <polygon
+       style="opacity:1;fill:#075589;stroke:#075589;stroke-opacity:1"
+       points="626.34,67.02 546.18,67.02 546.18,24.62 "
+       id="polygon4572"
+       transform="matrix(0,0.27270473,-0.27270473,0,193.68068,-39.782696)" />
+    <polygon
+       style="opacity:1;fill:#a13737;stroke:#a13737;stroke-opacity:1"
+       points="614.55,307.27 590.98,189.5 614.55,189.5 "
+       id="polygon4574"
+       transform="matrix(0,0.27270473,-0.27270473,0,193.68068,-39.782696)" />
+    <polygon
+       style="opacity:1;fill:#a13737;stroke:#a13737;stroke-opacity:1"
+       points="614.55,307.27 590.98,307.27 590.98,189.5 "
+       id="polygon4576"
+       transform="matrix(0,0.27270473,-0.27270473,0,193.68068,-39.782696)" />
+    <polygon
+       style="opacity:1;fill:#a13737"
+       points="590.98,642 590.98,307.27 595.44,642 "
+       id="polygon4578"
+       transform="matrix(0,0.27270473,-0.27270473,0,193.68068,-39.782696)" />
+    <polygon
+       style="opacity:1;fill:#a13737;stroke:#a13737;stroke-opacity:1"
+       points="595.44,642 590.98,307.27 614.55,642 "
+       id="polygon4580"
+       transform="matrix(0,0.27270473,-0.27270473,0,193.68068,-39.782696)" />
+    <polygon
+       style="opacity:1;fill:#a13737;stroke:#a13737;stroke-opacity:1"
+       points="590.98,307.27 614.55,307.27 614.55,642 "
+       id="polygon4582"
+       transform="matrix(0,0.27270473,-0.27270473,0,193.68068,-39.782696)" />
+    <line
+       x1="18.604259"
+       y1="105.30714"
+       x2="193.68071"
+       y2="105.30714"
+       style="stroke:#bbbb00;stroke-width:0.72266757;stroke-dasharray:1.09081893, 0.54540946, 0.54540946, 0.54540946"
+       id="line4584" />
+    <g
+       onload="SubDivideTriangle(evt,90.80,585.64,90.80,586.51,115.86,585.64,168,0,0,127,0,0,168,0,0,1.00)"
+       id="g4628" />
+    <g
+       onload="SubDivideTriangle(evt,90.80,586.51,115.86,586.51,115.86,585.64,127,0,0,127,0,0,168,0,0,1.00)"
+       id="g4630" />
+    <g
+       onload="SubDivideTriangle(evt,90.80,584.22,90.80,585.64,115.86,584.22,207,6,6,168,0,0,207,6,6,1.00)"
+       id="g4632" />
+    <g
+       onload="SubDivideTriangle(evt,90.80,585.64,115.86,585.64,115.86,584.22,168,0,0,168,0,0,207,6,6,1.00)"
+       id="g4634" />
+    <g
+       onload="SubDivideTriangle(evt,90.80,582.80,90.80,584.22,115.86,582.80,204,0,0,207,6,6,204,0,0,1.00)"
+       id="g4636" />
+    <g
+       onload="SubDivideTriangle(evt,90.80,584.22,115.86,584.22,115.86,582.80,207,6,6,207,6,6,204,0,0,1.00)"
+       id="g4638" />
+    <g
+       onload="SubDivideTriangle(evt,90.80,581.93,90.80,582.80,115.86,581.93,178,0,0,204,0,0,178,0,0,1.00)"
+       id="g4640" />
+    <g
+       onload="SubDivideTriangle(evt,90.80,582.80,115.86,582.80,115.86,581.93,204,0,0,204,0,0,178,0,0,1.00)"
+       id="g4642" />
+    <g
+       onload="SubDivideTriangle(evt,90.80,581.93,90.80,581.93,115.86,581.93,134,0,0,178,0,0,134,0,0,1.00)"
+       id="g4644" />
+    <g
+       onload="SubDivideTriangle(evt,90.80,581.93,115.86,581.93,115.86,581.93,178,0,0,178,0,0,134,0,0,1.00)"
+       id="g4646" />
+    <g
+       onload="SubDivideTriangle(evt,129.35,584.22,115.86,578.11,115.86,578.11,127,0,0,127,0,0,155,0,0,1.00)"
+       id="g4648" />
+    <g
+       onload="SubDivideTriangle(evt,129.35,584.22,115.86,578.11,115.86,580.45,127,0,0,155,0,0,178,0,0,1.00)"
+       id="g4650" />
+    <g
+       onload="SubDivideTriangle(evt,129.35,584.22,115.86,580.45,115.86,584.22,127,0,0,178,0,0,174,0,0,1.00)"
+       id="g4652" />
+    <g
+       onload="SubDivideTriangle(evt,129.35,584.22,115.86,584.22,115.86,587.99,127,0,0,174,0,0,146,0,0,1.00)"
+       id="g4654" />
+    <g
+       onload="SubDivideTriangle(evt,129.35,584.22,115.86,587.99,115.86,590.33,127,0,0,146,0,0,127,0,0,1.00)"
+       id="g4656" />
+    <g
+       onload="SubDivideTriangle(evt,92.75,584.22,93.21,584.22,92.75,559.18,0,136,0,0,127,0,0,136,0,1.00)"
+       id="g4716" />
+    <g
+       onload="SubDivideTriangle(evt,93.21,584.22,93.21,559.18,92.75,559.18,0,127,0,0,127,0,0,136,0,1.00)"
+       id="g4718" />
+    <g
+       onload="SubDivideTriangle(evt,91.54,584.22,92.75,584.22,91.54,559.18,0,183,0,0,136,0,0,183,0,1.00)"
+       id="g4720" />
+    <g
+       onload="SubDivideTriangle(evt,92.75,584.22,92.75,559.18,91.54,559.18,0,136,0,0,136,0,0,183,0,1.00)"
+       id="g4722" />
+    <g
+       onload="SubDivideTriangle(evt,90.06,584.22,91.54,584.22,90.06,559.18,48,255,48,0,183,0,48,255,48,1.00)"
+       id="g4724" />
+    <g
+       onload="SubDivideTriangle(evt,91.54,584.22,91.54,559.18,90.06,559.18,0,183,0,0,183,0,48,255,48,1.00)"
+       id="g4726" />
+    <g
+       onload="SubDivideTriangle(evt,88.85,584.22,90.06,584.22,88.85,559.18,0,203,0,48,255,48,0,203,0,1.00)"
+       id="g4728" />
+    <g
+       onload="SubDivideTriangle(evt,90.06,584.22,90.06,559.18,88.85,559.18,48,255,48,48,255,48,0,203,0,1.00)"
+       id="g4730" />
+    <g
+       onload="SubDivideTriangle(evt,88.39,584.22,88.85,584.22,88.39,559.18,0,169,0,0,203,0,0,169,0,1.00)"
+       id="g4732" />
+    <g
+       onload="SubDivideTriangle(evt,88.85,584.22,88.85,559.18,88.39,559.18,0,203,0,0,203,0,0,169,0,1.00)"
+       id="g4734" />
+    <g
+       onload="SubDivideTriangle(evt,90.80,545.70,84.37,559.18,85.60,559.18,0,157,0,0,178,0,0,209,0,1.00)"
+       id="g4736" />
+    <g
+       onload="SubDivideTriangle(evt,90.80,545.70,85.60,559.18,88.81,559.18,0,157,0,0,209,0,13,230,13,1.00)"
+       id="g4738" />
+    <g
+       onload="SubDivideTriangle(evt,90.80,545.70,88.81,559.18,92.79,559.18,0,157,0,13,230,13,0,191,0,1.00)"
+       id="g4740" />
+    <g
+       onload="SubDivideTriangle(evt,90.80,545.70,92.79,559.18,96.00,559.18,0,157,0,0,191,0,0,148,0,1.00)"
+       id="g4742" />
+    <g
+       onload="SubDivideTriangle(evt,90.80,545.70,96.00,559.18,97.23,559.18,0,157,0,0,148,0,0,127,0,1.00)"
+       id="g4744" />
+    <g
+       onload="SubDivideTriangle(evt,88.85,585.64,90.06,586.51,88.85,585.64,0,0,143,0,0,127,0,0,143,1.00)"
+       id="g4798" />
+    <g
+       onload="SubDivideTriangle(evt,90.06,586.51,90.06,586.51,88.85,585.64,0,0,127,0,0,127,0,0,143,1.00)"
+       id="g4800" />
+    <g
+       onload="SubDivideTriangle(evt,88.39,584.22,88.85,585.64,88.39,584.22,0,0,169,0,0,143,0,0,169,1.00)"
+       id="g4802" />
+    <g
+       onload="SubDivideTriangle(evt,88.85,585.64,88.85,585.64,88.39,584.22,0,0,143,0,0,143,0,0,169,1.00)"
+       id="g4804" />
+    <g
+       onload="SubDivideTriangle(evt,88.85,582.80,88.39,584.22,88.85,582.80,0,0,179,0,0,169,0,0,179,1.00)"
+       id="g4806" />
+    <g
+       onload="SubDivideTriangle(evt,88.39,584.22,88.39,584.22,88.85,582.80,0,0,169,0,0,169,0,0,179,1.00)"
+       id="g4808" />
+    <g
+       onload="SubDivideTriangle(evt,90.06,581.93,88.85,582.80,90.06,581.93,0,0,169,0,0,179,0,0,169,1.00)"
+       id="g4810" />
+    <g
+       onload="SubDivideTriangle(evt,88.85,582.80,88.85,582.80,90.06,581.93,0,0,179,0,0,179,0,0,169,1.00)"
+       id="g4812" />
+    <g
+       onload="SubDivideTriangle(evt,91.54,581.93,90.06,581.93,91.54,581.93,0,0,143,0,0,169,0,0,143,1.00)"
+       id="g4814" />
+    <g
+       onload="SubDivideTriangle(evt,90.06,581.93,90.06,581.93,91.54,581.93,0,0,169,0,0,169,0,0,143,1.00)"
+       id="g4816" />
+    <g
+       onload="SubDivideTriangle(evt,92.75,582.80,91.54,581.93,92.75,582.80,0,0,127,0,0,143,0,0,127,1.00)"
+       id="g4818" />
+    <g
+       onload="SubDivideTriangle(evt,91.54,581.93,91.54,581.93,92.75,582.80,0,0,143,0,0,143,0,0,127,1.00)"
+       id="g4820" />
+    <g
+       onload="SubDivideTriangle(evt,90.80,584.22,97.23,584.22,96.00,580.45,6,6,207,0,0,127,0,0,144,1.00)"
+       id="g4826" />
+    <g
+       onload="SubDivideTriangle(evt,90.80,584.22,96.00,580.45,92.79,578.11,6,6,207,0,0,144,0,0,173,1.00)"
+       id="g4828" />
+    <g
+       onload="SubDivideTriangle(evt,90.80,584.22,92.79,578.11,88.81,578.11,6,6,207,0,0,173,0,0,196,1.00)"
+       id="g4830" />
+    <g
+       onload="SubDivideTriangle(evt,90.80,584.22,88.81,578.11,85.60,580.45,6,6,207,0,0,196,0,0,205,1.00)"
+       id="g4832" />
+    <g
+       onload="SubDivideTriangle(evt,90.80,584.22,85.60,580.45,84.37,584.22,6,6,207,0,0,205,0,0,196,1.00)"
+       id="g4834" />
+    <g
+       onload="SubDivideTriangle(evt,90.80,584.22,84.37,584.22,85.60,587.99,6,6,207,0,0,196,0,0,173,1.00)"
+       id="g4836" />
+    <g
+       onload="SubDivideTriangle(evt,90.80,584.22,85.60,587.99,88.81,590.33,6,6,207,0,0,173,0,0,144,1.00)"
+       id="g4838" />
+    <g
+       onload="SubDivideTriangle(evt,90.80,584.22,88.81,590.33,92.79,590.33,6,6,207,0,0,144,0,0,127,1.00)"
+       id="g4840" />
+    <g
+       onload="SubDivideTriangle(evt,90.80,584.22,92.79,590.33,96.00,587.99,6,6,207,0,0,127,0,0,127,1.00)"
+       id="g4842" />
+    <g
+       onload="SubDivideTriangle(evt,90.80,584.22,96.00,587.99,97.23,584.22,6,6,207,0,0,127,0,0,127,1.00)"
+       id="g4844" />
+  </g>
+</svg>
