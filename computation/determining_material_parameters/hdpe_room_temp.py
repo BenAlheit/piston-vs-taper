@@ -5,9 +5,10 @@ import matplotlib.pyplot as plt
 from typing import Iterable
 from computation.abaqus_utils import run_abaqus_standard_job as rj, extraction as ex
 
+cpus=1
 HDPE_nu = 0.46
-RUN_ABAQUS = True
-SAVE_FIG = True
+RUN_ABAQUS = False
+SAVE_FIG = False
 N_ABAQUS = 20
 # True stress [MPa], true strain [mm/mm]
 data = np.genfromtxt('../../data/hdpe-true-stress-strain-room-temp-6e-2-rate.csv', delimiter=',')
@@ -60,10 +61,10 @@ op_result = op.differential_evolution(obj,
                                               (0, 0.5),
                                               (1, 10),
                                               (0.1, 15)),
-                                      popsize=40,
-                                      tol=0.000000001,
-                                      atol=0.00000001,
-                                      workers=-1,
+                                      # popsize=40,
+                                      # tol=0.000000001,
+                                      # atol=0.00000001,
+                                      workers=cpus,
                                       # workers=n_cpus. -1 indicates all available cpus. Parallelization only workds on linux. For windows set workers=1 to avoid error.
                                       polish=True,
                                       updating='deferred',
@@ -78,6 +79,17 @@ print(op_params)
 strain_model = np.linspace(0, strain_data[-1], 100)
 stress_model = get_ramberg_osgood_1d_stress_array(strain_model, *op_params)
 plt.plot(strain_model, stress_model, linewidth=2, label='Fitted Ramberg-Osgood model')
+E, alpha, n, sig_0 = op_params
+
+plastic_strain = strain_data - stress_data/E
+
+for stress in stress_data:
+    print(stress)
+print('plastic_strain')
+for stress in plastic_strain:
+    print(stress)
+# print(stress_data)
+# print(plastic_strain)
 
 if RUN_ABAQUS:
     inp_template = Template(open('./hpde-behaviour.inp-tmp', 'r').read())

@@ -40,9 +40,13 @@
 \subsubsection{title}
 
 \section{Finite element model}
-
+A finite element model of the scenario is created to run computation experiments. Theses experiments provide data for the force and plastic deformation that the cap experiences as it makes contact with the transition piece. After several computational experiments are run, the resulting data is used to train a machine learning model that can predict the forces experienced by the cap without the need for a finite element model.
 \subsection{Geometry}
+Axial symmetry is used to reduce the problem to two dimensions. The resulting geometric model is presented in Figure \ref{fig:assembly}.
 \singlefig{0.99}{annotated-assembly}{Geometric model of two-stage gas gun pump tube.}{\label{fig:assembly}}
+\red{Explain the model and the parts and geometries}
+\red{Table of geometric values}
+
 \subsection{Material models}
 The material models used for each component are presented here.
 \subsubsection{High density polyethylene (HDPE)}
@@ -98,13 +102,61 @@ The aluminium components are expected to remain in the elastic region and so onl
 \end{table}
 
 \subsection{Interactions}
-\subsubsection{Cap and tube}
-\subsubsection{Cap and transition piece}
-\subsubsection{Cap and piston}
-\subsubsection{Piston and tube}
-\subsubsection{Tube and transition piece}
+Contact interactions and tie constraints are applied between various parts in the assembly, see Figure \ref{fig:assembly}. The relevant coefficients of friction for these interactions are obtained from the literature and summarised in Table \ref{tab:ceof}.
+\begin{table}[!htb]
+	\centering
+	\caption{Relevant coefficients of friction for problem}
+	\label{tab:ceof}
+	\begin{tabular}{c | c | c}
+		HDPE on steel $\mu_{cs}$ \cite{kinsella2005experimental} & steel on steel $\mu_{ss}$ \cite{trzepiecinski2019study} & aluminium on steel $\mu_{as}$ \cite{javadi2006experimental} \\
+		\hline \hline
+		0.25 & 0.2 & 0.5
+	\end{tabular}
+\end{table}
+
+The cap is assigned a contact interaction with the pump tube and the transition piece. Hard contact is used to describe the normal behaviour and sliding friction is used to describe the tangential behaviour with a coefficient of friction of $\mu_{cs}$, see Table \ref{tab:ceof}. The piston is similarly assigned a contact interaction with the pump tube with a coefficient of friction of $\mu_{as}$.
+
+The pump tube is tied to the transition piece to approximate the threaded interaction. Additionally, a tie constraint is assigned between the cap and the piston. The interaction between the cap and piston would likely better be described by cohesive interaction. However, the interaction between the cap and the piston is expected to have little influence on the results of interest from the model, and so a tie constraint is used as a convenient first approximation.
+
 
 \subsection{Initial and boundary conditions}
+\red{
+\begin{enumerate}
+	\item Region A and B are encastracted
+	\item The piston and end cap are assigned an initial velocity of $v_{0}$
+	\item A pressure load is applied to the back of the piston with varying magnitude throughout time.
+	\item A pressure load is applied to the front of the cap with varying magnitude throughout time.
+\end{enumerate}
+}
+
+\subsection{Time integration}
+An implicit Newmark-method is used with time increments of \red{$\Delta t$}
+
+
+\subsection{Variable input parameters and desired output parameters}
+
+Input parameters to be varied:
+\begin{enumerate}
+	\item $v_0$
+	\item $p_{\text{back}}$
+	\item $p_{\text{front}}$
+\end{enumerate}
+
+Outputs of interest:
+\begin{enumerate}
+	\item $v$
+	\item $x_{t}$
+	\item $\vavg{\Phi_{c}}$
+	\item $\Delta p$
+\end{enumerate}
+
+Outputs to later be predicted:
+\begin{enumerate}
+	\item $F_c$
+	\item $\vavg{\dot{\Phi}_{c}}$
+\end{enumerate}
+
+
 \subsection{Single test simulation}
 
 \subsection{Mesh optimization}
