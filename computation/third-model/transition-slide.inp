@@ -767,6 +767,8 @@
    1,  521,    1
 *Elset, elset=cap, generate
    1,  234,    1
+*Nset, nset=cap-centre
+ 7,
 *Elset, elset=_piston-contact_S1, internal
  24,
 *Elset, elset=_piston-contact_S2, internal
@@ -7075,17 +7077,15 @@ transition-piece-1.tube-tie, pump-tube-1.transition-tie
 ** MATERIALS
 ** 
 *Material, name=HDPE
+*Deformation Plasticity
+1630.,  0.46,  14.6,  4.26, 0.342
 *Density
  9.5e-10,
-*Elastic
-1000., 0.46
-*Plastic
- 12.5,0.
 *Material, name=aluminium
 *Density
  2.7e-09,
 *Elastic
-68000., 0.32
+68300., 0.34
 *Material, name=mild-steel
 *Density
  8e-09,
@@ -7097,13 +7097,15 @@ transition-piece-1.tube-tie, pump-tube-1.transition-tie
 *Surface Interaction, name=HDPE-on-steel
 1.,
 *Friction, slip tolerance=0.005
- 0.02,
+ 0.25,
 *Surface Behavior, pressure-overclosure=HARD
 *Surface Interaction, name=aluminium-on-steel
 1.,
 *Friction, slip tolerance=0.005
- 0.01,
+ 0.5,
 *Surface Behavior, pressure-overclosure=HARD
+*Time Points, name=measure-values, GENERATE
+0., 0.003, 3e-05
 ** 
 ** BOUNDARY CONDITIONS
 ** 
@@ -7120,7 +7122,7 @@ piston-centre-actual, 1, 1
 ** Name: contact-velocity   Type: Velocity
 *Initial Conditions, type=VELOCITY
 piston-and-cap, 1, 0.
-piston-and-cap, 2, 5000.
+piston-and-cap, 2, 20000.
 ** 
 ** INTERACTIONS
 ** 
@@ -7137,9 +7139,9 @@ piston-1.pump-contact, tube-inner
 ** 
 ** STEP: taper-slide
 ** 
-*Step, name=taper-slide, nlgeom=YES, inc=1000000
+*Step, name=taper-slide, nlgeom=YES, inc=10000
 *Dynamic
-0.0001,0.1,1e-06
+0.003,0.003,3e-08
 ** 
 ** LOADS
 ** 
@@ -7160,9 +7162,14 @@ cap-front, P, 0.01
 ** 
 ** HISTORY OUTPUT: H-Output-1
 ** 
-*Output, history, frequency=1
+*Output, history, time points=measure-values
 *Energy Output
-ALLAE, ALLCD, ALLDMD, ALLEE, ALLFD, ALLIE, ALLJD, ALLKE, ALLKL, ALLPD, ALLQB, ALLSD, ALLSE, ALLVD, ALLWK, ETOTAL
+ALLPD, 
 *Contact Output
-CFN1, CFN2, CFN3, CFNM, CFS1, CFS2, CFS3, CFSM, CFT1, CFT2, CFT3, CFTM
+CFT2, 
+** 
+** HISTORY OUTPUT: H-Output-2
+** 
+*Node Output, nset=cap-1.cap-centre
+U2, V2
 *End Step
