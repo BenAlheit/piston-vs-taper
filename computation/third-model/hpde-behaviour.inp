@@ -70,27 +70,27 @@
              0.,              1.,              1.,              1.
 ** 
 ** MATERIALS
-**
+** 
 *Material, name=HDPE
 *Density
  9.5e-10,
 *Elastic
-1629.9587279662167, 0.46
+1630., 0.46
 *Plastic
-7.359770139430928,0.0
-11.867326602274197,0.0016837706394181732
-15.177673233096982,0.0038061263219842257
-18.065630731746054,0.007432216883054579
-20.60159244489293,0.01227016876800952
-23.067364176381382,0.019132539352081764
-24.828882867562896,0.0261910745409977
-26.273675076939767,0.03493430039952322
-27.472163203328215,0.045317849822252634
-28.31830691847775,0.05394318317829927
-29.059020400416028,0.06436761233695218
-*Material, name=HDPE-copy
+ 7.35977,         0.
+ 11.8673, 0.00169594
+ 15.1777, 0.00382169
+ 18.0656, 0.00745074
+ 20.6016,  0.0122913
+ 23.0674,  0.0191562
+ 24.8289,  0.0262165
+ 26.2737,  0.0349612
+ 27.4722,   0.045346
+ 28.3183,  0.0539722
+  29.059,  0.0643974
+*Material, name=HDPE-Copy
 *Deformation Plasticity
-1629.9587279662167, 0.46,  12.042868459247458, 4.260411276379909, 0.18066826252211185
+1630.,  0.46,  14.6,  4.26, 0.342
 *Density
  9.5e-10,
 *Material, name=aluminium
@@ -116,6 +116,8 @@
 *Friction, slip tolerance=0.005
  0.01,
 *Surface Behavior, pressure-overclosure=HARD
+*Time Points, name=TimePoints-1, GENERATE
+0., 1., 0.01
 ** 
 ** BOUNDARY CONDITIONS
 ** 
@@ -134,13 +136,13 @@ block-left, 3, 3
 ** 
 *Step, name=load, nlgeom=YES, inc=10000
 *Static
-0.05, 1., 0.05e-05, 0.05
+0.02, 1., 1e-05, 0.02
 ** 
 ** BOUNDARY CONDITIONS
 ** 
 ** Name: pull Type: Displacement/Rotation
 *Boundary
-block-front, 1, 1, 0.085
+block-front, 1, 1, 0.08
 ** 
 ** OUTPUT REQUESTS
 ** 
@@ -152,5 +154,43 @@ block-front, 1, 1, 0.085
 ** 
 ** HISTORY OUTPUT: H-Output-1
 ** 
-*Output, history, variable=PRESELECT
+*Output, history, time points=TimePoints-1
+*Energy Output
+ALLAE, ALLCD, ALLPD, ALLSE, ETOTAL
+*End Step
+** ----------------------------------------------------------------
+** 
+** STEP: release
+** 
+*Step, name=release, nlgeom=YES, inc=1000
+*Static
+1., 1., 1e-05, 1.
+** 
+** BOUNDARY CONDITIONS
+** 
+** Name: BC-1 Type: Displacement/Rotation
+*Boundary, op=NEW
+block-back, 1, 1
+** Name: BC-2 Type: Displacement/Rotation
+*Boundary, op=NEW
+block-bottom, 2, 2
+** Name: BC-3 Type: Displacement/Rotation
+*Boundary, op=NEW
+block-left, 3, 3
+** Name: pull Type: Displacement/Rotation
+*Boundary, op=NEW
+** 
+** OUTPUT REQUESTS
+** 
+*Restart, write, frequency=0
+** 
+** FIELD OUTPUT: F-Output-1
+** 
+*Output, field, variable=PRESELECT
+** 
+** HISTORY OUTPUT: H-Output-1
+** 
+*Output, history, time points=TimePoints-1
+*Energy Output
+ALLAE, ALLCD, ALLPD, ALLSE, ETOTAL
 *End Step

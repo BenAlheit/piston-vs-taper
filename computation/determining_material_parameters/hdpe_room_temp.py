@@ -5,10 +5,10 @@ import matplotlib.pyplot as plt
 from typing import Iterable
 from computation.abaqus_utils import run_abaqus_standard_job as rj, extraction as ex, input_file as inp
 
-cpus=1
+cpus=-1
 HDPE_nu = 0.46
 RUN_ABAQUS = True
-SAVE_FIG = False
+SAVE_FIG = True
 N_ABAQUS = 20
 # True stress [MPa], true strain [mm/mm]
 data = np.genfromtxt('../../data/hdpe-true-stress-strain-room-temp-6e-2-rate.csv', delimiter=',')

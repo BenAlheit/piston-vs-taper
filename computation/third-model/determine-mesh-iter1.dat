@@ -1,6 +1,6 @@
 1
 
-   Abaqus 6.14-1                                  Date 30-Sep-2021   Time 16:14:17
+   Abaqus 6.14-1                                  Date 01-Oct-2021   Time 08:54:33
    For use at UNIVERSITY OF CAPE TOWN under license from Dassault Systemes or its subsidiary.
 
 
@@ -113,12 +113,16 @@
   *Elset, elset=ASSEMBLY_PISTON-1__END-CONTACT_S3
   *Elset, elset=ASSEMBLY_PISTON-1__PUMP-CONTACT_S1
   *Elset, elset=ASSEMBLY_PISTON-1__PUMP-CONTACT_S2
+  *Nset, nset=ASSEMBLY_ALL
   *Nset, nset=ASSEMBLY_FIXED
   *Nset, nset=ASSEMBLY_PISTON-AND-CAP
+  *Nset, nset=ASSEMBLY_PISTON-BOTTOM
   *Nset, nset=ASSEMBLY_PISTON-CENTRE
   *Nset, nset=ASSEMBLY_PISTON-CENTRE-ACTUAL
+  *Elset, elset=ASSEMBLY_ALL
   *Elset, elset=ASSEMBLY_FIXED
   *Elset, elset=ASSEMBLY_PISTON-AND-CAP
+  *Elset, elset=ASSEMBLY_PISTON-BOTTOM
   *Elset, elset=ASSEMBLY_PISTON-CENTRE
   *Elset, elset=ASSEMBLY_PISTON-CENTRE-ACTUAL
   *Elset, elset=ASSEMBLY__CAP-FRONT_S1
@@ -196,8 +200,6 @@
   *surfaceinteraction, name=ALUMINIUM-ON-STEEL
   *friction, sliptolerance=0.005
   *surfacebehavior, pressure-overclosure=HARD
-  *initialconditions, type=VELOCITY
-  *initialconditions, type=VELOCITY
   *surfaceinteraction, name=HDPE-ON-STEEL
   *surfaceinteraction, name=ALUMINIUM-ON-STEEL
   *solidsection, elset=ASSEMBLY_PUMP-TUBE-1_TUBE, material=MILD-STEEL
@@ -206,6 +208,7 @@
   *solidsection, elset=ASSEMBLY_PISTON-1_PISTON, material=ALUMINIUM
   *boundary
   *boundary
+  *boundary, amplitude=PERIODIC-INCREASING
   *contactpair, interaction=HDPE-ON-STEEL, type=SURFACETOSURFACE
   *contactpair, interaction=HDPE-ON-STEEL, type=SURFACETOSURFACE
   *contactpair, interaction=ALUMINIUM-ON-STEEL, type=SURFACETOSURFACE
@@ -247,26 +250,45 @@
   *surface, type=ELEMENT, name=ASSEMBLY_TUBE-INNER
   *tie, name=ASSEMBLY_CAP-TO-PISTON, adjust=YES
   *tie, name=ASSEMBLY_TRANSITION-FITTING, adjust=YES
-  *output, field, variable=PRESELECT, frequency=1
+  *output, field, variable=PRESELECT
+  *output, field, frequency=99999
   *output, history, timepoints=MEASURE-VALUES
-  *initialconditions, type=VELOCITY
-  *output, field, variable=PRESELECT, frequency=1
+  *elementoutput, elset=ASSEMBLY_ALL, directions=YES
+  *output, field, variable=PRESELECT
+  *output, field, frequency=99999
   *output, history, timepoints=MEASURE-VALUES
-  *initialconditions, type=VELOCITY
-  *output, field, variable=PRESELECT, frequency=1
+  *elementoutput, elset=ASSEMBLY_ALL, directions=YES
+
+ ***WARNING: ALL ELEMENTS IN THE ERROR  RECOVERY DOMAIN ASSEMBLY_ALL MUST HAVE 
+             SAME SECTION PROPERTY. ELEMENT 1 INSTANCE PISTON-1 MAY HAVE 
+             VIOLATED THIS REQUIREMENT.PLEASE SPLIT THE DOMAIN TO HAVE ONLY ONE 
+             TYPE OF SECTION IN EACH DOMAIN.
+
+ ***WARNING: PLEASE DISREGARD THE ABOVE  WARNING IF THE ERROR RECOVERY DOMAIN  
+             INCLUDES MULTIPLE PART INSTANCES FROM THE SAME PART.
+  *output, field, variable=PRESELECT
+  *output, field, frequency=99999
   *output, history, timepoints=MEASURE-VALUES
+  *elementoutput, elset=ASSEMBLY_ALL, directions=YES
+  *output, field, variable=PRESELECT
+  *output, field, frequency=99999
+  *output, history, timepoints=MEASURE-VALUES
+  *elementoutput, elset=ASSEMBLY_ALL, directions=YES
   *amplitude, name=FRONT-PRESSURE
+  *amplitude, name=PERIODIC-INCREASING
   *amplitude, name=PRESSURE
   *timepoints, name=MEASURE-VALUES, generate
-  *Step, name=taper-slide, nlgeom=YES, inc=10000
-  *output, field, variable=PRESELECT, frequency=1
+  *Step, name=taper-slide, nlgeom=YES, inc=1000000
+  *output, field, variable=PRESELECT
+  *output, field, frequency=99999
   *output, history, timepoints=MEASURE-VALUES
-  *Step, name=taper-slide, nlgeom=YES, inc=10000
-  *Step, name=taper-slide, nlgeom=YES, inc=10000
-  *dynamic
-  *dsload, amplitude=PRESSURE
-  *dsload, amplitude=FRONT-PRESSURE
-  *output, field, variable=PRESELECT, frequency=1
+  *Step, name=taper-slide, nlgeom=YES, inc=1000000
+  *Step, name=taper-slide, nlgeom=YES, inc=1000000
+  *static
+  *boundary, amplitude=PERIODIC-INCREASING
+  *output, field, variable=PRESELECT
+  *output, field, frequency=99999
+  *elementoutput, elset=ASSEMBLY_ALL, directions=YES
   *output, history, timepoints=MEASURE-VALUES
   *energyoutput
   *contactoutput
@@ -278,106 +300,20 @@
              Abaqus MIGHT USE TIME INCREMENTS SMALLER THAN THE MINIMUM TIME 
              INCREMENT ALLOWED IN THE STEP. IN ADDITION, THE NUMBER OF 
              INCREMENTS REQUIRED TO COMPLETE THE STEP WILL IN GENERAL INCREASE.
+
+ ***WARNING: OUTPUT REQUEST V2 IS NOT AVAILABLE FOR THIS TYPE OF ANALYSIS
   *boundary
   *boundary
-  *Step, name=taper-slide, nlgeom=YES, inc=10000
-  *dynamic
+  *Step, name=taper-slide, nlgeom=YES, inc=1000000
+  *static
+  *boundary, amplitude=PERIODIC-INCREASING
   *endstep
-
- ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 3 INSTANCE CAP-1 - THIS 
-             INITIAL VELOCITY CONDITION IS IGNORED
-
- ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 4 INSTANCE CAP-1 - THIS 
-             INITIAL VELOCITY CONDITION IS IGNORED
-
- ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 8 INSTANCE CAP-1 - THIS 
-             INITIAL VELOCITY CONDITION IS IGNORED
-
- ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 9 INSTANCE CAP-1 - THIS 
-             INITIAL VELOCITY CONDITION IS IGNORED
-
- ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 10 INSTANCE CAP-1 - THIS 
-             INITIAL VELOCITY CONDITION IS IGNORED
-
- ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 60 INSTANCE CAP-1 - THIS 
-             INITIAL VELOCITY CONDITION IS IGNORED
-
- ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 61 INSTANCE CAP-1 - THIS 
-             INITIAL VELOCITY CONDITION IS IGNORED
-
- ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 62 INSTANCE CAP-1 - THIS 
-             INITIAL VELOCITY CONDITION IS IGNORED
-
- ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 63 INSTANCE CAP-1 - THIS 
-             INITIAL VELOCITY CONDITION IS IGNORED
-
- ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 64 INSTANCE CAP-1 - THIS 
-             INITIAL VELOCITY CONDITION IS IGNORED
-
- ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 65 INSTANCE CAP-1 - THIS 
-             INITIAL VELOCITY CONDITION IS IGNORED
-
- ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 66 INSTANCE CAP-1 - THIS 
-             INITIAL VELOCITY CONDITION IS IGNORED
-
- ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 67 INSTANCE CAP-1 - THIS 
-             INITIAL VELOCITY CONDITION IS IGNORED
-
- ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 68 INSTANCE CAP-1 - THIS 
-             INITIAL VELOCITY CONDITION IS IGNORED
-
- ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 192 INSTANCE CAP-1 - 
-             THIS INITIAL VELOCITY CONDITION IS IGNORED
-
- ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 222 INSTANCE CAP-1 - 
-             THIS INITIAL VELOCITY CONDITION IS IGNORED
-
- ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 285 INSTANCE CAP-1 - 
-             THIS INITIAL VELOCITY CONDITION IS IGNORED
-
- ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 288 INSTANCE CAP-1 - 
-             THIS INITIAL VELOCITY CONDITION IS IGNORED
-
- ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 291 INSTANCE CAP-1 - 
-             THIS INITIAL VELOCITY CONDITION IS IGNORED
-
- ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 294 INSTANCE CAP-1 - 
-             THIS INITIAL VELOCITY CONDITION IS IGNORED
-
- ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 309 INSTANCE CAP-1 - 
-             THIS INITIAL VELOCITY CONDITION IS IGNORED
-
- ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 336 INSTANCE CAP-1 - 
-             THIS INITIAL VELOCITY CONDITION IS IGNORED
-
- ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 437 INSTANCE CAP-1 - 
-             THIS INITIAL VELOCITY CONDITION IS IGNORED
-
- ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 442 INSTANCE CAP-1 - 
-             THIS INITIAL VELOCITY CONDITION IS IGNORED
-
- ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 446 INSTANCE CAP-1 - 
-             THIS INITIAL VELOCITY CONDITION IS IGNORED
-
- ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 449 INSTANCE CAP-1 - 
-             THIS INITIAL VELOCITY CONDITION IS IGNORED
-
- ***WARNING: DEGREE OF FREEDOM 2 IS NOT ACTIVE ON NODE 507 INSTANCE CAP-1 - 
-             THIS INITIAL VELOCITY CONDITION IS IGNORED
-
-
-     LABELS REFERENCED IN THE ABOVE TABLE
-
-      -53-     FRONT-PRESSURE                                                                  
 
  ***WARNING: DEGREE OF FREEDOM 1 IS NOT ACTIVE ON NODE 8 INSTANCE CAP-1 - THIS 
              BOUNDARY CONDITION IS IGNORED
 
  ***WARNING: Boundary conditions are specified on inactive dof of 1 nodes. The 
              nodes have been identified in node set WarnNodeBCInactiveDof.
-
- ***WARNING: initial conditions are specified on inactive dof of 27 nodes. The 
-             nodes have been identified in node set WarnNodeICInactiveDof.
 
 
 
@@ -401,80 +337,35 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =  0.25000    
+       USER TIME (SEC)      =  0.27000    
        SYSTEM TIME (SEC)    =  3.00000E-02
-       TOTAL CPU TIME (SEC) =  0.28000    
+       TOTAL CPU TIME (SEC) =  0.30000    
        WALLCLOCK TIME (SEC) =          0
 1
 
-   Abaqus 6.14-1                                  Date 30-Sep-2021   Time 16:14:19
+   Abaqus 6.14-1                                  Date 01-Oct-2021   Time 08:54:35
    For use at UNIVERSITY OF CAPE TOWN under license from Dassault Systemes or its subsidiary.
 
                                                                                                STEP    1  INCREMENT    1
                                                                                           TIME COMPLETED IN THIS STEP   0.00    
 
 
-                        S T E P       1     D Y N A M I C   A N A L Y S I S - I M P L I C I T  I N T E G R A T I O N
+                        S T E P       1     S T A T I C   A N A L Y S I S
 
 
                                                                                           
 
-          DYNAMIC APPLICATION PACKED SCHEME IS                 MODERATE DISSIPATION
-          HILBER-HUGHES-TAYLOR (HHT) TIME INTEGRATOR IS USED
-
      AUTOMATIC TIME CONTROL WITH -
-          A SUGGESTED INITIAL TIME INCREMENT OF                3.000E-03
-          AND A TOTAL TIME PERIOD OF                           3.000E-03
-          THE MINIMUM TIME INCREMENT ALLOWED IS                3.000E-08
-          THE MAXIMUM TIME INCREMENT ALLOWED IS                3.000E-03
+          A SUGGESTED INITIAL TIME INCREMENT OF                1.000E-02
+          AND A TOTAL TIME PERIOD OF                            1.00    
+          THE MINIMUM TIME INCREMENT ALLOWED IS                1.000E-08
+          THE MAXIMUM TIME INCREMENT ALLOWED IS                1.000E-02
 
-          THE HALF-INCREMENT RESIDUALS WILL NOT BE CALCULATED
-
-          HILBER-HUGHES-TAYLOR METHOD PARAMETERS:  ALPHA   IS  -0.414214    
-                                                   BETA    IS   0.500000    
-                                                   GAMMA   IS   0.914214    
-          CONTACT IMPACT/RELEASE COMPUTATIONS ARE SKIPPED
-          AGGRESSIVE   TIME INCREMENTATION IS USED
-          STEP AMPLITUDE IS                                    STEP
+     LINEAR EQUATION SOLVER TYPE         DIRECT SPARSE
 
           LARGE DISPLACEMENT THEORY WILL BE USED
 
           UNSYMMETRIC MATRIX STORAGE AND SOLUTION WILL BE USED
-
-
-
-                    TOTAL MASS OF MODEL
-
-                      1.5608457E-02
-
-
-                    LOCATION OF THE CENTER OF MASS OF THE MODEL
-
-                       0.000000          -307.8551    
-
-
-                    MOMENTS OF INERTIA ABOUT THE ORIGIN
-                           I(XX)               I(YY)               I(ZZ)
-
-                       2592.300           14.19892           2592.300    
-
-
-                    PRODUCTS OF INERTIA ABOUT THE ORIGIN
-                           I(XY)               I(XZ)               I(YZ)
-
-                       0.000000           0.000000           0.000000    
-
-
-                    MOMENTS OF INERTIA ABOUT THE CENTER OF MASS
-                           I(XX)               I(YY)               I(ZZ)
-
-                       1113.012           14.19892           1113.012    
-
-
-                    PRODUCTS OF INERTIA ABOUT THE CENTER OF MASS
-                           I(XY)               I(XZ)               I(YZ)
-
-                       0.000000           0.000000           0.000000    
   
                    M E M O R Y   E S T I M A T E
   
@@ -482,7 +373,7 @@
               OPERATIONS           REQUIRED          MINIMIZE I/O
              PER ITERATION           (MB)               (MB)
   
-     1          3.08E+07               20                 42
+     1          3.05E+07               20                 37
   
  NOTE:
       (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
@@ -520,14 +411,14 @@
 
 
                               ANALYSIS COMPLETE
-                              WITH     33 WARNING MESSAGES ON THE DAT FILE
-                              AND      27 WARNING MESSAGES ON THE MSG FILE
-                                       11 WARNINGS ARE FOR NEGATIVE EIGENVALUES
+                              WITH      8 WARNING MESSAGES ON THE DAT FILE
+                              AND      13 WARNING MESSAGES ON THE MSG FILE
+                                        9 WARNINGS ARE FOR NEGATIVE EIGENVALUES
 
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =   292.76    
-       SYSTEM TIME (SEC)    =   108.46    
-       TOTAL CPU TIME (SEC) =   401.22    
-       WALLCLOCK TIME (SEC) =         75
+       USER TIME (SEC)      =   281.88    
+       SYSTEM TIME (SEC)    =   81.550    
+       TOTAL CPU TIME (SEC) =   363.43    
+       WALLCLOCK TIME (SEC) =         97

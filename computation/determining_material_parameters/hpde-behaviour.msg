@@ -1,6 +1,6 @@
 1
 
-   Abaqus 6.14-1                                  Date 29-Sep-2021   Time 13:14:54
+   Abaqus 6.14-1                                  Date 30-Sep-2021   Time 15:54:19
    For use at UNIVERSITY OF CAPE TOWN under license from Dassault Systemes or its subsidiary.
 
                                                                                  
@@ -101,16 +101,16 @@
 
      CHECK POINT  END OF SOLVER       
 
-       ELAPSED USER TIME (SEC)      =  1.00000E-02
+       ELAPSED USER TIME (SEC)      =   0.0000    
        ELAPSED SYSTEM TIME (SEC)    =   0.0000    
-       ELAPSED TOTAL CPU TIME (SEC) =  1.00000E-02
+       ELAPSED TOTAL CPU TIME (SEC) =   0.0000    
        ELAPSED WALLCLOCK TIME (SEC) =          0
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                      0.374       TIME AVG. FORCE       0.374    
- LARGEST RESIDUAL FORCE             7.332E-03   AT NODE         20   DOF  2
+ AVERAGE FORCE                      0.388       TIME AVG. FORCE       0.388    
+ LARGEST RESIDUAL FORCE             2.825E-02   AT NODE         17   DOF  3
    INSTANCE: BLOCK-1                                                                         
  LARGEST INCREMENT OF DISP.         4.250E-03   AT NODE          1   DOF  1
    INSTANCE: BLOCK-1                                                                         
@@ -132,12 +132,12 @@
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
 
 
- AVERAGE FORCE                      0.372       TIME AVG. FORCE       0.372    
- LARGEST RESIDUAL FORCE             1.726E-08   AT NODE         18   DOF  2
+ AVERAGE FORCE                      0.383       TIME AVG. FORCE       0.383    
+ LARGEST RESIDUAL FORCE             2.837E-07   AT NODE         18   DOF  2
    INSTANCE: BLOCK-1                                                                         
  LARGEST INCREMENT OF DISP.         4.250E-03   AT NODE          1   DOF  1
    INSTANCE: BLOCK-1                                                                         
- LARGEST CORRECTION TO DISP.        1.574E-06   AT NODE          6   DOF  3
+ LARGEST CORRECTION TO DISP.        6.047E-06   AT NODE          7   DOF  2
    INSTANCE: BLOCK-1                                                                         
           THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
@@ -156,22 +156,23 @@
 
      CHECK POINT  END OF SOLVER       
 
-       ELAPSED USER TIME (SEC)      =  1.00000E-02
+       ELAPSED USER TIME (SEC)      =   0.0000    
        ELAPSED SYSTEM TIME (SEC)    =   0.0000    
-       ELAPSED TOTAL CPU TIME (SEC) =  1.00000E-02
+       ELAPSED TOTAL CPU TIME (SEC) =   0.0000    
        ELAPSED WALLCLOCK TIME (SEC) =          0
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       2.44       TIME AVG. FORCE        1.41    
- LARGEST RESIDUAL FORCE            -4.339E-07   AT NODE          9   DOF  2
+ AVERAGE FORCE                       2.35       TIME AVG. FORCE        1.37    
+ LARGEST RESIDUAL FORCE             5.051E-06   AT NODE         18   DOF  2
    INSTANCE: BLOCK-1                                                                         
  LARGEST INCREMENT OF DISP.         4.250E-03   AT NODE          1   DOF  1
    INSTANCE: BLOCK-1                                                                         
- LARGEST CORRECTION TO DISP.       -2.785E-05   AT NODE          5   DOF  2
+ LARGEST CORRECTION TO DISP.       -4.754E-05   AT NODE          2   DOF  3
    INSTANCE: BLOCK-1                                                                         
-          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ ESTIMATE OF DISP.    CORRECTION    1.088E-09
+ FORCE     EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
 
  ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
    0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
@@ -196,12 +197,12 @@
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       3.10       TIME AVG. FORCE        1.97    
- LARGEST RESIDUAL FORCE             8.264E-07   AT NODE         16   DOF  2
+ AVERAGE FORCE                       3.05       TIME AVG. FORCE        1.93    
+ LARGEST RESIDUAL FORCE             2.439E-07   AT NODE         20   DOF  2
    INSTANCE: BLOCK-1                                                                         
  LARGEST INCREMENT OF DISP.         4.250E-03   AT NODE          1   DOF  1
    INSTANCE: BLOCK-1                                                                         
- LARGEST CORRECTION TO DISP.       -3.188E-05   AT NODE          9   DOF  2
+ LARGEST CORRECTION TO DISP.       -1.127E-05   AT NODE          6   DOF  3
    INSTANCE: BLOCK-1                                                                         
           THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
@@ -228,12 +229,12 @@
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       3.55       TIME AVG. FORCE        2.36    
- LARGEST RESIDUAL FORCE             1.425E-07   AT NODE         18   DOF  2
+ AVERAGE FORCE                       3.52       TIME AVG. FORCE        2.33    
+ LARGEST RESIDUAL FORCE             3.948E-07   AT NODE         18   DOF  2
    INSTANCE: BLOCK-1                                                                         
  LARGEST INCREMENT OF DISP.         4.250E-03   AT NODE          1   DOF  1
    INSTANCE: BLOCK-1                                                                         
- LARGEST CORRECTION TO DISP.       -1.112E-05   AT NODE          1   DOF  3
+ LARGEST CORRECTION TO DISP.       -1.405E-05   AT NODE          1   DOF  3
    INSTANCE: BLOCK-1                                                                         
           THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
@@ -260,12 +261,12 @@
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       3.88       TIME AVG. FORCE        2.67    
- LARGEST RESIDUAL FORCE            -9.551E-10   AT NODE          9   DOF  2
+ AVERAGE FORCE                       3.89       TIME AVG. FORCE        2.64    
+ LARGEST RESIDUAL FORCE             9.517E-09   AT NODE         13   DOF  3
    INSTANCE: BLOCK-1                                                                         
  LARGEST INCREMENT OF DISP.         4.250E-03   AT NODE          1   DOF  1
    INSTANCE: BLOCK-1                                                                         
- LARGEST CORRECTION TO DISP.       -2.146E-07   AT NODE          5   DOF  3
+ LARGEST CORRECTION TO DISP.        1.231E-06   AT NODE          1   DOF  3
    INSTANCE: BLOCK-1                                                                         
           THE FORCE     EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT
 
@@ -292,12 +293,12 @@
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       4.15       TIME AVG. FORCE        2.92    
- LARGEST RESIDUAL FORCE             6.971E-08   AT NODE         17   DOF  3
+ AVERAGE FORCE                       4.21       TIME AVG. FORCE        2.90    
+ LARGEST RESIDUAL FORCE             1.232E-07   AT NODE          9   DOF  2
    INSTANCE: BLOCK-1                                                                         
  LARGEST INCREMENT OF DISP.         4.250E-03   AT NODE          1   DOF  1
    INSTANCE: BLOCK-1                                                                         
- LARGEST CORRECTION TO DISP.        4.768E-06   AT NODE          5   DOF  3
+ LARGEST CORRECTION TO DISP.        6.268E-06   AT NODE          5   DOF  3
    INSTANCE: BLOCK-1                                                                         
           THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
@@ -316,20 +317,20 @@
 
      CHECK POINT  END OF SOLVER       
 
-       ELAPSED USER TIME (SEC)      =   0.0000    
+       ELAPSED USER TIME (SEC)      =  1.00000E-02
        ELAPSED SYSTEM TIME (SEC)    =   0.0000    
-       ELAPSED TOTAL CPU TIME (SEC) =   0.0000    
+       ELAPSED TOTAL CPU TIME (SEC) =  1.00000E-02
        ELAPSED WALLCLOCK TIME (SEC) =          0
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       4.37       TIME AVG. FORCE        3.12    
- LARGEST RESIDUAL FORCE             1.496E-07   AT NODE         13   DOF  3
+ AVERAGE FORCE                       4.44       TIME AVG. FORCE        3.12    
+ LARGEST RESIDUAL FORCE             3.304E-08   AT NODE         12   DOF  3
    INSTANCE: BLOCK-1                                                                         
  LARGEST INCREMENT OF DISP.         4.250E-03   AT NODE          1   DOF  1
    INSTANCE: BLOCK-1                                                                         
- LARGEST CORRECTION TO DISP.        7.291E-06   AT NODE          5   DOF  2
+ LARGEST CORRECTION TO DISP.        2.842E-06   AT NODE          3   DOF  2
    INSTANCE: BLOCK-1                                                                         
           THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
@@ -348,20 +349,20 @@
 
      CHECK POINT  END OF SOLVER       
 
-       ELAPSED USER TIME (SEC)      =  1.00000E-02
+       ELAPSED USER TIME (SEC)      =   0.0000    
        ELAPSED SYSTEM TIME (SEC)    =   0.0000    
-       ELAPSED TOTAL CPU TIME (SEC) =  1.00000E-02
+       ELAPSED TOTAL CPU TIME (SEC) =   0.0000    
        ELAPSED WALLCLOCK TIME (SEC) =          0
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       4.56       TIME AVG. FORCE        3.30    
- LARGEST RESIDUAL FORCE             2.097E-07   AT NODE         12   DOF  3
+ AVERAGE FORCE                       4.66       TIME AVG. FORCE        3.31    
+ LARGEST RESIDUAL FORCE             4.067E-07   AT NODE         18   DOF  2
    INSTANCE: BLOCK-1                                                                         
  LARGEST INCREMENT OF DISP.         4.250E-03   AT NODE          1   DOF  1
    INSTANCE: BLOCK-1                                                                         
- LARGEST CORRECTION TO DISP.        8.693E-06   AT NODE          1   DOF  2
+ LARGEST CORRECTION TO DISP.        1.207E-05   AT NODE          5   DOF  3
    INSTANCE: BLOCK-1                                                                         
           THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
@@ -388,12 +389,12 @@
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       4.72       TIME AVG. FORCE        3.46    
- LARGEST RESIDUAL FORCE             2.518E-07   AT NODE         17   DOF  3
+ AVERAGE FORCE                       4.82       TIME AVG. FORCE        3.48    
+ LARGEST RESIDUAL FORCE             7.878E-08   AT NODE         20   DOF  2
    INSTANCE: BLOCK-1                                                                         
  LARGEST INCREMENT OF DISP.         4.250E-03   AT NODE          1   DOF  1
    INSTANCE: BLOCK-1                                                                         
- LARGEST CORRECTION TO DISP.        9.525E-06   AT NODE          5   DOF  3
+ LARGEST CORRECTION TO DISP.        4.802E-06   AT NODE         18   DOF  2
    INSTANCE: BLOCK-1                                                                         
           THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
@@ -420,12 +421,12 @@
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       4.87       TIME AVG. FORCE        3.60    
- LARGEST RESIDUAL FORCE             2.810E-07   AT NODE         20   DOF  2
+ AVERAGE FORCE                       4.97       TIME AVG. FORCE        3.63    
+ LARGEST RESIDUAL FORCE             3.967E-07   AT NODE         17   DOF  3
    INSTANCE: BLOCK-1                                                                         
  LARGEST INCREMENT OF DISP.         4.250E-03   AT NODE          1   DOF  1
    INSTANCE: BLOCK-1                                                                         
- LARGEST CORRECTION TO DISP.        1.004E-05   AT NODE          5   DOF  2
+ LARGEST CORRECTION TO DISP.        1.185E-05   AT NODE          6   DOF  3
    INSTANCE: BLOCK-1                                                                         
           THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
@@ -452,12 +453,12 @@
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       4.99       TIME AVG. FORCE        3.73    
- LARGEST RESIDUAL FORCE             3.012E-07   AT NODE         18   DOF  2
+ AVERAGE FORCE                       5.08       TIME AVG. FORCE        3.76    
+ LARGEST RESIDUAL FORCE             1.124E-07   AT NODE         18   DOF  2
    INSTANCE: BLOCK-1                                                                         
  LARGEST INCREMENT OF DISP.         4.250E-03   AT NODE          1   DOF  1
    INSTANCE: BLOCK-1                                                                         
- LARGEST CORRECTION TO DISP.        1.036E-05   AT NODE          1   DOF  3
+ LARGEST CORRECTION TO DISP.        5.877E-06   AT NODE          1   DOF  2
    INSTANCE: BLOCK-1                                                                         
           THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
@@ -484,12 +485,12 @@
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       5.11       TIME AVG. FORCE        3.84    
- LARGEST RESIDUAL FORCE             3.152E-07   AT NODE         18   DOF  2
+ AVERAGE FORCE                       5.18       TIME AVG. FORCE        3.88    
+ LARGEST RESIDUAL FORCE             4.085E-07   AT NODE         20   DOF  2
    INSTANCE: BLOCK-1                                                                         
  LARGEST INCREMENT OF DISP.         4.250E-03   AT NODE          1   DOF  1
    INSTANCE: BLOCK-1                                                                         
- LARGEST CORRECTION TO DISP.        1.057E-05   AT NODE          3   DOF  2
+ LARGEST CORRECTION TO DISP.        1.197E-05   AT NODE          1   DOF  3
    INSTANCE: BLOCK-1                                                                         
           THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
@@ -516,12 +517,12 @@
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       5.21       TIME AVG. FORCE        3.95    
- LARGEST RESIDUAL FORCE             3.248E-07   AT NODE         18   DOF  3
+ AVERAGE FORCE                       5.25       TIME AVG. FORCE        3.98    
+ LARGEST RESIDUAL FORCE             2.476E-07   AT NODE         13   DOF  3
    INSTANCE: BLOCK-1                                                                         
  LARGEST INCREMENT OF DISP.         4.250E-03   AT NODE          1   DOF  1
    INSTANCE: BLOCK-1                                                                         
- LARGEST CORRECTION TO DISP.        1.069E-05   AT NODE          5   DOF  2
+ LARGEST CORRECTION TO DISP.        9.102E-06   AT NODE          5   DOF  2
    INSTANCE: BLOCK-1                                                                         
           THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
@@ -548,12 +549,12 @@
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       5.31       TIME AVG. FORCE        4.05    
- LARGEST RESIDUAL FORCE             3.312E-07   AT NODE         18   DOF  2
+ AVERAGE FORCE                       5.32       TIME AVG. FORCE        4.08    
+ LARGEST RESIDUAL FORCE             3.198E-07   AT NODE         12   DOF  3
    INSTANCE: BLOCK-1                                                                         
  LARGEST INCREMENT OF DISP.         4.250E-03   AT NODE          1   DOF  1
    INSTANCE: BLOCK-1                                                                         
- LARGEST CORRECTION TO DISP.        1.076E-05   AT NODE          7   DOF  2
+ LARGEST CORRECTION TO DISP.        1.044E-05   AT NODE          1   DOF  2
    INSTANCE: BLOCK-1                                                                         
           THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
@@ -580,12 +581,12 @@
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       5.39       TIME AVG. FORCE        4.14    
- LARGEST RESIDUAL FORCE             3.353E-07   AT NODE         18   DOF  3
+ AVERAGE FORCE                       5.38       TIME AVG. FORCE        4.17    
+ LARGEST RESIDUAL FORCE             3.935E-07   AT NODE         18   DOF  2
    INSTANCE: BLOCK-1                                                                         
  LARGEST INCREMENT OF DISP.         4.250E-03   AT NODE          1   DOF  1
    INSTANCE: BLOCK-1                                                                         
- LARGEST CORRECTION TO DISP.        1.079E-05   AT NODE          1   DOF  2
+ LARGEST CORRECTION TO DISP.        1.165E-05   AT NODE          1   DOF  3
    INSTANCE: BLOCK-1                                                                         
           THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
@@ -612,12 +613,12 @@
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       5.47       TIME AVG. FORCE        4.22    
- LARGEST RESIDUAL FORCE             3.377E-07   AT NODE         18   DOF  3
+ AVERAGE FORCE                       5.43       TIME AVG. FORCE        4.24    
+ LARGEST RESIDUAL FORCE             3.104E-07   AT NODE         17   DOF  3
    INSTANCE: BLOCK-1                                                                         
  LARGEST INCREMENT OF DISP.         4.250E-03   AT NODE          1   DOF  1
    INSTANCE: BLOCK-1                                                                         
- LARGEST CORRECTION TO DISP.        1.079E-05   AT NODE          6   DOF  3
+ LARGEST CORRECTION TO DISP.        1.022E-05   AT NODE          2   DOF  3
    INSTANCE: BLOCK-1                                                                         
           THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
@@ -644,12 +645,12 @@
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       5.54       TIME AVG. FORCE        4.30    
- LARGEST RESIDUAL FORCE             3.388E-07   AT NODE         18   DOF  3
+ AVERAGE FORCE                       5.48       TIME AVG. FORCE        4.32    
+ LARGEST RESIDUAL FORCE             3.749E-07   AT NODE         20   DOF  2
    INSTANCE: BLOCK-1                                                                         
  LARGEST INCREMENT OF DISP.         4.250E-03   AT NODE          1   DOF  1
    INSTANCE: BLOCK-1                                                                         
- LARGEST CORRECTION TO DISP.        1.077E-05   AT NODE          5   DOF  3
+ LARGEST CORRECTION TO DISP.        1.130E-05   AT NODE          7   DOF  2
    INSTANCE: BLOCK-1                                                                         
           THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
@@ -676,12 +677,12 @@
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       5.61       TIME AVG. FORCE        4.37    
- LARGEST RESIDUAL FORCE             3.389E-07   AT NODE         16   DOF  2
+ AVERAGE FORCE                       5.52       TIME AVG. FORCE        4.38    
+ LARGEST RESIDUAL FORCE             2.967E-07   AT NODE         18   DOF  3
    INSTANCE: BLOCK-1                                                                         
  LARGEST INCREMENT OF DISP.         4.250E-03   AT NODE          1   DOF  1
    INSTANCE: BLOCK-1                                                                         
- LARGEST CORRECTION TO DISP.        1.074E-05   AT NODE          3   DOF  2
+ LARGEST CORRECTION TO DISP.        9.931E-06   AT NODE          3   DOF  2
    INSTANCE: BLOCK-1                                                                         
           THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
@@ -708,12 +709,12 @@
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       5.67       TIME AVG. FORCE        4.44    
- LARGEST RESIDUAL FORCE             3.382E-07   AT NODE         18   DOF  2
+ AVERAGE FORCE                       5.55       TIME AVG. FORCE        4.45    
+ LARGEST RESIDUAL FORCE             3.201E-07   AT NODE          9   DOF  2
    INSTANCE: BLOCK-1                                                                         
  LARGEST INCREMENT OF DISP.         4.250E-03   AT NODE          1   DOF  1
    INSTANCE: BLOCK-1                                                                         
- LARGEST CORRECTION TO DISP.        1.070E-05   AT NODE          6   DOF  3
+ LARGEST CORRECTION TO DISP.        1.032E-05   AT NODE          1   DOF  3
    INSTANCE: BLOCK-1                                                                         
           THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
@@ -740,12 +741,12 @@
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       5.73       TIME AVG. FORCE        4.50    
- LARGEST RESIDUAL FORCE             3.369E-07   AT NODE         16   DOF  2
+ AVERAGE FORCE                       5.58       TIME AVG. FORCE        4.50    
+ LARGEST RESIDUAL FORCE             3.688E-07   AT NODE         18   DOF  2
    INSTANCE: BLOCK-1                                                                         
  LARGEST INCREMENT OF DISP.         4.250E-03   AT NODE          1   DOF  1
    INSTANCE: BLOCK-1                                                                         
- LARGEST CORRECTION TO DISP.        1.064E-05   AT NODE          2   DOF  3
+ LARGEST CORRECTION TO DISP.        1.111E-05   AT NODE          1   DOF  2
    INSTANCE: BLOCK-1                                                                         
           THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
@@ -779,7 +780,7 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =  0.19000    
-       SYSTEM TIME (SEC)    =  4.00000E-02
-       TOTAL CPU TIME (SEC) =  0.23000    
+       USER TIME (SEC)      =  0.16000    
+       SYSTEM TIME (SEC)    =  3.00000E-02
+       TOTAL CPU TIME (SEC) =  0.19000    
        WALLCLOCK TIME (SEC) =          0
