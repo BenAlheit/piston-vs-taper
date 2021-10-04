@@ -1,6 +1,6 @@
 1
 
-   Abaqus 6.14-1                                  Date 01-Oct-2021   Time 12:24:11
+   Abaqus 6.14-1                                  Date 04-Oct-2021   Time 12:34:49
    For use at UNIVERSITY OF CAPE TOWN under license from Dassault Systemes or its subsidiary.
 
 
@@ -278,12 +278,12 @@
   *amplitude, name=PERIODIC-INCREASING
   *amplitude, name=PRESSURE
   *timepoints, name=MEASURE-VALUES, generate
-  *Step, name=taper-slide, nlgeom=YES, inc=1000000
+  *Step, name=taper-slide, nlgeom=YES, inc=100000000
   *output, field, variable=PRESELECT
   *output, field, frequency=99999
   *output, history, timepoints=MEASURE-VALUES
-  *Step, name=taper-slide, nlgeom=YES, inc=1000000
-  *Step, name=taper-slide, nlgeom=YES, inc=1000000
+  *Step, name=taper-slide, nlgeom=YES, inc=100000000
+  *Step, name=taper-slide, nlgeom=YES, inc=100000000
   *static
   *boundary, amplitude=PERIODIC-INCREASING
   *output, field, variable=PRESELECT
@@ -304,7 +304,7 @@
  ***WARNING: OUTPUT REQUEST V2 IS NOT AVAILABLE FOR THIS TYPE OF ANALYSIS
   *boundary
   *boundary
-  *Step, name=taper-slide, nlgeom=YES, inc=1000000
+  *Step, name=taper-slide, nlgeom=YES, inc=100000000
   *static
   *boundary, amplitude=PERIODIC-INCREASING
   *endstep
@@ -337,13 +337,13 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =  0.25000    
-       SYSTEM TIME (SEC)    =  3.00000E-02
-       TOTAL CPU TIME (SEC) =  0.28000    
-       WALLCLOCK TIME (SEC) =          0
+       USER TIME (SEC)      =  0.22000    
+       SYSTEM TIME (SEC)    =  4.00000E-02
+       TOTAL CPU TIME (SEC) =  0.26000    
+       WALLCLOCK TIME (SEC) =          1
 1
 
-   Abaqus 6.14-1                                  Date 01-Oct-2021   Time 12:24:13
+   Abaqus 6.14-1                                  Date 04-Oct-2021   Time 12:34:52
    For use at UNIVERSITY OF CAPE TOWN under license from Dassault Systemes or its subsidiary.
 
                                                                                                STEP    1  INCREMENT    1
@@ -356,10 +356,10 @@
                                                                                           
 
      AUTOMATIC TIME CONTROL WITH -
-          A SUGGESTED INITIAL TIME INCREMENT OF                1.000E-02
+          A SUGGESTED INITIAL TIME INCREMENT OF                1.000E-03
           AND A TOTAL TIME PERIOD OF                            1.00    
-          THE MINIMUM TIME INCREMENT ALLOWED IS                1.000E-08
-          THE MAXIMUM TIME INCREMENT ALLOWED IS                1.000E-02
+          THE MINIMUM TIME INCREMENT ALLOWED IS                1.000E-10
+          THE MAXIMUM TIME INCREMENT ALLOWED IS                1.000E-03
 
      LINEAR EQUATION SOLVER TYPE         DIRECT SPARSE
 
@@ -412,13 +412,13 @@
 
                               ANALYSIS COMPLETE
                               WITH      8 WARNING MESSAGES ON THE DAT FILE
-                              AND      14 WARNING MESSAGES ON THE MSG FILE
-                                        5 WARNINGS ARE FOR NEGATIVE EIGENVALUES
+                              AND       4 WARNING MESSAGES ON THE MSG FILE
+                                        4 WARNINGS ARE FOR NEGATIVE EIGENVALUES
 
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =   232.40    
-       SYSTEM TIME (SEC)    =   59.250    
-       TOTAL CPU TIME (SEC) =   291.65    
-       WALLCLOCK TIME (SEC) =         93
+       USER TIME (SEC)      =   1676.1    
+       SYSTEM TIME (SEC)    =   503.15    
+       TOTAL CPU TIME (SEC) =   2179.2    
+       WALLCLOCK TIME (SEC) =        653

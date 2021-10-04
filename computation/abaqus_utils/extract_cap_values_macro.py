@@ -50,7 +50,7 @@ def extract_cap_data():
     data = 'time (s),force (N),x_t (mm),plastic dissipation (mJ)\n'
     data += '\n'.join(string_map(np.array([t, force, xt, pd]).T.tolist())).replace('[', '').replace(']', '')
     open(csv_name, 'w+').write(data)
-    # print >> sys.__stdout__, data
+    print >> sys.__stdout__, data
 
 
 extract_cap_data()

@@ -8,7 +8,7 @@ import os
 
 # device = "cuda" if torch.cuda.is_available() else "cpu"
 device = 'cpu'
-data = pd.read_csv('processed_test_data.csv')
+data = pd.read_csv('data/cap/processed_test_data.csv')
 
 
 class CapDataset(Dataset):

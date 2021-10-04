@@ -11,7 +11,7 @@ import imageio
 
 torch.manual_seed(1)  # reproducible
 
-data = pd.read_csv('processed_test_data.csv')
+data = pd.read_csv('data/cap/processed_test_data.csv')
 
 N_FEATURES = 3
 N_OUTPUTS = 2
