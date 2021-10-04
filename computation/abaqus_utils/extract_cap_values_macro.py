@@ -47,7 +47,7 @@ def extract_cap_data():
     pd = np.array(o.steps[step].historyRegions['Assembly ASSEMBLY'].historyOutputs['ALLPD'].data)[:, 1]
     xt = np.array(o.steps[step].historyRegions['Node CAP-1.7'].historyOutputs['U2'].data)[:, 1]
 
-    data = 'time (s), force (N), x_t (mm), plastic dissipation (mJ)\n'
+    data = 'time (s),force (N),x_t (mm),plastic dissipation (mJ)\n'
     data += '\n'.join(string_map(np.array([t, force, xt, pd]).T.tolist())).replace('[', '').replace(']', '')
     open(csv_name, 'w+').write(data)
     # print >> sys.__stdout__, data

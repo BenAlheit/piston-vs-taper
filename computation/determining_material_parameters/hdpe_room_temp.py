@@ -7,7 +7,7 @@ from computation.abaqus_utils import run_abaqus_standard_job as rj, extraction a
 
 cpus=-1
 HDPE_nu = 0.46
-RUN_ABAQUS = True
+RUN_ABAQUS = False
 SAVE_FIG = True
 N_ABAQUS = 20
 # True stress [MPa], true strain [mm/mm]
@@ -84,7 +84,10 @@ E, alpha, n, sig_0 = op_params
 plastic_strain = strain_data - stress_data/E
 plastic_strain[0] = 0
 table = inp.array_to_table(np.array([stress_data, plastic_strain]).T)
-
+print('stress')
+print('\n'.join(val for val in stress_data.astype(str)))
+print('strain')
+print('\n'.join(val for val in plastic_strain.astype(str)))
 if RUN_ABAQUS:
     inp_template = Template(open('./hpde-behaviour-elastoplastic.inp-tmp', 'r').read())
     inp_file_str = inp_template.render(youngs_modulus=E,
