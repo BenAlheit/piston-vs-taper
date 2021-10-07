@@ -57,7 +57,7 @@ def train_nn(params):
             torch.nn.init.xavier_uniform_(self.output.weight)
             torch.nn.init.zeros_(self.output.bias)
 
-            self.hidden = [torch.nn.Linear(mid_dim, mid_dim) for i in range(n_hidden_layers)]
+            self.hidden = nn.ModuleList([torch.nn.Linear(mid_dim, mid_dim) for i in range(n_hidden_layers)])
             self.n_hidden_layers = n_hidden_layers
             for i in range(n_hidden_layers):
                 self.hidden[i].to(device)
@@ -96,7 +96,7 @@ def train_nn(params):
     epochs = n_iters / (len(dataset) / batch_size)
     input_dim = 3
     output_dim = 3
-    lr_rate = 0.1
+    lr_rate = 0.05
 
     n_changes = 5
     accuracies = [1.] * n_changes
@@ -170,8 +170,8 @@ def train_nn(params):
 
 
 op.differential_evolution(train_nn,
-                          bounds=((3, 300),
-                                  (0, 300)),
+                          bounds=((3, 10),
+                                  (0, 10)),
                           workers=1,
                           polish=False,
                           updating='deferred',
