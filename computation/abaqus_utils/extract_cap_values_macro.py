@@ -58,12 +58,12 @@ extract_cap_data()
 # o = session.openOdb(name=job + '.odb', readOnly=False)
 # step = o.steps.keys()[0]
 # print >> sys.__stdout__, 'Force'
-# print >> sys.__stdout__, o.steps[step].historyRegions['NodeSet . Z000002'].historyOutputs['CFT2     ASSEMBLY_CAP-1_TRANSITION-AND-PUMP-CONTACT/ASSEMBLY_TRANSITION-PIECE-1_END-CONTACT'].data
+# print >> sys.__stdout__, o.steps[step].historyRegions['NodeSet . Z000002'].historyOutputs['CFT2     ASSEMBLY_CAP-1_TRANSITION-AND-PUMP-CONTACT/ASSEMBLY_TRANSITION-PIECE-1_END-CONTACT'].material_data
 # print >> sys.__stdout__, 'x_t'
-# print >> sys.__stdout__, o.steps[step].historyRegions['Node CAP-1.7'].historyOutputs['U2'].data
+# print >> sys.__stdout__, o.steps[step].historyRegions['Node CAP-1.7'].historyOutputs['U2'].material_data
 # print >> sys.__stdout__, 'PD'
-# pd = np.array(o.steps[step].historyRegions['Assembly ASSEMBLY'].historyOutputs['ALLPD'].data)[:, 1]
-# # print >> sys.__stdout__, o.steps[step].historyRegions['Assembly ASSEMBLY'].historyOutputs['ALLPD'].data
+# pd = np.array(o.steps[step].historyRegions['Assembly ASSEMBLY'].historyOutputs['ALLPD'].material_data)[:, 1]
+# # print >> sys.__stdout__, o.steps[step].historyRegions['Assembly ASSEMBLY'].historyOutputs['ALLPD'].material_data
 # print >> sys.__stdout__, pd
 
 

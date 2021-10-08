@@ -8,7 +8,7 @@ else:
     utils_dir = '\\'.join(file_path.split(r'\\')[:-1])
 
 
-def extract_uniaxial(directory, job, csv_name='uniaxial-tension-data.csv', clean=True):
+def extract_uniaxial(directory, job, csv_name='uniaxial-tension-material_data.csv', clean=True):
     os.system(f'abaqus cae noGUI={utils_dir}/extract_uniaxial_data_macro.py -- {csv_name} {directory} {job}')
     aba_data = pd.read_csv(f'{directory}/{csv_name}')
     if clean:

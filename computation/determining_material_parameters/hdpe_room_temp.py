@@ -11,7 +11,7 @@ RUN_ABAQUS = False
 SAVE_FIG = True
 N_ABAQUS = 20
 # True stress [MPa], true strain [mm/mm]
-data = np.genfromtxt('../../data/hdpe-true-stress-strain-room-temp-6e-2-rate.csv', delimiter=',')
+data = np.genfromtxt('../../material_data/hdpe-true-stress-strain-room-temp-6e-2-rate.csv', delimiter=',')
 strain_data = data[:, 0]
 stress_data = data[:, 1]
 

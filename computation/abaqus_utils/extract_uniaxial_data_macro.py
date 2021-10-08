@@ -46,14 +46,14 @@ def extract_uniaxial_data():
     t = np.zeros(n_frames)
     for i_frame in range(n_frames):
         s[i_frame] = o.steps[step].frames[i_frame].fieldOutputs['S'].bulkDataBlocks[0].data.transpose()[0,:].mean()
-        # eps[i_frame] = np.exp(o.steps[step].frames[i_frame].fieldOutputs['LE'].bulkDataBlocks[0].data.transpose()[0,:].mean())-1
+        # eps[i_frame] = np.exp(o.steps[step].frames[i_frame].fieldOutputs['LE'].bulkDataBlocks[0].material_data.transpose()[0,:].mean())-1
         eps[i_frame] = o.steps[step].frames[i_frame].fieldOutputs['LE'].bulkDataBlocks[0].data.transpose()[0,:].mean()
         t[i_frame] = o.steps[step].frames[i_frame].frameValue
 
     data = 'time (s),strain (mm/mm),stress (MPa)\n'
     data += '\n'.join(string_map(np.array([t, eps, s]).T.tolist())).replace('[', '').replace(']', '')
     open(csv_name, 'w+').write(data)
-    # print >> sys.__stdout__, data
+    # print >> sys.__stdout__, material_data
 
 
 extract_uniaxial_data()

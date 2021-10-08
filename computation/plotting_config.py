@@ -7,8 +7,8 @@ from cycler import cycler
 
 
 pad = 0.0
-n_colors = 5
-sns.set(style="darkgrid")
+n_colors = 3
+# sns.set(style="darkgrid")
 cmap = cm.get_cmap('cividis')
 mpl.rcParams['image.cmap'] = 'viridis'
 mpl.rcParams['axes.prop_cycle'] = cycler('color', [cmap(pad + (1-2*pad)*i/(n_colors-1.)) for i in range(n_colors)])

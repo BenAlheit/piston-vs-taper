@@ -169,6 +169,19 @@ Outputs to later be predicted:
 \singlefig{0.99}{contact-elastic}{Contact elastic force.}{\label{fig:contact-elastic}}
 \singlefig{0.99}{contact-elastoplastic}{Contact elastoplastic force.}{\label{fig:contact-elastoplastic}}
 
+\subsubsection{Machine learning surrogate model}
+
+\subsubsection*{Loading regime classification}
+\begin{itemize}
+	\item Use a ANN with sequential sigmoid and softmax activation functions.
+	\item Optimize model h
+\end{itemize}
+\singlefig{0.7}{confusion-matrix}{Confusion matrix of loading regime classification}{\label{fig:confusion-matrix}}
+
+\subsubsection*{Regression for force during a given loading regime}
+\subsubsection*{Elastic dominating}
+\subsubsection*{Elastoplastic dominating}
+
 \subsection{Mesh optimization}
 
 Parameters

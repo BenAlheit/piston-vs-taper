@@ -7,8 +7,8 @@ import torchvision.datasets as dsets
 import pandas as pd
 import numpy as np
 
-train_dataset = dsets.MNIST(root='./data/FasionMNIST/raw', train=True, transform=transforms.ToTensor(), download=True)
-test_dataset = dsets.MNIST(root='./data/FasionMNIST/raw', train=False, transform=transforms.ToTensor(), download=True)
+train_dataset = dsets.MNIST(root='./material_data/FasionMNIST/raw', train=True, transform=transforms.ToTensor(), download=True)
+test_dataset = dsets.MNIST(root='./material_data/FasionMNIST/raw', train=False, transform=transforms.ToTensor(), download=True)
 
 
 # device = "cuda" if torch.cuda.is_available() else "cpu"

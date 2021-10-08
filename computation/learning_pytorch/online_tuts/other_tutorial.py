@@ -8,17 +8,10 @@ import os
 
 # device = "cuda" if torch.cuda.is_available() else "cpu"
 device = 'cpu'
-data = pd.read_csv('data/cap/processed_test_data.csv')
+data = pd.read_csv('../data/cap/processed_test_data.csv')
 
 
 class CapDataset(Dataset):
-
-  # AC  sq ft   style  price   school
-  # -1  0.2500  0 1 0  0.5650  0 1 0
-  #  1  0.1275  1 0 0  0.3710  0 0 1
-  # air condition: -1 = no, +1 = yes
-  # style: art_deco, bungalow, colonial
-  # school: johnson, kennedy, lincoln
 
     def __init__(self, src_file='processed_test_data.csv', m_rows=None):
       data = pd.read_csv(src_file)
@@ -73,9 +66,6 @@ class Net(torch.nn.Module):
         self.n_hidden = n_hidden_layers
         self.layer_1 = torch.nn.Linear(n_in, n_mid)  # 8-(10-10)-1
         self.hidden = [torch.nn.Linear(n_mid, n_mid) for i in range(n_hidden_layers)]
-        # self.hid3 = torch.nn.Linear(n_mid, n_mid)
-        # self.hid4 = torch.nn.Linear(n_mid, n_mid)
-        # self.hid2 = torch.nn.Dropout(0.2)
         self.oupt = torch.nn.Linear(n_mid, n_out)
 
         torch.nn.init.xavier_uniform_(self.layer_1.weight)
@@ -86,20 +76,12 @@ class Net(torch.nn.Module):
         torch.nn.init.xavier_uniform_(self.oupt.weight)
         torch.nn.init.zeros_(self.oupt.bias)
 
-    # def to(self, device):
-    #     super().to(device)
-    #     for i in range(self.n_hidden):
-    #         self.hidden[i].to(device)
-
     def forward(self, x):
         z = torch.relu(self.layer_1(x))
-        # z = torch.relu(self.hid2(z))
         for i in range(self.n_hidden):
             z = torch.relu(self.hidden[i](z))
-        # z = torch.relu(self.hid3(z))
-        # z = torch.relu(self.hid2(z))
-        # z = torch.relu(self.hid4(z))
-        z = torch.relu(self.oupt(z))  # no activation
+
+        z = torch.relu(self.oupt(z))
         return z
 
 
@@ -204,11 +186,11 @@ def main():
     print("\nComputing model accuracy")
     net.eval()
     acc_train = accuracy(net, train_ds, 0.10)
-    print("Accuracy (within 0.10) on train data = %0.4f" % \
+    print("Accuracy (within 0.10) on train material_data = %0.4f" % \
           acc_train)
 
     acc_test = accuracy(net, test_ds, 0.10)
-    print("Accuracy (within 0.10) on test data  = %0.4f" % \
+    print("Accuracy (within 0.10) on test material_data  = %0.4f" % \
           acc_test)
 
     # 6. save final model (state_dict approach)
