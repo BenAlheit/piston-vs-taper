@@ -130,7 +130,9 @@ def train_regression_model(params,
 
     set_model_params(model, res.x)
     torch.save(model.state_dict(), model_path)
-    plot_results(model, x, y, data_set)
+    if plot:
+        plot_results(model, x, y, data_set)
+
     return get_loss(x)
 
 
@@ -144,5 +146,5 @@ res = op.differential_evolution(train_regression_model,
 
 print(f'Opt params = {res.x}')
 
-train_regression_model(res.x, plot=True)
+# train_regression_model(res.x, plot=True)
 
