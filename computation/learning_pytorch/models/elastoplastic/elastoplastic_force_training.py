@@ -49,8 +49,13 @@ def plot_results(model, x, y, data_set):
     plt.show()
 
 
-def train_regression_model(params, data_set=CapElastoplasticDataset('../../data/cap/processed_test_data.csv')):
+def train_regression_model(params,
+                           data_set=CapElastoplasticDataset('../../data/cap/processed_test_data.csv'),
+                           plot=False):
     n_mid, n_hidden = int(params[0]), int(params[1])
+
+    print('-----------------')
+    print(f'Params: n_mid={n_mid}, n_hidden={n_hidden}')
     x, y = Variable(data_set.x_data), Variable(data_set.y_data)
     model_path = f"./trained/elastoplastic_mid_dim_{n_mid}_n_hidden_{n_hidden}.pth"
 
@@ -108,10 +113,11 @@ def train_regression_model(params, data_set=CapElastoplasticDataset('../../data/
         return get_loss(x)
 
     if os.path.exists(model_path):
-        print('loading trained model')
+        print(f'Loading trained model: {model_path}')
         state_dict = torch.load(model_path)
         model.load_state_dict(state_dict)
-        plot_results(model, x, y, data_set)
+        if plot:
+            plot_results(model, x, y, data_set)
 
         return get_loss(x)
 
@@ -127,7 +133,16 @@ def train_regression_model(params, data_set=CapElastoplasticDataset('../../data/
     plot_results(model, x, y, data_set)
     return get_loss(x)
 
-print(
-train_regression_model([3, 1],
-                       data_set=CapElastoplasticDataset('../../data/cap/processed_test_data.csv'))
-)
+
+res = op.differential_evolution(train_regression_model,
+                          bounds=((3, 10),
+                                  (0, 5)),
+                          workers=1,
+                          polish=False,
+                          updating='deferred',
+                          disp=True)
+
+print(f'Opt params = {res.x}')
+
+train_regression_model(res.x, plot=True)
+
