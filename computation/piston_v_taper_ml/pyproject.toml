@@ -7,7 +7,5 @@ requires = [
     "numpy",
     "torch",
     "matplotlib",
-    "textwrap",
-    "cycler"
 ]
 build-backend = "setuptools.build_meta"

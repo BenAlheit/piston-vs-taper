@@ -1,68 +1,61 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from textwrap import wrap
-import plotting_config
+import piston_v_taper.plotting_config
+import seaborn as sns
 
-from model import PistonVTaper
+from piston_v_taper.model import PistonVTaper
 
 
-def example():
-    test = PistonVTaper()
-    data = pd.read_csv('../data/processed_test_data.csv')
-    x = data['x_t (mm)'].to_numpy()
-    v = data['v_t (mm/s)'].to_numpy()
-    t = data['time (s)'].to_numpy()
+N_HUES = 10
+HALF_PERIODS = 12
+OFF_SET = 0.3
 
-    f = np.zeros(t.shape)
-    plastic_disp_rate = np.zeros(t.shape)
-    plastic_disp = np.zeros(t.shape)
-    contact = np.zeros(t.shape)
-    plastic = np.zeros(t.shape)
 
-    for i in range(1, t.size):
-        dt = t[i] - t[i - 1]
-        f[i], plastic_disp_rate[i], plastic_disp[i], cont = test.inc(x[i], v[i], dt, True)
-        if cont == 1 or cont == 2:
-            contact[i] = 1
-        if cont == 2:
-            plastic[i] = 1
+def get_hue_order(val, n_hues):
+    return np.linspace(np.min(val), np.max(val), n_hues)
 
-    data.set_index('time (s)', inplace=True)
-    model = pd.DataFrame({'plastic dissipation (mJ)': plastic_disp,
-                          'contact': contact,
-                          'elastoplastic': plastic,
-                          'force (N)': f,
-                          'plastic dissipation rate (mJ/s)': plastic_disp_rate},
-                         index=t)
 
-    plt.figure(figsize=(8, 10))
-    cnt = 2
-    ax1 = plt.subplot(int(f'711'))
-    ax = ax1
+# Step 1: Create a PistonVTaper object
+pist_v_taper = PistonVTaper()
 
-    for column in ['x_t (mm)',
-                   'v_t (mm/s)',
-                   'plastic dissipation (mJ)',
-                   'contact',
-                   'elastoplastic',
-                   'force (N)',
-                   'plastic dissipation rate (mJ/s)',
-                   ]:
-        plt.plot(data.index, data[column], label='Data')
-        if column in model.columns:
-            plt.plot(model.index, model[column], label='Model')
+# Step 2: Create some artificial loading data
+t = np.linspace(0, 0.5, 10000)
+x = 10 * (1 + np.sin(np.pi * HALF_PERIODS * t / t[-1] - np.pi / 2)) * (OFF_SET + t * (1 - OFF_SET)/t[-1]) / 2
+v = np.gradient(x, t)  # Velocity of piston
+f = np.zeros(t.size)  # Force applied to the piston from the taper (to be determined)
 
-        plt.ylabel('\n'.join(wrap(column, 20)))
-        if cnt < 8:
-            plt.setp(ax.get_xticklabels(), visible=False)
-            place = int(f'71{cnt}')
-            ax = plt.subplot(place, sharex=ax1)
-        cnt += 1
+# Step 3: Loop through the loading data to determine the forces
+for i in range(1, t.size):
+    dt = t[i] - t[i - 1]
+    # .inc (short for increment) method returns the force and determines the plastic dissipation of the cap.
+    # The plastic dissipation is stored inside the PistonVTaper object
+    f[i] = pist_v_taper.inc(x[i], v[i], dt)
 
-    plt.xlabel('Time (s)')
-    plt.tight_layout()
-    plt.legend()
-    plt.show()
+# Step 4: Construct data frame for plotting
+results = pd.DataFrame(data={
+    't (s)': t,
+    'x (mm)': x,
+    'v (mm/s)': v,
+    'F (N)': f,
+})
 
-example()
+# Step 5: Plot the results
+sns.scatterplot(data=results, x='x (mm)', y='F (N)', hue='t (s)', palette='viridis', linewidth=0,
+                hue_order=get_hue_order(results['t (s)'], N_HUES), legend='brief')
+plt.tight_layout()
+
+plt.figure()
+sns.scatterplot(data=results, x='t (s)', y='F (N)', hue='x (mm)', palette='viridis', linewidth=0,
+                hue_order=get_hue_order(results['x (mm)'], N_HUES), legend='brief')
+plt.tight_layout()
+
+plt.figure()
+sns.scatterplot(data=results, x='t (s)', y='x (mm)', hue='F (N)', palette='viridis', linewidth=0,
+                hue_order=get_hue_order(results['F (N)'], N_HUES), legend='brief')
+plt.tight_layout()
+
+plt.show()
+
+
+
