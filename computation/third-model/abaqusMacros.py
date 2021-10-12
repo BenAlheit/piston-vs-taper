@@ -339,17 +339,17 @@ def assemble():
     p = mdb.models['Model-1'].parts['pump-tube']
     a1.Instance(name='pump-tube-1', part=p, dependent=ON)
     a1 = mdb.models['Model-1'].rootAssembly
-    a1.translate(instanceList=('pump-tube-1', ), vector=(0.0, -800.0, 0.0))
+    a1.translate_x(instanceList=('pump-tube-1',), vector=(0.0, -800.0, 0.0))
     a1 = mdb.models['Model-1'].rootAssembly
     p = mdb.models['Model-1'].parts['transition-piece']
     a1.Instance(name='transition-piece-1', part=p, dependent=ON)
     a1 = mdb.models['Model-1'].rootAssembly
-    a1.translate(instanceList=('transition-piece-1', ), vector=(0.0, -50.0, 0.0))
+    a1.translate_x(instanceList=('transition-piece-1',), vector=(0.0, -50.0, 0.0))
     a1 = mdb.models['Model-1'].rootAssembly
     p = mdb.models['Model-1'].parts['cap']
     a1.Instance(name='cap-1', part=p, dependent=ON)
     a1 = mdb.models['Model-1'].rootAssembly
-    a1.translate(instanceList=('cap-1', ), vector=(0.0, -75.0, 0.0))
+    a1.translate_x(instanceList=('cap-1',), vector=(0.0, -75.0, 0.0))
     a1 = mdb.models['Model-1'].rootAssembly
     p = mdb.models['Model-1'].parts['piston']
     a1.Instance(name='piston-1', part=p, dependent=ON)
@@ -357,7 +357,7 @@ def assemble():
         farPlane=2147.63, width=467.009, height=264.389, viewOffsetX=11.6364, 
         viewOffsetY=362.785)
     a1 = mdb.models['Model-1'].rootAssembly
-    a1.translate(instanceList=('piston-1', ), vector=(0.0, -175.0, 0.0))
+    a1.translate_x(instanceList=('piston-1',), vector=(0.0, -175.0, 0.0))
 
 
 def make_step():

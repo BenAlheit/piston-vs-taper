@@ -12,8 +12,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import computation.plotting_config
 
-from data_sets import CapContactDataset
-from nns import ContactClassification
+from computation.learning_pytorch.data_sets import CapContactDataset
+from computation.learning_pytorch.nns import ContactClassification
 
 # device = "cuda" if torch.cuda.is_available() else "cpu"
 device = 'cpu'
