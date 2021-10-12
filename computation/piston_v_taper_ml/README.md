@@ -108,9 +108,14 @@ with the end piece increasingly becomes further and further
 away due to plastic deformation, which is clear from the 
 first figure.
 
-![image](./images/x-vs-t.png)
-![image](./images/f-vs-t.png)
-![image](./images/f-vs-x.png)
+[comment]: <> (![image]&#40;./images/x-vs-t.png&#41;)
+
+[comment]: <> (![image]&#40;./images/f-vs-t.png&#41;)
+
+[comment]: <> (![image]&#40;./images/f-vs-x.png&#41;)
+![image](https://raw.githubusercontent.com/BenAlheit/piston-vs-taper/1cf2f27ef7673319e146ec86da3ed88088b56666/computation/piston_v_taper_ml/images/x-vs-t.png)
+![image](https://raw.githubusercontent.com/BenAlheit/piston-vs-taper/1cf2f27ef7673319e146ec86da3ed88088b56666/computation/piston_v_taper_ml/images/f-vs-t.png)
+![image](https://raw.githubusercontent.com/BenAlheit/piston-vs-taper/1cf2f27ef7673319e146ec86da3ed88088b56666/computation/piston_v_taper_ml/images/f-vs-x.png)
 
 
 ## Improvements and future work
@@ -128,7 +133,10 @@ this is an undesirable artifact of the machine learning model.
 
 I (Ben Alheit) have some ideas on how this may be improved, but I do not have the time to 
 implement them. If someone is interested in contributing in this regard, please feel free
-to reach out using the email address provided.
+to reach out using the email address provided. Broadly speaking these include:
+
+* Improving the machine learning model.
+* Obtaining more data from finite element simulations to train the machine learning model on (see below).
 
 ## Some notes of the development of the model
 To train the machine learning model data is required. This is obtained
@@ -137,7 +145,8 @@ With the data in hand, a machine learning model was trained to produce the
 required force given the known input information. This is outlined briefly in the
 subsection that follows the Finite element simulation subsection.
 
-For a more detailed description of the development see
+For a more detailed description of the development see 
+[this report on model creation](https://github.com/BenAlheit/piston-vs-taper/blob/master/report/piston-vs-taper.pdf) (currently under development).
 
 ### Finite element simulation
 [comment]: #(TODO)
@@ -147,6 +156,13 @@ TODO
 TODO
 
 Comparison of test data and machine learning model:
-![image](./images/comparison-with-data.png)
+
+![image](https://raw.githubusercontent.com/BenAlheit/piston-vs-taper/1cf2f27ef7673319e146ec86da3ed88088b56666/computation/piston_v_taper_ml/images/comparison-with-data.png)
+
+
 Zooming in on an arbitrarily chosen contact cycle:
-![image](./images/comparison-with-data-zoom.png)
+
+[comment]: <> (![image]&#40;./images/comparison-with-data-zoom.png&#41;)
+![](https://raw.githubusercontent.com/BenAlheit/piston-vs-taper/1cf2f27ef7673319e146ec86da3ed88088b56666/computation/piston_v_taper_ml/images/comparison-with-data-zoom.png)
+
+[ this report on model creation.]: https://github.com/BenAlheit/piston-vs-taper/blob/master/report/piston-vs-taper.pdf
