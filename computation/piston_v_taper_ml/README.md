@@ -149,8 +149,14 @@ For a more detailed description of the development see
 [this report on model creation](https://github.com/BenAlheit/piston-vs-taper/blob/master/report/piston-vs-taper.pdf) (currently under development).
 
 ### Finite element simulation
-[comment]: #(TODO)
-TODO
+A finite element analysis simulation is used to determine the force
+on the piston due to contact with the transition piece.
+Material parameters for each material are take from the literature
+and axisymmetric elements are used. Increasing cyclical displacements are
+applied to the back of the back of the piston forcing the 
+end-cap into the transition piece increasing degrees. An animation of the results
+is presented below.
+
 ### Machine learning model
 [comment]: #(TODO)
 TODO
