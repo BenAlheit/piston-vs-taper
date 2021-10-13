@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: piston-v-taper
-Version: 0.1.0
+Version: 0.1.1
 Summary: A trained machine learning model for predicting the force due to contact between a deformable end cap and a taper
 Home-page: https://github.com/BenAlheit/piston-vs-taper
 Author: Benjamin Alheit
@@ -165,8 +165,14 @@ For a more detailed description of the development see
 [this report on model creation](https://github.com/BenAlheit/piston-vs-taper/blob/master/report/piston-vs-taper.pdf) (currently under development).
 
 ### Finite element simulation
-[comment]: #(TODO)
-TODO
+A finite element analysis simulation is used to determine the force
+on the piston due to contact with the transition piece.
+Material parameters for each material are take from the literature
+and axisymmetric elements are used. Increasing cyclical displacements are
+applied to the back of the back of the piston forcing the 
+end-cap into the transition piece increasing degrees. An animation of the results
+is presented below. Note the increasing plastic deformation of the end-cap.
+![Alt Text](https://raw.githubusercontent.com/BenAlheit/piston-vs-taper/master/computation/piston_v_taper_ml/images/loading-animation.gif)
 ### Machine learning model
 [comment]: #(TODO)
 TODO

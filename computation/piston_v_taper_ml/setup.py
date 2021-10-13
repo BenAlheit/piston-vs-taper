@@ -64,7 +64,7 @@ zipp==3.6.0
 
 setuptools.setup(
     name="piston-v-taper",
-    version="0.1.0",
+    version="0.1.1",
     author="Benjamin Alheit",
     author_email="alhben001@myuct.ac.za",
     description="A trained machine learning model for predicting the force due to contact between a deformable end cap and a taper",

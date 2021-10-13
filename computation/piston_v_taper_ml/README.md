@@ -155,8 +155,8 @@ Material parameters for each material are take from the literature
 and axisymmetric elements are used. Increasing cyclical displacements are
 applied to the back of the back of the piston forcing the 
 end-cap into the transition piece increasing degrees. An animation of the results
-is presented below.
-
+is presented below. Note the increasing plastic deformation of the end-cap.
+![Alt Text](https://raw.githubusercontent.com/BenAlheit/piston-vs-taper/master/computation/piston_v_taper_ml/images/loading-animation.gif)
 ### Machine learning model
 [comment]: #(TODO)
 TODO
